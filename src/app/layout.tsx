@@ -21,7 +21,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "SPARKR",
+  title: "Spyral App",
 };
 
 export default function RootLayout({

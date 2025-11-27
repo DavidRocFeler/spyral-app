@@ -26,6 +26,7 @@ const Sidebar = () => {
       sx={{
         width: '240px',
         px: 2,
+        pb: 5,
         height: '100vh',
         bgcolor: 'primary.main',
         borderRight: '1px solid rgba(255, 255, 255, 0.1)',

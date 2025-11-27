@@ -28,6 +28,10 @@ export { default as PlayLeftIconSvg } from './play-left.svg';
 export { default as PlayIconSvg } from './play.svg';
 export { default as PlayRigthIconSvg } from './play-rigth.svg';
 
+export { default as SoundIconSvg } from './sound.svg';
+export { default as AutomaticSoundSvg } from './automatic-sound.svg';
+export { default as RandonSoundSvg } from './randon-sound.svg';
+
 // icon like, dislike
 export { default as LikeIconSvg } from './like.svg';
 export { default as DisLikeIconSvg } from './dislike.svg';

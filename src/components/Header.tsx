@@ -25,11 +25,8 @@ const Header = () => {
       {/* Left - Navigation */}
       <Box sx={{ display: 'flex', gap: 3 }}>
         <Typography
-          variant='h1'
-          sx={{
-            fontSize: '18px',
-            fontWeight: 600,
-          }}
+        pb={0.5}
+        variant='h2'
         >
           Home
         </Typography>
@@ -58,8 +55,9 @@ const Header = () => {
             placeholder="Search song, album, artist..."
             sx={{
               flex: 1,
+              fontWeight: 400,
               color: 'text.primary',
-              fontSize: '14px',
+              fontSize: '16px',
               '& input::placeholder': {
                 color: '#808080',
                 opacity: 1,

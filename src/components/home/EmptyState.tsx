@@ -25,18 +25,15 @@ const EmptyState = () => {
         }}
       >
         <Typography
-          variant="h1"
-          sx={{
-            fontSize: '20px',
-            fontWeight: 600,
-            mb: 4,
-          }}
+          variant="h3"
+          mb={4}
         >
           Start By Importing Your Music
         </Typography>
 
         {/* Upload Box */}
         <Box
+          mb={3}
           sx={{
             bgcolor: 'background.paper',
             borderRadius: 6,
@@ -71,49 +68,45 @@ const EmptyState = () => {
             </Box>
           </Box>
 
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: '12px',
-              color: 'text.secondary',
-              mb: 0,
-            }}
+          <Box
+          display='flex'
+          flexDirection='column'
           >
-            Drag and drop files here or{' '}
-            <Box
-              component="span"
-              sx={{
-                color: 'secondary.main',
-                fontWeight: 450,
-              }}
+            <Typography
+              variant="h10"
+              color= 'text.secondary'
             >
-              Browse
-            </Box>
-          </Typography>
+              Drag and drop files here or{' '}
+              <Box
+                component="span"
+                sx={{
+                  color: 'secondary.main',
+                  fontWeight: 450,
+                }}
+              >
+                Browse
+              </Box>
+            </Typography>
 
-          <Typography
-            sx={{
-              fontSize: '12px',
-              color: 'text.secondary',
-            }}
-          >
-            Supported formats include: MP3, WAV, and FLAC.
-          </Typography>
+            <Typography
+              variant="h10"
+              color= 'text.secondary'
+            >
+              Supported formats include: MP3, WAV, and FLAC.
+            </Typography>
+          </Box>
         </Box>
 
         {/* Divider Text */}
         <Typography
-          sx={{
-            fontSize: '12px',
-            color: 'text.primary',
-            my: 3,
-          }}
+          variant='h7'
         >
           or connect here an app to start importing
         </Typography>
 
         {/* App Icons */}
         <Box
+          mt={3}
           sx={{
             display: 'flex',
             justifyContent: 'center',

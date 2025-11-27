@@ -31,12 +31,7 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
       >
         <Icon/>
         <Typography
-          variant="body1"
-          sx={{
-            fontSize: '14px',
-            fontWeight: 500,
-            color: '#FFF',
-          }}
+          variant="h8"
         >
           {item.label}
         </Typography>
@@ -89,10 +84,10 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
         <Icon />
       </Box>
       <Typography
+        variant='h8'
+        pt={0.2}
         sx={{
           color: isActive ? '#000' : '#FFF',
-          fontSize: '14px',
-          fontWeight: isActive ? 600 : 400,
         }}
       >
         {item.label}

@@ -31,12 +31,7 @@ const SidebarSection = ({ section }: ISidebarSectionProps) => {
         }}
       >
         <Typography
-          sx={{
-            fontSize: '12px',
-            fontWeight: 400,
-            color: 'text.primary',
-            letterSpacing: '0.5px',
-          }}
+         variant='h10'
         >
           {section.title}
         </Typography>
@@ -49,7 +44,10 @@ const SidebarSection = ({ section }: ISidebarSectionProps) => {
             mt: 1,
             pb: 2,
             borderBottom: 'solid 1px',
-            borderColor: 'background.default' 
+            borderColor: 'background.default', 
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 1
           }}
         >
           {section.items.map((item) => (
@@ -58,6 +56,9 @@ const SidebarSection = ({ section }: ISidebarSectionProps) => {
               sx={{
                 py: 1,
                 px: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1.5,
                 cursor: 'pointer',
                 borderRadius: '8px',
                 '&:hover': {
@@ -66,19 +67,13 @@ const SidebarSection = ({ section }: ISidebarSectionProps) => {
               }}
             >
               <Typography
-                sx={{
-                  fontSize: '13px',
-                  color: 'text.primary',
-                }}
+                variant='h8'
               >
                 {item.title}
               </Typography>
               <Typography
-                sx={{
-                  fontSize: '12px',
-                  color: 'text.secondary',
-                  mt: 0.5,
-                }}
+                variant='h9'
+                color= 'text.secondary'
               >
                 {item.artist}
               </Typography>

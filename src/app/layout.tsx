@@ -2,15 +2,15 @@
 import type { Metadata } from "next";
 import { Box } from '@mui/material';
 import ClientLayout from "./ClientLayout";
-import { Funnel_Display, Roboto } from "next/font/google";
+import localFont from "next/font/local";
+import { Roboto } from "next/font/google";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/Header";
 
-const funnelDisplay = Funnel_Display({
-  variable: "--font-funnel-display",
-  subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
+const manrope = localFont({
+  src: "./fonts/Manrope/Manrope-VariableFont_wght.ttf",
+  variable: "--font-manrope",
+  weight: "200 800", // rango de pesos disponibles
 });
 
 const roboto = Roboto({
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         style={{backgroundColor: '#0B0B0B'}}
-        className={`${funnelDisplay.variable} ${roboto.variable}`}
+        className={`${manrope.variable} ${roboto.variable}`}
       >
         <ClientLayout>
           <Box 
@@ -57,7 +57,6 @@ export default function RootLayout({
             >
               {/* Header */}
               <Header />
-              
               {/* Content (children from each page) */}
               <Box 
                 component="main" 

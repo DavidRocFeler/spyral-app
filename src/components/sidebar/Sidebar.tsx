@@ -49,13 +49,14 @@ const Sidebar = () => {
       {/* Menu Items */}
       <Box 
       sx={{ 
-        pt: 3,
+        pt: 0,
         px: 1,
         flex: 1, 
-        overflow: 'auto' 
+        overflow: 'auto',
         }}
         >
         <Box
+        pt={2}
         pb={3}
         pr={3}
         borderBottom='solid 1px'

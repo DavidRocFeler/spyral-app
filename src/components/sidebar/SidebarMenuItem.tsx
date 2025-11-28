@@ -18,7 +18,7 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
           py: 1.5,
           px: 2,
           borderRadius: 15,
-          mb: 1.3,
+          mb: 1.1,
           bgcolor: 'background.default',
           color: 'text.primary',
           textTransform: 'none',
@@ -49,7 +49,7 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
         gap: 2,
         py: 1.5,
         px: 2,
-        mb: 1.3,
+        mb: 1.1,
         borderRadius: 15,
         cursor: 'pointer',
         background: isActive 

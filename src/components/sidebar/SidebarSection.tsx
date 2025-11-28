@@ -23,7 +23,8 @@ const SidebarSection = ({ section }: ISidebarSectionProps) => {
           alignItems: 'center',
           justifyContent: 'space-between',
           cursor: 'pointer',
-          padding: '8px 16px',
+          py: 0.8,
+          px: 2,
           '&:hover': {
             bgcolor: 'rgba(255, 255, 255, 0.05)',
             borderRadius: '8px',

@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 import { Roboto } from "next/font/google";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/Header";
+import MusicPlayer from "@/components/ui/MusicPlayer";
 
 const manrope = localFont({
   src: "./fonts/Manrope/Manrope-VariableFont_wght.ttf",
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        style={{backgroundColor: '#0B0B0B'}}
+        style={{backgroundColor: '#000'}}
         className={`${manrope.variable} ${roboto.variable}`}
       >
         <ClientLayout>
@@ -67,6 +68,8 @@ export default function RootLayout({
               >
                 {children}
               </Box>
+
+              <MusicPlayer/>
             </Box>
           </Box>
         </ClientLayout>

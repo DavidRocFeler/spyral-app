@@ -33,7 +33,6 @@ const Home = () => {
     <>
       {renderView()}
       <AddNewModal/>
-      <MusicPlayer/>
     </>
   );
 }

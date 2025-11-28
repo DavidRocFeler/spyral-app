@@ -22,7 +22,7 @@ export const palette = {
   text: {
     primary: "#FFF",
     secondary: "#808080", 
-    disabled: "#FFF"
+    disabled: "#000"
   },
   // Custom brand colors
   brand: {

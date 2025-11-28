@@ -37,5 +37,27 @@ export { default as LikeIconSvg } from './like.svg';
 export { default as DisLikeIconSvg } from './dislike.svg';
 export { default as MenuSpanSvg } from './menu-span.svg';
 
+//play control view
+export { default as PlayControlIconSvg} from './play-control.svg';
+export { default as ShareIconSvg} from './share.svg';
+export { default as MenuPlayControlSvg} from './menu-play-control.svg';
+
+//menu player music icons
+export { default as FavoriteIconSvg} from './favorite.svg';
+export { default as DownloadIconSvg} from './download.svg';
+export { default as AddPlayListSvg} from './add-playlist.svg';
+export { default as UserArtistIconSvg} from './user-artist.svg';
+// export { default as ShareIconSvg} from './share.svg';
+export { default as ReportSvg} from './report.svg';
+
+// icon with brand identity color 
+export { default as NoInternetSvg} from './no-internet.svg';
+export { default as PlayListEmptySvg} from './playlist-empty.svg';
+export { default as FileEmptySvg} from './file-empty.svg';
+export { default as NoContactsSvg} from './no-contacts.svg';
+export { default as NoFavoritesSvg} from './no-favorites.svg';
+export { default as SessionExpiredSvg} from './session-expired.svg';
+export { default as PlayBackFailedSvg} from './playback-failed.svg';
+export { default as PlusBlackSvg} from './plus-black.svg';
 
 

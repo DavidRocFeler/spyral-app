@@ -60,4 +60,14 @@ export { default as SessionExpiredSvg} from './session-expired.svg';
 export { default as PlayBackFailedSvg} from './playback-failed.svg';
 export { default as PlusBlackSvg} from './plus-black.svg';
 
+// icon playlist
+export { default as ArrowRightSvg} from './arrow-right.svg';
 
+//icons-home-user-panel
+export { default as EyeIconSvg} from './eye.svg';
+export { default as MoneyIconSvg} from './money-icon.svg';
+
+// icons-brand 
+export { default as SharedBrandSvg} from './share-brand.svg';
+export { default as HeadPhoneBrandSvg} from './headphone-brand.svg';
+export { default as DownloadBrandSvg} from './download-brand.svg';

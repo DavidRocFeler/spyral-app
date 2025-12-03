@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
-import PlayControlCover from '@/components/play-control/PlayControlCover';
-import RelatedTracks from '@/components/play-control/RelatedTracks';
+import PlayControlCover from '@/components/home/play-control/PlayControlCover';
+import RelatedTracks from '@/components/home/play-control/RelatedTracks';
 
 // Main PlayControl Page
 const PlayControlPage = () => {

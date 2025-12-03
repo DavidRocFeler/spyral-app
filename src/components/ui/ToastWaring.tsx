@@ -50,19 +50,7 @@ const ToastWarning = ({ id }: ToastWarningProps) => {
         {/* Button (if exists) */}
         {warning.button && (
           <Button
-            sx={{
-              borderRadius: '50px',
-              mt: 2,
-              px: 2,
-              py: 1.5,
-              bgcolor: 'secondary.main',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 1,
-              '&:hover': {
-                bgcolor: 'secondary.dark'
-              }
-            }}
+            variant='primaryButton'
           >
             <Typography sx={{textTransform: 'none'}} variant="h8" color="primary.main">
               {warning.button.span}

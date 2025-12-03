@@ -1,5 +1,6 @@
 // components/Sidebar/SidebarMenuItem.tsx
 import { Box, Typography } from '@mui/material';
+import Link from 'next/link';
 import { ISidebarMenuItemProps } from '@/types/sidebar';
 
 const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => {
@@ -30,69 +31,70 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
         }}
       >
         <Icon/>
-        <Typography
-          variant="h8"
-        >
+        <Typography variant="h8">
           {item.label}
         </Typography>
       </Box>
     );
   }
 
-  // Estilo para los botones normales - solo el activo tiene gradiente
+  // Para los botones normales - usamos Link para navegación
+  const href = item.id === 'home' ? '/' : `/${item.id}`;
+
   return (
-    <Box
-      onClick={onClick}
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 2,
-        py: 1.5,
-        px: 2,
-        mb: 1.1,
-        borderRadius: 15,
-        cursor: 'pointer',
-        background: isActive 
-          ? 'linear-gradient(135deg, #CFCDFF 0%, #E2FC0B 100%)'
-          : 'transparent',
-        transition: 'all 0.2s ease',
-        '&:hover': {
-          bgcolor: isActive ? 'transparent' : 'rgba(255, 255, 255, 0.05)',
-        },
-      }}
-    >
+    <Link href={href} passHref style={{ textDecoration: 'none' }}>
       <Box
         sx={{
           display: 'flex',
           alignItems: 'center',
-          '& svg': {
-            fill: isActive ? '#000' : '#FFF',
+          gap: 2,
+          py: 1.5,
+          px: 2,
+          mb: 1.1,
+          borderRadius: 15,
+          cursor: 'pointer',
+          background: isActive 
+            ? 'linear-gradient(135deg, #CFCDFF 0%, #E2FC0B 100%)'
+            : 'transparent',
+          transition: 'all 0.2s ease',
+          '&:hover': {
+            bgcolor: isActive ? 'transparent' : 'rgba(255, 255, 255, 0.05)',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            '& svg': {
+              fill: isActive ? '#000' : '#FFF',
+              color: isActive ? '#000' : '#FFF',
+              transition: 'all 0.2s ease',
+            },
+            '& svg path': {
+              fill: isActive ? '#000' : '#FFF',
+            },
+            '& svg circle': {
+              fill: isActive ? '#000' : '#FFF',
+            },
+            '& svg rect': {
+              fill: isActive ? '#000' : '#FFF',
+            },
+          }}
+        >
+          <Icon />
+        </Box>
+        <Typography
+          variant='h8'
+          pt={0.2}
+          sx={{
             color: isActive ? '#000' : '#FFF',
-            transition: 'all 0.2s ease',
-          },
-          '& svg path': {
-            fill: isActive ? '#000' : '#FFF',
-          },
-          '& svg circle': {
-            fill: isActive ? '#000' : '#FFF',
-          },
-          '& svg rect': {
-            fill: isActive ? '#000' : '#FFF',
-          },
-        }}
-      >
-        <Icon />
+          }}
+        >
+          {item.label}
+        </Typography>
       </Box>
-      <Typography
-        variant='h8'
-        pt={0.2}
-        sx={{
-          color: isActive ? '#000' : '#FFF',
-        }}
-      >
-        {item.label}
-      </Typography>
-    </Box>
+    </Link>
   );
 };
 

@@ -69,7 +69,7 @@ export default function RootLayout({
                 {children}
               </Box>
 
-              <MusicPlayer/>
+              {/* <MusicPlayer/> */}
             </Box>
           </Box>
         </ClientLayout>

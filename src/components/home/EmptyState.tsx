@@ -9,9 +9,11 @@ const EmptyState = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%',
+        height: '100vh',
+        overflowY: 'auto',
         bgcolor: 'primary.main',
         padding: 4,
+        pb: 10
       }}
     >
       <Box

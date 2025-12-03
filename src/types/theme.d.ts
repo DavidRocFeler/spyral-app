@@ -38,6 +38,18 @@ declare module '@mui/material/Button' {
   }
 }
 
+declare module '@mui/material/TextField' {
+  interface TextFieldProps {
+    customVariant?: 'darkRounded';
+  }
+}
+
+declare module '@mui/material/Box' {
+  interface BoxProps {
+    variant?: 'flex-center';
+  }
+}
+
 declare module 'react' {
   interface CSSProperties {
     '@media (max-width:899px)'?: CSSProperties;

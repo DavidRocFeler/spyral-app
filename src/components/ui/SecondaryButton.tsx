@@ -25,11 +25,7 @@ const SecondaryButton = ({
       }}
     >
       <Typography
-        sx={{
-          color: '#fff',
-          fontSize: '12px',
-          fontWeight: 500
-        }}
+        variant='h8'
       >
         {text}
       </Typography>

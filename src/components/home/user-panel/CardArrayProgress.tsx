@@ -54,30 +54,39 @@ const CardArrayProgress = ({
       </Box>
 
       {/* Title */}
-      <Typography variant="h8" sx={{ mb: 1, display: 'block' }}>
+      <Typography variant="h8" sx={{ mb: 2.5, display: 'block' }}>
         {title}
       </Typography>
 
       {/* Created Date */}
-      <Typography 
-        variant="h8" 
-        sx={{ 
-          color: 'text.secondary',
-          mb: 1.5,
-          display: 'block'
-        }}
-      >
-        {createdDate}
-      </Typography>
-
-      {/* Collaborators */}
-      <Box>
+      <Box mb={1.5} display='flex' alignItems='center' gap={1}>
         <Typography 
-          variant="h8" 
+          variant="h9" 
+        >
+          Created
+        </Typography>
+        <Typography 
+          variant="h9" 
           sx={{ 
             color: 'text.secondary',
-            mb: 1,
-            display: 'block'
+          }}
+        >
+          {createdDate}
+        </Typography>
+      </Box>
+
+      {/* Collaborators */}
+      <Box 
+      display='flex'
+      gap={1}
+      alignItems='center'
+      >
+        <Typography 
+          variant="h9" 
+          mr={1}
+          pt={1}
+          sx={{ 
+            color: 'text.secondary',
           }}
         >
           Collaborators

@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import CardArrayLatest from './CardArrayLatest';
 import { ArrowRightSvg } from '@/assets/icons';
 import { latestReleases } from '@/mock/latestRelease.mock';
+import ViewAll from '@/components/ui/ViewAll';
 
 const CardLatestReleases = () => {
   return (
@@ -19,12 +20,7 @@ const CardLatestReleases = () => {
           Latest Releases
         </Typography>
         
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, cursor: 'pointer' }}>
-          <Typography variant="h8">
-            View all
-          </Typography>
-          <ArrowRightSvg />
-        </Box>
+        <ViewAll/>
       </Box>
 
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

@@ -5,7 +5,7 @@ export const palette = {
     dark: "#FFF" // Hover state for primary
   },
   secondary: {
-    main: "#E2FC0B"
+    main: "#E2FC0B" // color brand
   },
   error: {
     main: "#FFF",

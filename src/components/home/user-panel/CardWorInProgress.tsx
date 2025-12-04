@@ -3,12 +3,13 @@ import { Box, Grid, Typography } from '@mui/material';
 import CardArrayProgress from './CardArrayProgress';
 import { ArrowRightSvg } from '@/assets/icons';
 import { workInProgressList } from '@/mock/workInProgresList';
+import ViewAll from '@/components/ui/ViewAll';
 
 const CardWorkInProgress = () => {
   return (
     <Box
       sx={{
-        bgcolor: 'background.paper',
+        bgcolor: 'background.default',
         borderRadius: '24px',
         height: '363px',
         p: 3,
@@ -20,12 +21,7 @@ const CardWorkInProgress = () => {
           Work In Progress
         </Typography>
         
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, cursor: 'pointer' }}>
-          <Typography variant="h8">
-            View all
-          </Typography>
-          <ArrowRightSvg />
-        </Box>
+        <ViewAll/>
       </Box>
 
       {/* Cards Grid */}

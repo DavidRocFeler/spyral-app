@@ -62,6 +62,7 @@ export { default as PlusBlackSvg} from './plus-black.svg';
 
 // icon playlist
 export { default as ArrowRightSvg} from './arrow-right.svg';
+export { default as ArrowRightWhiteSvg} from './arrow-right-white.svg';
 
 //icons-home-user-panel
 export { default as EyeIconSvg} from './eye.svg';
@@ -71,3 +72,13 @@ export { default as MoneyIconSvg} from './money-icon.svg';
 export { default as SharedBrandSvg} from './share-brand.svg';
 export { default as HeadPhoneBrandSvg} from './headphone-brand.svg';
 export { default as DownloadBrandSvg} from './download-brand.svg';
+export { default as CopyLinkSvg} from './copy-link-brand.svg';
+
+// icon from modal userpanel colore grey
+export { default as CheckIconSvg} from './check.svg';
+export { default as ArrowDownGreySvg} from './arrow-down-grey.svg';
+export { default as PlusGreySvg} from './plus-grey.svg';
+export { default as ArrowRightGreySvg} from './arrow-right-grey.svg';
+export { default as ContactListSvg} from './contact-list.svg';
+export { default as CloseSvg} from './close.svg';
+

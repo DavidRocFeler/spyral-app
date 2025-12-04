@@ -21,7 +21,7 @@ const CardArrayPlaylist = ({
     <Box
       sx={{
         position: 'relative',
-        bgcolor: '#2a2a2a',
+        bgcolor: 'grey.900',
         height: '80px',
         borderRadius: '16px',
         p: 2,

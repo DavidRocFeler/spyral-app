@@ -10,7 +10,7 @@ export const workInProgressList: IWorkInProgress[] = [
     id: 1,
     image: CoverOne,
     title: 'Echoes of Twilight',
-    createdDate: 'Created 10 Jun 2025',
+    createdDate: '10 Jun 2025',
     collaborators: [
       Profile1,
       Profile2,
@@ -21,7 +21,7 @@ export const workInProgressList: IWorkInProgress[] = [
     id: 2,
     image: CoverTwo,
     title: "I'm Gonna Be (500 miles)",
-    createdDate: 'Created 10 Jun 2025',
+    createdDate: '10 Jun 2025',
     collaborators: [
       Profile1,
       Profile2,

@@ -2,12 +2,13 @@ import { ArrowRightSvg } from '@/assets/icons';
 import { Box, Typography } from '@mui/material';
 import CardArrayPlaylist from './CardPlayList';
 import { playlistsList } from '@/mock/playlist.mock';
+import ViewAll from '@/components/ui/ViewAll';
 
 const CardYourPlaylists = () => {
   return (
     <Box
       sx={{
-        bgcolor: 'background.paper',
+        bgcolor: 'background.default',
         height: '272px',
         borderRadius: '24px',
         p: 3,
@@ -22,7 +23,7 @@ const CardYourPlaylists = () => {
           
           <Box
             sx={{
-              bgcolor: '#2a2a2a',
+              bgcolor: 'background.paper',
               borderRadius: '20px',
               px: 1.5,
               py: 0.5,
@@ -30,21 +31,13 @@ const CardYourPlaylists = () => {
           >
             <Typography 
               variant="h8" 
-              sx={{ 
-                color: 'text.secondary'
-              }}
             >
               8 playlists shared
             </Typography>
           </Box>
         </Box>
         
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, cursor: 'pointer' }}>
-          <Typography variant="h8">
-            View all
-          </Typography>
-          <ArrowRightSvg />
-        </Box>
+        <ViewAll/>
       </Box>
 
       {/* Playlists List */}

@@ -77,5 +77,4 @@ export const components: Components<Theme> = {
       },
     },
   },
-  
 }

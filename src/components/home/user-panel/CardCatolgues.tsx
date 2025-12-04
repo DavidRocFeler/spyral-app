@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { Box, Typography, Tabs, Tab, Grid } from '@mui/material';
 import Image from 'next/image';
-import { ArrowRightSvg } from '@/assets/icons';
 import { catalogues } from '@/mock/catalogues.mock';
+import ViewAll from '@/components/ui/ViewAll';
 
 const CardYourCatalogues = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -28,39 +28,32 @@ const CardYourCatalogues = () => {
           Your Catalogues
         </Typography>
         
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, cursor: 'pointer' }}>
-          <Typography variant="h8">
-            View all
-          </Typography>
-          <ArrowRightSvg />
-        </Box>
+        <ViewAll/>
       </Box>
 
       {/* Tabs */}
-      <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'background.paper', mb: 3 }}>
         <Tabs 
           value={activeTab} 
           onChange={handleTabChange}
           sx={{
+            mb: -0.1,
             '& .MuiTab-root': {
-              color: '#b0b0b0',
+              color: 'text.secondary',
               textTransform: 'none',
-              fontSize: '14px',
-              fontWeight: 500,
-              minHeight: '40px',
               padding: '8px 16px',
             },
             '& .Mui-selected': {
-              color: '#fff !important',
+              color: '#FFF',
             },
             '& .MuiTabs-indicator': {
-              backgroundColor: '#4A90E2',
-              height: '2px',
+              backgroundColor: '#fff',
+              height: '1px',
             },
           }}
         >
-          <Tab label="Starred" />
-          <Tab label="Recently Viewed" />
+          <Tab sx={{typography: 'h8'}} label="Starred" />
+          <Tab sx={{typography: 'h8'}} label="Recently Viewed" />
         </Tabs>
       </Box>
 
@@ -80,7 +73,7 @@ const CardYourCatalogues = () => {
                 src={catalogue.image}
                 alt={catalogue.title}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', borderRadius: '8px' }}
               />
             </Box>
           </Grid>

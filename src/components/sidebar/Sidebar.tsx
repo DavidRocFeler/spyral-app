@@ -35,7 +35,7 @@ const Sidebar = () => {
     <Box
       sx={{
         position: 'relative', 
-        zIndex: ['8888'],
+        zIndex: 5,
         width: '240px',
         px: 2,
         pb: 5,

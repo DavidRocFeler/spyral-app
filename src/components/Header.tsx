@@ -4,6 +4,7 @@ import { SearchIconSvg, BellIconSvg, SettingIconSvg } from '@/assets/icons';
 import Image from 'next/image';
 import { headerData } from '@/mock/header.mock';
 import { IHeaderProps } from '@/types/header';
+import SearchBar from './ui/SearchBar';
 
 const Header = () => {
   // Como headerData es un objeto, lo usamos directamente
@@ -38,33 +39,10 @@ const Header = () => {
         ml='auto'
       >
         {/* Search */}
-        <Box
-          bgcolor='background.default'
-          sx={{
-            width: '330px',
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: 15,
-            gap: 1,
-            py: 0.6,
-            px: 2.5
-          }}
-        >
-          <SearchIconSvg style={{ width: 20, height: 20, color: '#808080' }} />
-          <InputBase
-            placeholder="Search song, album, artist..."
-            sx={{
-              flex: 1,
-              fontWeight: 400,
-              color: 'text.primary',
-              fontSize: '16px',
-              '& input::placeholder': {
-                color: '#808080',
-                opacity: 1,
-              },
-            }}
-          />
-        </Box>
+        <SearchBar
+        icon={SearchIconSvg}
+        placeholder='Search song, album, artist...'
+        />
 
         {/* Actions */}
         <Box 
@@ -73,8 +51,8 @@ const Header = () => {
         >
           <Box
             sx={{
-              width: 40,
-              height: 40,
+              width: 44,
+              height: 44,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -88,8 +66,8 @@ const Header = () => {
 
           <Box
             sx={{
-              width: 40,
-              height: 40,
+              width: 44,
+              height: 44,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -104,8 +82,8 @@ const Header = () => {
           {/* Avatar/Profile Image */}
           <Box
             sx={{
-              width: 40,
-              height: 40,
+              width: 44,
+              height: 44,
               borderRadius: '50%',
               overflow: 'hidden',
               cursor: 'pointer'

@@ -20,10 +20,12 @@ interface CustomTextFieldProps {
   fullWidth?: boolean;
   multiline?: boolean;
   rows?: number;
+  width?: string;
 }
 
 const CustomTextField = ({
   height = '44px',
+  width,
   placeholder = "Enter email address",
   alignItems = 'center',
   fullWidth = true,
@@ -39,6 +41,7 @@ const CustomTextField = ({
       rows={rows}
       sx={{
         '& .MuiOutlinedInput-root': {
+          width: width,
           height: multiline ? 'auto' : height,
           minHeight: multiline ? height : 'auto',
           borderRadius: '12px',

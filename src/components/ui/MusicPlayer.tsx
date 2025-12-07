@@ -99,7 +99,7 @@ const MusicPlayer = () => {
         bgcolor: 'background.default',
         borderTop: 1,
         borderColor: 'grey.900',
-        zIndex: ['8889'],
+        zIndex: 4,
         py: 1.5
       }}
     >

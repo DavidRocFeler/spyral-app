@@ -8,30 +8,34 @@ const SecondaryButtonGrey = ({
   width = 'fit-content',
   borderRadius = '50px',
   justifyContent = 'center',
-  onClick 
+  ml= '0px',
+  mlicon = 'auto',
+  color='text.secondary',
+  px = 2,
+  onClick
 }: ISecondaryButtonProps) => {
   return (
     <Box
       onClick={onClick}
       sx={{
         bgcolor: 'grey.900',
+        ml: ml,
         borderRadius: borderRadius,
         display: 'flex',
         justifyContent: justifyContent,
         height: '44px',
-        px: 2,
+        px: px,
         width: width,
         gap: gap,
         alignItems: 'center',
         cursor: 'pointer',
-        '&:hover': {
-          opacity: 0.9,
-        },
       }}
     >
       <Typography
         variant='h8'
-        color='text.secondary'
+        sx={{
+          color: color
+        }}
       >
         {text}
       </Typography>
@@ -39,7 +43,7 @@ const SecondaryButtonGrey = ({
       sx={{
         display: 'flex',
         alignItems: 'center',
-        ml: 'auto'
+        ml: mlicon
       }}
       >
         {IconComponent && <IconComponent/>}

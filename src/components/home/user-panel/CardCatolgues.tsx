@@ -39,7 +39,7 @@ const CardYourCatalogues = () => {
           sx={{
             mb: -0.1,
             '& .MuiTab-root': {
-              color: 'text.secondary',
+              color: '#FFF',
               textTransform: 'none',
               padding: '8px 16px',
             },

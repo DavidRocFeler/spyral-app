@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import CardArrayPlaylist from './CardPlayList';
 import { playlistsList } from '@/mock/playlist.mock';
 import ViewAll from '@/components/ui/ViewAll';
+import CardSharePlayList from './CardSharePlayList';
 
 const CardYourPlaylists = () => {
   return (

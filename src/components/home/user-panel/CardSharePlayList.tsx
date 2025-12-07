@@ -14,73 +14,20 @@ import {
   Chip,
   Backdrop,
 } from '@mui/material';
-import { CopyLinkSvg, CheckIconSvg, SearchIconSvg, ContactListSvg, CloseSvg, SearchWhiteIconSvg } from '@/assets/icons';
+import { CopyLinkSvg, CheckIconSvg, CloseSvg, SearchWhiteIconSvg } from '@/assets/icons';
 import CustomTextField from '@/components/ui/CustomTextField';
 import SecondaryButtonGrey from '@/components/ui/SecondaryButtonGrey';
 import { secondaryButtonsArray } from '@/mock/secondaryButtons.mock';
-import Image, { StaticImageData } from 'next/image';
-import EthanCarter from "@/assets/UserLian.png"
-import OliviaJhonson from "@/assets/UserOlivia.png"
-import LianSmith from "@/assets/UserLian.png"
-import SophiaBrown from "@/assets/UserAva.png"
-import MasonDavis from "@/assets/UserMason.png"
-import AvaWilson from "@/assets/UserAva.png"
 import SearchBar from '@/components/ui/SearchBar';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import CancelButtonTransparent from '@/components/ui/CancelButtonTransparent';
 import ContactSelector from '@/components/ui/ContactSelector';
-
-interface Contact {
-  id: string;
-  name: string;
-  email: string;
-  avatar: StaticImageData;
-}
+import { contactsMock } from '@/mock/cardSharePlayList.mock';
 
 interface CardSharePlayListProps {
   open: boolean;
   onClose: () => void;
 }
-
-// Mock data - ajusta las rutas según tu estructura
-const contactsMock: Contact[] = [
-  {
-    id: '1',
-    name: 'Ethan Carter',
-    email: 'ethan.carter@example.com',
-    avatar: EthanCarter,
-  },
-  {
-    id: '2',
-    name: 'Olivia Johnson',
-    email: 'olivia.johnson@example.com',
-    avatar: OliviaJhonson,
-  },
-  {
-    id: '3',
-    name: 'Liam Smith',
-    email: 'liam.smith@example.com',
-    avatar: LianSmith,
-  },
-  {
-    id: '4',
-    name: 'Sophia Brown',
-    email: 'sophia.brown@example.com',
-    avatar: SophiaBrown,
-  },
-  {
-    id: '5',
-    name: 'Mason Davis',
-    email: 'mason.davis@example.com',
-    avatar: MasonDavis,
-  },
-  {
-    id: '6',
-    name: 'Ava Wilson',
-    email: 'ava.wilson@example.com',
-    avatar: AvaWilson,
-  },
-];
 
 const CardSharePlayList = ({ open, onClose }: CardSharePlayListProps) => {
   const [message, setMessage] = useState('');
@@ -268,11 +215,20 @@ const CardSharePlayList = ({ open, onClose }: CardSharePlayListProps) => {
               </Box>
             </Box>
 
-            <ContactSelector
-              contacts={contactsMock}
-              selectedContacts={selectedContacts}
-              onContactClick={handleContactClick}
-            />
+            <Box width='fit-content' display="flex" gap={3.5} mb={3}>
+              {contactsMock.map((contact) => (
+                <ContactSelector
+                  key={contact.id}
+                  contact={contact}
+                  isSelected={selectedContacts.includes(contact.id)}
+                  onContactClick={handleContactClick}
+                  avatarSize={64}
+                  checkmarkSize={20}
+                  nameWidth="85px"
+                  color="text.secondary"
+                />
+              ))}
+            </Box>
 
             <Typography variant="h8">
               Add new recipient

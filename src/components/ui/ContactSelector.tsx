@@ -1,133 +1,149 @@
 // components/ContactSelector.tsx
 'use client'
 import { Box, Typography } from '@mui/material';
-import Image, { StaticImageData } from 'next/image';
-import { CheckIconSvg } from '@/assets/icons';
-import { ComponentType } from 'react';
-
-export interface Contact {
-  id: string;
-  name?: string;
-  email?: string;
-  avatar: StaticImageData;
-}
-
-interface ContactSelectorProps {
-  contacts: Contact[];
-  selectedContacts: string[];
-  onContactClick: (contactId: string) => void;
-  containerHeight?: string | number;
-  avatarSize?: number;
-  checkmarkSize?: number;
-  nameWidth?: string;
-  icon?: ComponentType;
-  color?: string;
-}
+import Image from 'next/image';
+import { CheckIconSvg, PlusBrandIconSvg } from '@/assets/icons';
+import { IContactSelectorItemProps } from '@/types/ui';
 
 const ContactSelector = ({
-  contacts,
-  selectedContacts,
+  contact,
+  isSelected,
   onContactClick,
-  containerHeight = '100px',
   avatarSize = 64,
   checkmarkSize = 20,
+  height = '85px',
   nameWidth = '85px',
   icon = CheckIconSvg,
-  color = 'text.secondary' 
-}: ContactSelectorProps) => {
-    const IconSvg = icon
+  color = 'text.secondary',
+  showBorder = true 
+}: IContactSelectorItemProps) => {
+  const IconToRender = contact.icon || icon;
+  const finalBottom = contact.bottom || 0;
+  const hasAvatar = !!contact.avatar; // Verificar si tiene avatar
+
   return (
     <Box 
-      display='flex' 
-      height={containerHeight} 
-      width='100%' 
-      justifyContent='space-around' 
-      gap={1.3} 
-      mb={2}
+      onClick={() => onContactClick(contact.id)}
+      sx={{
+        cursor: 'pointer',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        height: height,
+        alignItems: 'center',
+      }}
     >
-      {contacts.map((contact) => (
-        <Box 
-          key={contact.id}
-          onClick={() => onContactClick(contact.id)}
+      {/* Si NO tiene avatar, mostrar el box con borde punteado */}
+      {!hasAvatar ? (
+        <Box
           sx={{
-            cursor: 'pointer',
             position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 0.5,
+            width: avatarSize,
+            height: avatarSize,
+            borderRadius: '50%',
+          }}
+        >
+          {/* Círculo con borde punteado y ícono plus en el centro */}
+          <Box
+            sx={{
+              width: avatarSize,
+              height: avatarSize,
+              borderRadius: '50%',
+              border: '2px dashed',
+              borderColor: 'grey.900',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <PlusBrandIconSvg />
+          </Box>
+
+          {/* Ícono en la esquina superior derecha (igual que los demás) */}
+          <Box
+            sx={{
+              position: 'absolute',
+              zIndex: 10,
+              top: -4,
+              right: -4,
+              width: checkmarkSize,
+              height: checkmarkSize,
+              borderRadius: '50%',
+              bgcolor: 'secondary.main',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <IconToRender />
+          </Box>
+        </Box>
+      ) : (
+        /* Si tiene avatar, mostrar la imagen normal */
+        <Box
+          sx={{
+            position: 'relative',
+            width: avatarSize,
+            height: avatarSize,
+            borderRadius: '100%',
           }}
         >
           <Box
             sx={{
-              position: 'relative',
+              position: 'absolute',
+              zIndex: 9,
+              border: (isSelected && showBorder) ? '2px solid' : 'none', 
+              borderColor: isSelected ? 'secondary.main' : 'transparent',
               width: avatarSize,
               height: avatarSize,
               borderRadius: '100%',
             }}
-          >
-            {/* Borde de selección */}
+          />
+          <Image
+            src={contact.avatar}
+            alt={contact.name}
+            width={avatarSize}
+            height={avatarSize}
+            style={{
+              borderRadius: '50%',
+              position: 'absolute',
+              zIndex: 8
+            }}
+          />
+          {isSelected && (
             <Box
               sx={{
                 position: 'absolute',
-                zIndex: 9,
-                border: selectedContacts.includes(contact.id) ? '2px solid' : 'none',
-                borderColor: selectedContacts.includes(contact.id) ? 'secondary.main' : 'transparent',
-                width: avatarSize,
-                height: avatarSize,
-                borderRadius: '100%',
-              }}
-            />
-            
-            {/* Avatar/Imagen */}
-            <Image
-              src={contact.avatar}
-              alt={contact.name}
-              width={avatarSize}
-              height={avatarSize}
-              style={{
+                zIndex: 10,
+                top: -4,
+                right: -4,
+                width: checkmarkSize,
+                height: checkmarkSize,
                 borderRadius: '50%',
-                position: 'absolute',
-                zIndex: 8
+                bgcolor: 'secondary.main',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
-            />
-            
-            {/* Checkmark de selección */}
-            {selectedContacts.includes(contact.id) && (
-              <Box
-                sx={{
-                  position: 'absolute',
-                  zIndex: 10,
-                  top: -4,
-                  right: -4,
-                  width: checkmarkSize,
-                  height: checkmarkSize,
-                  borderRadius: '50%',
-                  bgcolor: 'secondary.main',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <IconSvg/>
-              </Box>
-            )}
-          </Box>
-          
-          {/* Nombre del contacto */}
-          <Typography 
-            color = {color}
-            lineHeight='0.8rem' 
-            width={nameWidth} 
-            position='absolute' 
-            bottom={0} 
-            variant="h10" 
-            textAlign='center'
-          >
-            {contact.name}
-          </Typography>
+            >
+              <IconToRender />
+            </Box>
+          )}
         </Box>
-      ))}
+      )}
+
+      <Typography 
+        color={color}
+        lineHeight='0.8rem' 
+        width={nameWidth} 
+        position='absolute' 
+        bottom={finalBottom} 
+        variant="h10" 
+        textAlign='center'
+      >
+        {contact.name}
+      </Typography>
     </Box>
   );
 };

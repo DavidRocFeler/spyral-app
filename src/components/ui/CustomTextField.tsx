@@ -1,27 +1,7 @@
 // components/CustomTextField.tsx
+import { CustomTextFieldProps } from '@/types/ui';
 import { TextField } from '@mui/material';
 import { ChangeEvent } from 'react';
-
-interface CustomTextFieldProps {
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  height?: string | number;
-  placeholder?: string;
-  alignItems?: 'center' | 'flex-start' | 'flex-end';
-  disabled?: boolean;
-  required?: boolean;
-  error?: boolean;
-  helperText?: string;
-  label?: string;
-  type?: string;
-  name?: string;
-  id?: string;
-  className?: string;
-  fullWidth?: boolean;
-  multiline?: boolean;
-  rows?: number;
-  width?: string;
-}
 
 const CustomTextField = ({
   height = '44px',

@@ -31,31 +31,32 @@ const CardYourCatalogues = () => {
         <ViewAll/>
       </Box>
 
-      {/* Tabs */}
-      <Box sx={{ borderBottom: 1, borderColor: 'background.paper', mb: 3 }}>
-        <Tabs 
-          value={activeTab} 
-          onChange={handleTabChange}
-          sx={{
-            mb: -0.1,
-            '& .MuiTab-root': {
-              color: '#FFF',
-              textTransform: 'none',
-              padding: '8px 16px',
-            },
-            '& .Mui-selected': {
-              color: '#FFF',
-            },
-            '& .MuiTabs-indicator': {
-              backgroundColor: '#fff',
-              height: '1px',
-            },
-          }}
-        >
-          <Tab sx={{typography: 'h8'}} label="Starred" />
-          <Tab sx={{typography: 'h8'}} label="Recently Viewed" />
-        </Tabs>
-      </Box>
+     {/* Tabs */}
+    <Box sx={{ borderBottom: 1, borderColor: 'background.paper', mb: 3 }}>
+      <Tabs 
+        value={activeTab} 
+        onChange={handleTabChange}
+        sx={{
+          mb: -0.1,
+          '& .MuiTab-root': {
+            color: '#808080',
+            textTransform: 'none',
+            padding: '8px 16px',
+            typography: 'h8', // ← Mueve typography aquí
+          },
+          '& .Mui-selected': {
+            color: '#FFF !important', // ← Agrega !important o quita el sx inline
+          },
+          '& .MuiTabs-indicator': {
+            backgroundColor: '#FFF',
+            height: '1px',
+          },
+        }}
+      >
+        <Tab label="Starred" disableRipple/> 
+        <Tab label="Recently Viewed" disableRipple/> 
+      </Tabs>
+    </Box>
 
       {/* Images Grid */}
       <Grid spacing={2} container>

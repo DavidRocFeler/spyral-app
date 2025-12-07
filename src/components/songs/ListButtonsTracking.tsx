@@ -29,18 +29,30 @@ const ListButtonsTracking = ({ trackingStatus }: { trackingStatus: number }) => 
   };
 
   return (
-    <Box display="flex" gap={5} mb={3} mx='auto'>
+    <Box display="flex" gap={0} mb={3} mx='auto' alignItems="center">
       {trackingButton.map((button, index) => {
         const styles = getButtonStyles(index);
         return (
-          <TrackingButton
-            key={index}
-            text={button.text}
-            icon={button.icon}
-            bgcolor={styles.bgcolor}
-            borderColor={styles.borderColor}
-            color={styles.color}
-          />
+          <>
+            <TrackingButton
+              key={index}
+              text={button.text}
+              icon={button.icon}
+              bgcolor={styles.bgcolor}
+              borderColor={styles.borderColor}
+              color={styles.color}
+            />
+            {/* Línea punteada entre botones */}
+            {index < trackingButton.length - 1 && (
+              <Box
+                sx={{
+                  width: '40px',
+                  borderTop: '2px dashed',
+                  borderColor: 'grey.900',
+                }}
+              />
+            )}
+          </>
         );
       })}
     </Box>

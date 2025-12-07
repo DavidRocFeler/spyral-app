@@ -1,15 +1,5 @@
-import { SearchIconSvg } from "@/assets/icons"
+import { ISearchBarProps } from "@/types/ui";
 import { Box, InputBase } from "@mui/material"
-import { ComponentType } from "react"
-
-interface ISearchBarProps {
-    icon: ComponentType;
-    placeholder?: string;
-    width?: string;
-    height?: string;
-    bgcolor?: string;
-    borderRadius?: string;
-}
 
 const SearchBar = ({
     icon,

@@ -1,10 +1,7 @@
 import { Button, Typography } from "@mui/material"
 import { FlexCenter } from "./FlexCenter"
 import { ArrowRightSvg } from "@/assets/icons"
-
-export interface IPrimaryButtonProps {
-    text?: string;
-}
+import { IPrimaryButtonProps } from "@/types/ui";
 
 const PrimaryButton = ({
     text= "Add",

@@ -1,29 +1,11 @@
 // components/CustomTextField.tsx
+import { CustomTextFieldProps } from '@/types/ui';
 import { TextField } from '@mui/material';
 import { ChangeEvent } from 'react';
 
-interface CustomTextFieldProps {
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  height?: string | number;
-  placeholder?: string;
-  alignItems?: 'center' | 'flex-start' | 'flex-end';
-  disabled?: boolean;
-  required?: boolean;
-  error?: boolean;
-  helperText?: string;
-  label?: string;
-  type?: string;
-  name?: string;
-  id?: string;
-  className?: string;
-  fullWidth?: boolean;
-  multiline?: boolean;
-  rows?: number;
-}
-
 const CustomTextField = ({
   height = '44px',
+  width,
   placeholder = "Enter email address",
   alignItems = 'center',
   fullWidth = true,
@@ -39,6 +21,7 @@ const CustomTextField = ({
       rows={rows}
       sx={{
         '& .MuiOutlinedInput-root': {
+          width: width,
           height: multiline ? 'auto' : height,
           minHeight: multiline ? height : 'auto',
           borderRadius: '12px',

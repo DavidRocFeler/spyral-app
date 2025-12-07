@@ -15,6 +15,7 @@ import { FlexCenter } from '../ui/FlexCenter';
 import OliviaProfile from '@/assets/oliviaJhonsonProfile.png'
 import Image from 'next/image';
 import { FlexColumn } from '../ui/FlexColumn';
+import CancelButtonTransparent from '../ui/CancelButtonTransparent';
 
 const CardPlayList: React.FC = () => {
   const [email, setEmail] = useState('olivia.johnson@gmail.com');
@@ -166,18 +167,7 @@ const CardPlayList: React.FC = () => {
           }}
         >
           {/* Botón Cancel (izquierda) */}
-          <Button
-            disableRipple
-            variant="primaryButton"
-            sx={{
-              bgcolor: 'transparent',
-              '&:hover': {
-                bgcolor: 'transparent'
-              },
-            }}
-          >
-            <Typography variant='h8'>Cancel</Typography>
-          </Button>
+          <CancelButtonTransparent/>
 
           {/* Botón Add con flecha (derecha - primaryButton) */}
           <Button

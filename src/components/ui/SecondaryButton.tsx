@@ -19,9 +19,6 @@ const SecondaryButton = ({
         gap: 1.5,
         alignItems: 'center',
         cursor: 'pointer',
-        '&:hover': {
-          opacity: 0.9,
-        },
       }}
     >
       <Typography

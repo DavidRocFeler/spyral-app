@@ -73,6 +73,14 @@ export { default as SharedBrandSvg} from './share-brand.svg';
 export { default as HeadPhoneBrandSvg} from './headphone-brand.svg';
 export { default as DownloadBrandSvg} from './download-brand.svg';
 export { default as CopyLinkSvg} from './copy-link-brand.svg';
+export { default as CrownIconSvg} from './crown.svg';
+export { default as UploadBrandIconSvg} from './upload.svg';
+export { default as CollaborationsBrandIconSvg} from './collaborations.svg';
+export { default as DistributeBrandIconSvg} from './distribute.svg';
+export { default as RevenueBrandIconSvg} from './revenue.svg';
+export { default as RegisterBrandIconSvg} from './register.svg';
+export { default as AgreeBrandIconSvg} from './agree.svg';
+export { default as PlusBrandIconSvg} from './plus-brand.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';
@@ -81,4 +89,5 @@ export { default as PlusGreySvg} from './plus-grey.svg';
 export { default as ArrowRightGreySvg} from './arrow-right-grey.svg';
 export { default as ContactListSvg} from './contact-list.svg';
 export { default as CloseSvg} from './close.svg';
+export { default as SearchWhiteIconSvg} from './search-white.svg';
 

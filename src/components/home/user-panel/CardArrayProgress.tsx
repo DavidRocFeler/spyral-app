@@ -4,6 +4,8 @@ import Image from 'next/image';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 import { ICardArrayProgressProps } from '@/types/home';
 import { secondaryButtonsArray } from '@/mock/secondaryButtons.mock';
+import { useState } from 'react';
+import CardShareProgress from './CardShareProgress';
 
 const CardArrayProgress = ({ 
   image,
@@ -11,6 +13,8 @@ const CardArrayProgress = ({
   createdDate,
   collaborators,
 }: ICardArrayProgressProps) => {
+  const [open, setOpen] = useState(false); 
+
   return (
     <Box
       sx={{
@@ -48,9 +52,14 @@ const CardArrayProgress = ({
             <SecondaryButton 
               text={secondaryButtonsArray[1].text} 
               icon={secondaryButtonsArray[1].icon} 
-              onClick={secondaryButtonsArray[1].onClick}
+              onClick={() => setOpen(true)}
             />
           </Box>
+
+          <CardShareProgress
+            open={open} 
+            onClose={() => setOpen(false)} 
+          />
       </Box>
 
       {/* Title */}

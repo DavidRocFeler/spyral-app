@@ -4,6 +4,8 @@ import { ICardArrayPlaylistProps } from '@/types/home';
 import { secondaryButtonsArray } from '@/mock/secondaryButtons.mock';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 import { DownloadBrandSvg, HeadPhoneBrandSvg, SharedBrandSvg } from '@/assets/icons';
+import { useState } from 'react';
+import CardSharePlayList from './CardSharePlayList';
 
 const CardArrayPlaylist = ({ 
   title,
@@ -12,10 +14,14 @@ const CardArrayPlaylist = ({
   listenersCount,
   downloadsCount
 }: ICardArrayPlaylistProps) => {
-
+  const [open, setOpen] = useState(false);
   const formatNumber = (num: number): string => {
     return num.toLocaleString();
   };
+
+  const handleModal = () => {
+    setOpen(true)
+  }
 
   return (
     <Box
@@ -87,9 +93,14 @@ const CardArrayPlaylist = ({
         <SecondaryButton
           text={secondaryButtonsArray[1].text} 
           icon={secondaryButtonsArray[1].icon} 
-          onClick={secondaryButtonsArray[1].onClick}
+          onClick={handleModal}
         />
       </Box>
+
+      <CardSharePlayList 
+        open={open} 
+        onClose={() => setOpen(false)} 
+      />
     </Box>
   );
 };

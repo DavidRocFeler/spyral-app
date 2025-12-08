@@ -1,6 +1,7 @@
 import { trackingButton } from "@/mock/trackingButtons.mock";
 import { Box } from "@mui/material";
 import TrackingButton from "../ui/TrackinButton";
+import { Fragment } from "react"; 
 
 const ListButtonsTracking = ({ trackingStatus }: { trackingStatus: number }) => {
   const getButtonStyles = (index: number) => {
@@ -33,9 +34,8 @@ const ListButtonsTracking = ({ trackingStatus }: { trackingStatus: number }) => 
       {trackingButton.map((button, index) => {
         const styles = getButtonStyles(index);
         return (
-          <>
+          <Fragment key={index}>
             <TrackingButton
-              key={index}
               text={button.text}
               icon={button.icon}
               bgcolor={styles.bgcolor}
@@ -52,7 +52,7 @@ const ListButtonsTracking = ({ trackingStatus }: { trackingStatus: number }) => 
                 }}
               />
             )}
-          </>
+          </Fragment>
         );
       })}
     </Box>

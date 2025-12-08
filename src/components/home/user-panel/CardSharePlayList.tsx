@@ -1,12 +1,12 @@
 'use client'
 import { useState } from 'react';
+import { ArrowRightSvg } from "@/assets/icons"
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   Box,
   Typography,
-  Button,
   IconButton,
   RadioGroup,
   FormControlLabel,
@@ -290,6 +290,7 @@ const CardSharePlayList = ({ open, onClose }: CardSharePlayListProps) => {
           <Box display="flex" mt={1} justifyContent="flex-end" gap={1.5}>
             <CancelButtonTransparent/>
             <PrimaryButton
+            icon={ArrowRightSvg}
             text='Send (4)'
             />
           </Box>

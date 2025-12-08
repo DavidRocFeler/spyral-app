@@ -2,9 +2,11 @@ import { Button, Typography } from "@mui/material"
 import { FlexCenter } from "./FlexCenter"
 import { ArrowRightSvg } from "@/assets/icons"
 import { IPrimaryButtonProps } from "@/types/ui";
+import { createElement } from "react";
 
 const PrimaryButton = ({
-    text= "Add",
+    text = "Add",
+    icon,
 }: IPrimaryButtonProps) => {
     const handleSubmit = () => {
         // Lógica para enviar
@@ -27,9 +29,11 @@ const PrimaryButton = ({
             > 
             {text}
             </Typography>
-            <FlexCenter>
-              <ArrowRightSvg/>
-            </FlexCenter>
+            {icon && ( // Solo mostrar icon si existe
+              <FlexCenter>
+                {createElement(icon)}
+              </FlexCenter>
+            )}
         </Button>
     </>
   )

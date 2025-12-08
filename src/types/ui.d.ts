@@ -2,6 +2,7 @@ import { ComponentType } from 'react';
 
 export interface IPrimaryButtonProps {
   text?: string;
+  icon?: ComponentType
 }
 
 export interface ISecondaryButtonProps {
@@ -15,7 +16,9 @@ export interface ISecondaryButtonProps {
   ml?: string;
   color?: string;
   mlicon?: string;
-  px?: number
+  px?: number;
+  bgcolor?: string;
+  height?: string;
 }
 
 export interface IButtonConfig {
@@ -96,4 +99,13 @@ export interface CustomTextFieldProps {
   multiline?: boolean;
   rows?: number;
   width?: string;
+}
+
+export interface IUploadBoxProps {
+  width?: string;
+  height?: string;
+  text?: string;
+  bgcolor?: string;
+  borderColor?: string;
+  icon?: ComponentType
 }

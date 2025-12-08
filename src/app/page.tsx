@@ -1,7 +1,6 @@
 // app/page.tsx
 'use client'
 import AddNewModal from '@/components/modals/AddNewModal';
-import MusicPlayer from '@/components/ui/MusicPlayer';
 import { CatalogueView, ContactsView, FilesView, HomeView, PlaylistsView, SongsView, StarredView } from '@/components/views/HomeView';
 import { useNavigationStore } from '@/store/navigationStore';
 

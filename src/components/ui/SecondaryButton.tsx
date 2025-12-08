@@ -4,18 +4,20 @@ import { ISecondaryButtonProps } from '@/types/ui';
 const SecondaryButton = ({ 
   text = 'Play', 
   icon: IconComponent,
+  bgcolor = 'background.paper',
+  height = '32px',
   onClick 
 }: ISecondaryButtonProps) => {
   return (
     <Box
       onClick={onClick}
       sx={{
-        bgcolor: 'background.paper',
+        bgcolor: bgcolor,
         borderRadius: '50px',
         display: 'flex',
         justifyContent: 'center',
-        py: 0.8,
-        px: 1.5,
+        height: height,
+        px: 2,
         gap: 1.5,
         alignItems: 'center',
         cursor: 'pointer',

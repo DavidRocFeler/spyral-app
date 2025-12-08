@@ -81,6 +81,7 @@ export { default as RevenueBrandIconSvg} from './revenue.svg';
 export { default as RegisterBrandIconSvg} from './register.svg';
 export { default as AgreeBrandIconSvg} from './agree.svg';
 export { default as PlusBrandIconSvg} from './plus-brand.svg';
+export { default as UploadImageBrandIconSvg} from './upload-image.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';

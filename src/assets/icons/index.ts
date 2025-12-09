@@ -82,6 +82,8 @@ export { default as RegisterBrandIconSvg} from './register.svg';
 export { default as AgreeBrandIconSvg} from './agree.svg';
 export { default as PlusBrandIconSvg} from './plus-brand.svg';
 export { default as UploadImageBrandIconSvg} from './upload-image.svg';
+export { default as CollaborationBrandSvg} from './collaboration-brand.svg';
+export { default as SongIconBrandSvg} from './song-icon.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';
@@ -91,4 +93,13 @@ export { default as ArrowRightGreySvg} from './arrow-right-grey.svg';
 export { default as ContactListSvg} from './contact-list.svg';
 export { default as CloseSvg} from './close.svg';
 export { default as SearchWhiteIconSvg} from './search-white.svg';
+export { default as CheckIconBrandSvg} from './check-brand.svg';
+
+//icon to song track
+export { default as EditeIconSvg} from './edit-icon.svg';
+export { default as RegisterIconBlackSvg} from './register-little-black.svg';
+export { default as PauseIconSvg} from './pause-icon.svg';
+export { default as ArrowLineGreySvg} from './arrow-line-up-grey.svg';
+export { default as TrashGreyIconSvg} from './trash-grey.svg';
+
 

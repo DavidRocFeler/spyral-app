@@ -8,7 +8,6 @@ export const components: Components<Theme> = {
         props: { variant: 'primaryButton' },
         style: ({ theme }) => ({
           borderRadius: '50px',
-          marginTop: theme.spacing(2),
           paddingLeft: theme.spacing(2),
           paddingRight: theme.spacing(2),
           paddingTop: theme.spacing(1.5),

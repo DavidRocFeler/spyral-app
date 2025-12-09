@@ -53,7 +53,6 @@ export const typography: ThemeOptions['typography'] = {
     fontFamily: 'var(--font-manrope)',
     fontWeight: 400,
     fontSize: '14px',
-    lineHeight: '100%',
     letterSpacing: '0%',
   },
   h8: {

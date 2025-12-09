@@ -7,6 +7,7 @@ import { createElement } from "react";
 const PrimaryButton = ({
     text = "Add",
     icon,
+    height,
 }: IPrimaryButtonProps) => {
     const handleSubmit = () => {
         // Lógica para enviar
@@ -19,6 +20,9 @@ const PrimaryButton = ({
             disableRipple
             variant="primaryButton"
             onClick={handleSubmit}
+            sx={{
+              height: height
+            }}
           >
             <Typography 
               variant='h8'

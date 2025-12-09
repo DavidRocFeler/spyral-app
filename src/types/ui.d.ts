@@ -1,13 +1,14 @@
-import { ComponentType } from 'react';
+import { ComponentType, ReactElement } from 'react';
 
 export interface IPrimaryButtonProps {
   text?: string;
-  icon?: ComponentType
+  icon?: ComponentType,
+  height?: string
 }
 
 export interface ISecondaryButtonProps {
   text?: string;
-  icon?: ComponentType;
+  icon?: ComponentType | ReactElement;
   onClick?: () => void;
   gap?: number; 
   width?: string;
@@ -109,3 +110,12 @@ export interface IUploadBoxProps {
   borderColor?: string;
   icon?: ComponentType
 }
+
+export interface ICollaboratorsProps {
+  id: number;
+  image: StaticImageData;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+

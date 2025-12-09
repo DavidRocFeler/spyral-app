@@ -1,29 +1,43 @@
 import { Box, Typography } from '@mui/material';
 import { ISecondaryButtonProps } from '@/types/ui';
+import { ComponentType, isValidElement } from 'react';
 
 const SecondaryButtonGrey = ({ 
   text = 'Play', 
-  icon: IconComponent,
+  icon,
   gap = 1.5,
   width = 'fit-content',
   borderRadius = '50px',
   justifyContent = 'center',
   ml= '0px',
-  mlicon = 'auto',
+  height ='44px',
   color='text.secondary',
   px = 2,
+  bgcolor = 'grey.900',
   onClick
 }: ISecondaryButtonProps) => {
+   const renderIcon = () => {
+    if (!icon) return null;
+    
+    // Si es un ReactElement (ya renderizado: <PlayIconSvg />)
+    if (isValidElement(icon)) {
+      return icon;
+    }
+    
+    // Si es un ComponentType (PlayIconSvg sin renderizar)
+    const IconComponent = icon as ComponentType<any>;
+    return <IconComponent />;
+  };
   return (
     <Box
       onClick={onClick}
       sx={{
-        bgcolor: 'grey.900',
+        bgcolor: bgcolor,
         ml: ml,
         borderRadius: borderRadius,
         display: 'flex',
         justifyContent: justifyContent,
-        height: '44px',
+        height: height,
         px: px,
         width: width,
         gap: gap,
@@ -39,15 +53,7 @@ const SecondaryButtonGrey = ({
       >
         {text}
       </Typography>
-      <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        ml: mlicon
-      }}
-      >
-        {IconComponent && <IconComponent/>}
-      </Box>
+      {renderIcon()}
     </Box>
   );
 };

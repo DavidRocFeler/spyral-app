@@ -42,7 +42,7 @@ const Summary = ({ value, subtitle, collaborators, subvalue }: ISummaryProps) =>
               </Box>
             ))}
           </Box>
-        )}
+      )}
 
         <FlexCenter
         sx={{

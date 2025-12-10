@@ -1,40 +1,50 @@
 // FilesPanel.tsx
 'use client'
-import React, { useState } from 'react';
-import { Box, Typography, Select, MenuItem, IconButton, TextField, Button } from '@mui/material';
-import FolderIcon from '@mui/icons-material/Folder';
-import ShareIcon from '@mui/icons-material/Share';
-import AudioFileIcon from '@mui/icons-material/AudioFile';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
-import AddIcon from '@mui/icons-material/Add';
+import { useState } from 'react';
+import { Box, Typography, Grid } from '@mui/material';
 import SelectCustom from '@/components/ui/SelectCustom';
-import { ArrowLineGreySvg, PlusSvg, ShareIconSvg, SongIconBrandSvg } from '@/assets/icons';
+import { PlusSvg } from '@/assets/icons';
 import { FlexCenter } from '@/components/ui/FlexCenter';
-import { FlexColumn } from '@/components/ui/FlexColumn';
-import SecondaryButton from '@/components/ui/SecondaryButton';
-import IconSpan from '@/components/ui/IconSpan';
 import TextButton from '@/components/ui/TextButton';
 import NumberCounter from '@/components/ui/NumberCounter';
-import CustomTextField from '@/components/ui/CustomTextField';
-import SecondaryButtonGrey from '@/components/ui/SecondaryButtonGrey';
 import BoxTextField from '@/components/ui/BoxTextField';
+import CardFileCollaborate from './CardFileCollaborate';
+import { ICollaboratorSongFile } from '@/types/song';
 
-interface FileItem {
-  id: string;
-  name: string;
-  size: string;
-  type: string;
-}
+const mockFileSelect = ['Acoustic drums (12 files)', 'Channel', 'Electric Guitar', 'Bass Line'];
 
-const mockFiles: FileItem[] = [
-  { id: '1', name: 'audio_track.mp3', size: 'MP3 • 3.2MB', type: 'audio' },
-];
+const FilesPanel = ({fileItem}: ICollaboratorSongFile) => {
+  const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-const mockChannels = ['Acoustic drums (12 files)', 'Channel', 'Electric Guitar', 'Bass Line'];
+  // Calcular el total de páginas
+  const totalPages = Math.ceil(fileItem.length / itemsPerPage);
+  
+  // Obtener los archivos para la página actual
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentFiles = fileItem.slice(startIndex, endIndex);
 
-const FilesPanel = () => {
-  const [selectedChannel, setSelectedChannel] = useState(mockChannels[0]);
+  // Calcular filas necesarias basado en la cantidad de archivos en la página actual
+  const rowsNeeded = Math.ceil(currentFiles.length / 2);
+
+  // Handlers para la paginación
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handlePageClick = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <Box sx={{
@@ -44,81 +54,74 @@ const FilesPanel = () => {
       pt: 3,
       pb: 2.5,
       height: '100%' 
-      }}
-      >
-      <Typography variant='h3'>
+    }}>
+      <Typography variant='h3' mb={2}>
         Files
       </Typography>
 
       <SelectCustom
-      options={mockChannels}
-      value={selectedChannel}
-      onChange={setSelectedChannel}
+        options={mockFileSelect}
+        value={selectedChannel}
+        onChange={setSelectedChannel}
       />
       
-      {mockFiles.map((file) => (
-        <Box
-          key={file.id}
+      {/* Grid container con 2 columnas */}
+      <Grid container spacing={2} sx={{ mt: 1, mb: 2 }}>
+        {currentFiles.map((file) => (
+          <Grid size={6} key={file.id}>
+            <CardFileCollaborate 
+              file={file}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        mb: 2,
+        mt: rowsNeeded > 3 ? 0 : 2
+      }}>
+        <Typography variant='h9' color='text.secondary' 
           sx={{
-            bgcolor: 'grey.900',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            borderRadius: '16px',
-            height: '56px',
-            width: '248px',
-            p: 1.5,
-            pr: 1,
-            mb: 2,
+            cursor: 'default'
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <FlexCenter borderRadius='12px' px={1.2} py={1} bgcolor='background.paper'><SongIconBrandSvg/></FlexCenter>
-            <Box display='flex' flexDirection='column' alignItems='flex-start' gap={1}>
-              <Typography variant='h8'>
-                {file.name}
-              </Typography>
-              <Typography variant='h9' color='text.secondary'>
-                {file.size}
-              </Typography>
-            </Box>
-          </Box>
-          <FlexCenter>
-            <IconSpan
-            icon={ShareIconSvg}
-            bgcolor='transparent'
-            />
-          </FlexCenter>
-        </Box>
-      ))}
-      
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Typography variant='h9' color='text.secondary' 
-        sx={{
-          cursor: 'default'
-        }}
-        >
-          Viewing 1 of 1 files
+          Viewing {startIndex + 1}-{Math.min(endIndex, fileItem.length)} of {fileItem.length} files
         </Typography>
         <FlexCenter gap={1.5}>
           <TextButton
-          text='Back'
+            text='Back'
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
           />
-          <NumberCounter
-          counter={1}
-          />
+          
+          {/* Renderizar los números de página */}
+          {Array.from({ length: totalPages }, (_, index) => (
+            <NumberCounter
+              key={index + 1}
+              counter={index + 1}
+              isActive={currentPage === index + 1}
+              onClick={() => handlePageClick(index + 1)}
+            />
+          ))}
+          
           <TextButton
-          text='Next'
+            text='Next'
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
           />
         </FlexCenter>
       </Box>
       
-      <Typography variant='h8'>
+      <Typography variant='h8' mb={1}>
         Share file
       </Typography>
 
       <BoxTextField
-      IconSvg={PlusSvg}/>
+        IconSvg={PlusSvg}
+      />
     </Box>
   );
 };

@@ -59,6 +59,7 @@ export { default as NoFavoritesSvg} from './no-favorites.svg';
 export { default as SessionExpiredSvg} from './session-expired.svg';
 export { default as PlayBackFailedSvg} from './playback-failed.svg';
 export { default as PlusBlackSvg} from './plus-black.svg';
+export { default as FileBrandSvg} from './file-brand.svg';
 
 // icon playlist
 export { default as ArrowRightSvg} from './arrow-right.svg';
@@ -84,6 +85,8 @@ export { default as PlusBrandIconSvg} from './plus-brand.svg';
 export { default as UploadImageBrandIconSvg} from './upload-image.svg';
 export { default as CollaborationBrandSvg} from './collaboration-brand.svg';
 export { default as SongIconBrandSvg} from './song-icon.svg';
+export { default as SmallPlusBrandSvg} from './small-plus-brand.svg';
+export { default as RegisterIconGoldSvg} from './register-icon-brand.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';
@@ -101,5 +104,8 @@ export { default as RegisterIconBlackSvg} from './register-little-black.svg';
 export { default as PauseIconSvg} from './pause-icon.svg';
 export { default as ArrowLineGreySvg} from './arrow-line-up-grey.svg';
 export { default as TrashGreyIconSvg} from './trash-grey.svg';
+export { default as LittleSpanSvg} from './little-menu-span.svg';
+export { default as IconDragSvg} from './drag-icon.svg';
+
 
 

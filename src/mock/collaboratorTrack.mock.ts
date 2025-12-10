@@ -1,5 +1,3 @@
-import { Box } from '@mui/material'
-import Image, { StaticImageData } from 'next/image'
 import Collaborator1 from "@/assets/Ellipse1.png"
 import Collaborator2 from "@/assets/Ellipse2.png"
 import Collaborator3 from "@/assets/Ellipse3.png"

@@ -3,15 +3,14 @@ import CollaborateTask from "@/components/songs/Collaborate/CollaborateTask"
 import Demo from "@/components/songs/Demo"
 import ListButtonsTracking from "@/components/songs/ListButtonsTracking"
 import MinimizeDemo from "@/components/songs/MinimizeDemo"
-import { commentsMock } from "@/mock/cardComment.mock"
-import { mockCollaborateFilesItem, mockCollaborateFilesItemEmpty } from "@/mock/collaborateFilesItem.mock"
-import { mockSharedVersionsState, mockVersionsState } from "@/mock/collaborationState.mock"
-import { tasksData } from "@/mock/todoList.mock"
+import { commentsEmpty } from "@/mock/cardComment.mock"
+import { mockCollaborateFilesItemEmpty } from "@/mock/collaborateFilesItem.mock"
+import { mockSharedVersions, mockVersions } from "@/mock/collaborationEmptyState.mock"
+import { tasksDataEmpty } from "@/mock/todoList.mock"
 import { Box } from "@mui/material"
 import { useState } from "react"
 
-const SongsCollaborate = () => {
-  
+const SongsCollaborateEmpty = () => {
   const [isDemoMinimized, setIsDemoMinimized] = useState(false)
 
   const handleToggleDemo = () => {
@@ -29,14 +28,14 @@ const SongsCollaborate = () => {
       )}
       
       <CollaborateTask
-      taskTableData={tasksData}
-      cardCommentsData={commentsMock}
-      fileItem={mockCollaborateFilesItem}
-      latestVersion={mockVersionsState}
-      sharedVersion={mockSharedVersionsState}
+      taskTableData={tasksDataEmpty}
+      cardCommentsData={commentsEmpty}
+      fileItem={mockCollaborateFilesItemEmpty}
+      latestVersion={mockVersions}
+      sharedVersion={mockSharedVersions}
       />
     </Box>
   )
 }
 
-export default SongsCollaborate
+export default SongsCollaborateEmpty

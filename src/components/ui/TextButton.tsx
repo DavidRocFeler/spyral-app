@@ -10,6 +10,7 @@ export interface ITextButtonProps {
     onClick?: () => void;
     iconPb?: number;
     flexDirection?: string,
+    disabled?: boolean;
 
 }
 
@@ -21,6 +22,7 @@ gap = 0.5,
 iconPb = 0,
 flexDirection = 'row',
 onClick,
+disabled
 }: ITextButtonProps) => {
   return (
     <Button 
@@ -43,7 +45,7 @@ onClick,
             {Icon && <Icon />}
         </FlexCenter>
         <Typography 
-        onClick={onClick}
+        onClick={disabled ? undefined : onClick}
         variant='h8' 
         color={color}
         sx={{
@@ -51,7 +53,8 @@ onClick,
             margin: 0,
             padding: 0,
             display: 'inline-block',
-            cursor: 'pointer',
+            cursor: disabled ? 'not-allowed' : 'pointer',
+            opacity: disabled ? 0.5 : 1,
         }}
         > 
         {text} 

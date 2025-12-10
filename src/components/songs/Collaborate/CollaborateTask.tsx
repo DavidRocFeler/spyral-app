@@ -5,8 +5,9 @@ import TodoList from './TodoList';
 import CollaborationWindow from './CollaborationWindow';
 import { CollaborationBrandSvg } from '@/assets/icons';
 import TitleIcon from '@/components/ui/TitleIcon';
+import { ICollaboratorSong } from '@/types/song';
 
-const CollaborateTask = () => {
+const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsData, taskTableData}: ICollaboratorSong) => {
   return (
     <Box>
         <TitleIcon
@@ -30,7 +31,10 @@ const CollaborateTask = () => {
                 flexDirection: 'column',
                 }}
             >
-                <VersionHistory />
+                <VersionHistory
+                latestVersion={latestVersion}
+                sharedVersion={sharedVersion}
+                />
             </Grid>
             
             {/* Segunda columna: 560px */}
@@ -45,8 +49,12 @@ const CollaborateTask = () => {
                 }}
             >
                 <Grid display='flex' flexDirection='column' gap={2} flex={1}>
-                <FilesPanel/>
-                <TodoList/>
+                <FilesPanel
+                fileItem={fileItem}
+                />
+                <TodoList
+                taskTableData={taskTableData}
+                />
                 </Grid>
             </Grid>
             
@@ -59,7 +67,9 @@ const CollaborateTask = () => {
                 flexDirection: 'column',
                 }}
             >
-                <CollaborationWindow/>
+                <CollaborationWindow
+                cardCommentsData={cardCommentsData}
+                />
             </Grid>
         </Grid>
     </Box>

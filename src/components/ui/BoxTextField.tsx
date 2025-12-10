@@ -32,7 +32,7 @@ IconSvg
         >
         <Box mr='auto'>
             <TextButton
-            text='Add a new file'
+            text='Select version'
             color='text.primary'
             icon={IconSvg}
             flexDirection={flexDirection}

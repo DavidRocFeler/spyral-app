@@ -4,24 +4,26 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
 import IconSpan from "../ui/IconSpan";
-import CollaboratorTrack from "./CollaboratorTrack";
 import { ArrowUpSvg, PauseIconSvg, PlayIconSvg, PlusSvg, RegisterIconBlackSvg } from "@/assets/icons";
 import SecondaryButton from "../ui/SecondaryButton";
 import PrimaryButton from "../ui/PrimaryButton";
-import AudioWaveform from "./AudioWaveForm";
+import CollaboratorTrack from "../songs/CollaboratorTrack";
+import AudioWaveform from "../songs/AudioWaveForm";
+import SelectCustom from "../ui/SelectCustom";
+import { FlexCenter } from "../ui/FlexCenter";
 
-const SongPlayerCard = ({
+const PlayerModal = ({
     coverImage,
     artistName,
     songTitle,
-    lastUpdate,
-    duration = '4:15',
-    currentTime = '0:00',
     collaborators = [],
     onMinimize
   }: ISongPlayerCardProps) => {
+    const mockFileSelect = ['Third Mixdown', 'Second Mixdown', 'FirstMixdown'];
     const [isPlaying, setIsPlaying] = useState(false);
-  
+    const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
+
+
     const handlePlayPause = () => {
       setIsPlaying(!isPlaying);
     };
@@ -38,12 +40,11 @@ const SongPlayerCard = ({
         sx={{
           bgcolor: 'background.default',
           borderRadius: '40px',
-          p: 3,
+          p: 0,
           width: '100',
           mx: 'auto',
           display: 'flex',
           alignItems: 'center',
-          height: '445px',
           gap: 3
         }}
       >
@@ -51,18 +52,18 @@ const SongPlayerCard = ({
         <Box
           sx={{
             position: 'relative',
-            width: 400,
-            height: 400,
+            width: 240,
+            height: 240,
             flexShrink: 0,
-            borderRadius: '12px',
+            borderRadius: '24px',
             overflow: 'hidden'
           }}
         >
           <Image
             src={coverImage}
             alt={songTitle}
-            width={400}
-            height={400}
+            width={240}
+            height={240}
             priority
             style={{
               objectFit: 'cover',
@@ -85,32 +86,28 @@ const SongPlayerCard = ({
         {/* Content */}
         <Box 
         alignItems='flex-start'
-        height= '400px'
         sx={{ display: 'flex', flexDirection: 'column'}}>
           {/* Header */}
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', mb: 3.5 }}>
             <Box sx={{ flex: 1 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2.5 }}>
-                <Typography variant="h1">
+                <Typography variant="h4">
                   {songTitle}
                 </Typography>
-                <IconSpan/>
               </Box>
               
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                <Typography variant="h6">
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                <Typography variant="h8">
+                  Author
+                </Typography>
+                <Typography variant="h7" pb={0.1}>
                   {artistName}
                 </Typography>
-                <Box sx={{ color: '#808080' }}>
-                  <IconSpan
-                  bgcolor='grey.900'
-                  />
-                </Box>
               </Box>
   
               {/* Collaborators */}
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                <Typography variant="h8" color="text.secondary">
+                <Typography variant="h8">
                   Collaborators
                 </Typography>
                 <Box display='flex' gap={0.5} alignItems='center'>
@@ -121,59 +118,32 @@ const SongPlayerCard = ({
                       No collaborators
                     </Typography>
                   )}
-                  <IconSpan
-                    icon={PlusSvg}
-                    bgcolor='grey.900'
-                  />
                 </Box>
               </Box>
   
-              {/* Last update */}
-              <Typography variant="h8" color="text.secondary">
-                Last update <Box component='span' color='text.primary' ml={0.5}>{lastUpdate}</Box>
+              <FlexCenter gap={1.5} mt={2}>
+                 {/* Last update */}
+              <Typography variant="h8">
+                Versiom Shared
               </Typography>
+                <SelectCustom
+                    options={mockFileSelect}
+                    value={selectedChannel}
+                    onChange={setSelectedChannel}
+                    fullWidth={false}
+                    height="31px"
+                    heightOption="31px"
+                    borderRadius="50px"
+                    bgcolor="background.paper"
+                    />
+                <Typography variant="h9" color="text.secondary"> shared by Jasper Lin • 11 Jan 2025, 14:30 </Typography>
+              </FlexCenter>
             </Box>
-          </Box>
-  
-          {/* Controls */}
-          <Box sx={{ display: 'flex', gap: 2, mb: 2, alignItems: 'center' }}>
-            <SecondaryButton
-            icon={isPlaying ? <PauseIconSvg/> : <PlayIconSvg/>}
-            height='44px'
-            onClick={handlePlayPause}
-            />
-  
-            <PrimaryButton
-            text='Register'
-            height='44px'
-            icon={RegisterIconBlackSvg}
-            />
-          </Box>
-  
-          {/* Waveform */}
-          <Box sx={{ position: 'relative', mb: 1 }}>
-                <AudioWaveform 
-                isPlaying={isPlaying} 
-                currentTime={currentTime} 
-                duration={duration}      
-                />
           </Box>
         </Box>
   
-         {/* Up arrow button */}
-         <Box
-          position='absolute'
-          right='1.7rem'
-          top='1.7rem'
-          >
-            <IconSpan
-            borderRadius='8px'
-            icon={ArrowUpSvg}
-            onClick={handleMinimizeClick}
-            />     
-          </Box>    
       </Box>
     );
   };  
 
-export default SongPlayerCard
+export default PlayerModal

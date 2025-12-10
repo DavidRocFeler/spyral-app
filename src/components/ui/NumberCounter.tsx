@@ -1,26 +1,35 @@
-import { Box, Typography } from '@mui/material'
+// NumberCounter.tsx
+import { Typography } from '@mui/material'
 
 export interface INumberCounterProps {
-    counter: number
+    counter: number;
+    isActive?: boolean;
+    onClick?: () => void;
 }
 
-const NumberCounter = ({counter}:INumberCounterProps) => {
+const NumberCounter = ({counter, isActive = false, onClick}: INumberCounterProps) => {
   return (
-    <>
-        <Typography 
-        bgcolor='grey.900'
-        display='flex'
-        alignItems='center'
-        justifyContent='center'
-        width='24px'
-        height='24px'
-        borderRadius='20px'
-        sx={{cursor: 'pointer'}}
-        variant='h8'>
-            {counter}
-        </Typography>
-    </>
+    <Typography 
+      bgcolor={isActive ? 'grey.900' : 'transparent'}
+      display='flex'
+      alignItems='center'
+      justifyContent='center'
+      width='24px'
+      height='24px'
+      borderRadius='20px'
+      sx={{
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease',
+        '&:hover': {
+          bgcolor: isActive ? 'grey.800' : 'grey.800'
+        }
+      }}
+      variant='h8'
+      onClick={onClick}
+    >
+      {counter}
+    </Typography>
   )
 }
 
-export default NumberCounter
+export default NumberCounter;

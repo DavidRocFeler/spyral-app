@@ -1,78 +1,137 @@
 // VersionHistory.tsx
 import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import IconSpan from '@/components/ui/IconSpan';
+import { FlexCenter } from '@/components/ui/FlexCenter';
+import { ICollaboratorSongHistory } from '@/types/song';
+import { LittleSpanSvg } from '@/assets/icons';
 
-interface Version {
-  id: string;
-  name: string;
-  timestamp: string;
-  size: string;
-}
-
-const mockVersions: Version[] = [
-  { id: '1', name: 'First Mix', timestamp: 'December 5, 10:23 AM', size: '2.4 MB' },
-  { id: '2', name: 'Second Mix', timestamp: 'December 6, 3:45 PM', size: '3.1 MB' },
-];
-
-const VersionHistory = () => {
+const VersionHistory = ({
+latestVersion,
+sharedVersion
+}:ICollaboratorSongHistory) => {
   return (
     <Box sx={{ bgcolor: 'background.default', borderRadius: '24px', py: 2, px: 3, height: '100%' }}>
       
-      <Box mb={2} pb={1} borderBottom='1px solid' borderColor='grey.900' >
+      {/* Latest Version Section */}
+      <Box mb={2} pb={1} borderBottom='1px solid' borderColor='grey.900'>
         <Typography variant='h10' fontWeight={700}>
-            Latest version
+          Latest version
         </Typography>
         
         <List sx={{ p: 0, mt: 0.5 }}>
-            {mockVersions.map((version) => (
-            <ListItem
-                key={version.id}
-                sx={{
-                p: 0,
-                mb: 1,
-                }}
-            >
+          {latestVersion.map((version) => (
+            <Box key={version.id} sx={{ mb: 2 }}>
+              <FlexCenter sx={{
+                width: '100%',
+                mb: -1
+              }}>
+                <Typography mr='auto' variant='h8'>
+                  {version.music}
+                </Typography>
+                <Box mr={-2}>
+                  <IconSpan
+                    icon={LittleSpanSvg}
+                    bgcolor='transparent'
+                  />
+                </Box>
+              </FlexCenter>
+              
+              <ListItem sx={{ p: 0, mb: 1 }}>
                 <ListItemText
-                primary={
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 0.5
+                  }}
+                  primary={
                     <Typography 
-                    variant='h7' 
-                    color='text.secondary'
-                    sx={{ fontSize: '14px' }}
+                      variant='h7' 
+                      color='text.secondary'
+                      sx={{ fontSize: '14px' }}
                     >
-                    {version.name}
+                      {version.artist}
                     </Typography>
-                }
-                secondary={
+                  }
+                  secondary={
                     <Typography 
-                    variant='h7' 
-                    color='text.secondary'
-                    sx={{ fontSize: '12px' }}
+                      variant='h7' 
+                      color='text.secondary'
+                      sx={{ fontSize: '12px' }}
                     >
-                    {version.timestamp}
+                      {version.timestamp}
                     </Typography>
-                }
+                  }
                 />
-            </ListItem>
-            ))}
+              </ListItem>
+            </Box>
+          ))}
         </List>
       </Box>
       
+      {/* Versions Shared Section */}
       <Box>
         <Typography variant='h10' fontWeight={700}>
-            Versions shared
+          Versions shared
         </Typography>
         
-        <Box
-            sx={{
-            pt: 1,
-            px: 0,
-            }}
-        >
+        <Box sx={{ pt: 1, px: 0 }}>
+          {sharedVersion.length === 0 ? (
             <Typography variant='h7' color='text.secondary'>
-            Nothing here yet
+              Nothing here yet
             </Typography>
+          ) : (
+            <List sx={{ p: 0 }}>
+              {sharedVersion.map((version) => (
+                <Box key={version.id} sx={{ mb: 2 }}>
+                  <FlexCenter sx={{
+                    width: '100%',
+                    mb: -1
+                  }}>
+                    <Typography mr='auto' variant='h8'>
+                      {version.music}
+                    </Typography>
+                    <Box mr={-2}>
+                      <IconSpan
+                        icon={LittleSpanSvg}
+                        bgcolor='transparent'
+                      />
+                    </Box>
+                  </FlexCenter>
+                  
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemText
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 0.5
+                      }}
+                      primary={
+                        <Typography 
+                          variant='h7' 
+                          color='text.secondary'
+                          sx={{ fontSize: '14px' }}
+                        >
+                          {version.artist}
+                        </Typography>
+                      }
+                      secondary={
+                        <Typography 
+                          variant='h7' 
+                          color='text.secondary'
+                          sx={{ fontSize: '12px' }}
+                        >
+                          {version.timestamp}
+                          {version.size && ` • ${version.size}`}
+                        </Typography>
+                      }
+                    />
+                  </ListItem>
+                </Box>
+              ))}
+            </List>
+          )}
         </Box>
-        </Box>
+      </Box>
     </Box>
   );
 };

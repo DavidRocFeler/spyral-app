@@ -1,7 +1,7 @@
 'use client'
 // SelectCustom.tsx
 import { ComponentType, useState, useRef, useEffect } from 'react';
-import { Box, ClickAwayListener } from '@mui/material';
+import { Box, ClickAwayListener, Typography } from '@mui/material';
 import { ArrowDownSvg } from '@/assets/icons';
 
 interface ISelectCustomProps {
@@ -11,6 +11,10 @@ interface ISelectCustomProps {
   iconComponent?: ComponentType;
   fullWidth?: boolean;
   disabled?: boolean;
+  height?: string;
+  heightOption?: string;
+  borderRadius?: string;
+  bgcolor?: string,
 }
 
 const SelectCustom = ({
@@ -20,6 +24,10 @@ const SelectCustom = ({
   iconComponent: IconComponent = ArrowDownSvg,
   fullWidth = true,
   disabled = false,
+  height= '44px',
+  heightOption= '44px',
+  borderRadius='12px',
+  bgcolor= 'grey.900'
 }: ISelectCustomProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -44,9 +52,7 @@ const SelectCustom = ({
       <Box
         sx={{
           position: 'relative',
-          width: fullWidth ? '100%' : 'auto',
-          mb: 3,
-          mt: 1.5,
+          width: fullWidth ? '100%' : 'fit-content',
         }}
       >
         {/* Select Button */}
@@ -57,10 +63,10 @@ const SelectCustom = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            height: '44px',
+            height: height,
             px: 2,
-            bgcolor: 'grey.900',
-            borderRadius: isOpen ? '12px 12px 0 0' : '12px',
+            bgcolor: bgcolor,
+            borderRadius: isOpen ? '12px 12px 0 0' : borderRadius,
             cursor: disabled ? 'default' : 'pointer',
             opacity: disabled ? 0.6 : 1,
             typography: 'h5',
@@ -68,7 +74,7 @@ const SelectCustom = ({
             userSelect: 'none',
           }}
         >
-          <span>{value}</span>
+          <Typography variant='h8'>{value}</Typography>
           <Box
             component={IconComponent}
             sx={{
@@ -103,11 +109,11 @@ const SelectCustom = ({
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  height: '44px',
+                  height: heightOption,
                   px: 2,
                   bgcolor: option === value ? 'grey.800' : 'grey.900',
                   cursor: 'pointer',
-                  typography: 'h5',
+                  typography: 'h8',
                   color: 'white',
                   userSelect: 'none',
                   '&:hover': {

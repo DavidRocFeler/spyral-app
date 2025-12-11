@@ -2,8 +2,14 @@ import { Button, Typography } from '@mui/material'
 import { ComponentType } from 'react';
 import { FlexCenter } from './FlexCenter';
 
+export interface IFormatWordProps {
+    normalText: string;
+    boldText: string;
+    afterText?: string; // Para texto después de la palabra en negrita
+}
+
 export interface ITextButtonProps {
-    text: string;
+    text: string | IFormatWordProps; 
     color?: string;
     icon?: ComponentType;
     gap?: number;
@@ -11,7 +17,7 @@ export interface ITextButtonProps {
     iconPb?: number;
     flexDirection?: string,
     disabled?: boolean;
-
+    variant?: string; 
 }
 
 const TextButton = ({
@@ -22,8 +28,27 @@ gap = 0.5,
 iconPb = 0,
 flexDirection = 'row',
 onClick,
-disabled
+disabled,
+variant='h8' 
 }: ITextButtonProps) => {
+  
+  // Función para renderizar el texto según el tipo
+  const renderText = () => {
+    if (typeof text === 'string') {
+      return text;
+    }
+    
+    // Si es un objeto IFormatWordProps
+    const { normalText, boldText, afterText = '' } = text;
+    return (
+      <>
+        {normalText}
+        <span style={{ fontWeight: 800 }}>{boldText}</span>
+        {afterText}
+      </>
+    );
+  };
+
   return (
     <Button 
     disableElevation
@@ -46,18 +71,19 @@ disabled
         </FlexCenter>
         <Typography 
         onClick={disabled ? undefined : onClick}
-        variant='h8' 
         color={color}
         sx={{
+            typography: variant,
             textTransform: 'none',
             margin: 0,
             padding: 0,
-            display: 'inline-block',
+            display: 'inline', // Cambia a 'inline' para que funcione con span
             cursor: disabled ? 'not-allowed' : 'pointer',
             opacity: disabled ? 0.5 : 1,
         }}
+        component="span" // Importante: usa component="span"
         > 
-        {text} 
+        {renderText()}
         </Typography>
     </Button>
   )

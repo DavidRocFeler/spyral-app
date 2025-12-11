@@ -8,9 +8,10 @@ import { IFileItem } from '@/types/song';
 
 interface CardFileCollaborateProps {
   file: IFileItem;
+  iconSpan?: boolean; // Prop opcional
 }
 
-const CardFileCollaborate = ({ file }: CardFileCollaborateProps) => {
+const CardFileCollaborate = ({ file, iconSpan = true }: CardFileCollaborateProps) => {
   const FileIcon = file.fileIcon;
   
   return (
@@ -24,7 +25,7 @@ const CardFileCollaborate = ({ file }: CardFileCollaborateProps) => {
         height: '56px',
         width: '100%',
         p: 1.5,
-        pr: 1,
+        pr: iconSpan ? 1 : 1.5, // Ajusta el padding si no hay iconSpan
       }}
     >
       <Box sx={{ 
@@ -32,36 +33,38 @@ const CardFileCollaborate = ({ file }: CardFileCollaborateProps) => {
         alignItems: 'center', 
         gap: 2,
         overflow: 'hidden',
-        width: 'calc(100% - 40px)'
+        width: iconSpan ? 'calc(100% - 40px)' : '100%' // Ajusta el ancho
       }}>
-        {FileIcon && ( // ← AÑADE CONDICIONAL POR SI ES UNDEFINED
+        {FileIcon && (
           <FlexCenter borderRadius='12px' px={1.2} py={1} bgcolor='background.paper'>
             <FileIcon />
           </FlexCenter>
         )}
-        <Box display='flex' flexDirection='column' alignItems='flex-start' gap={1} sx={{ overflow: 'hidden' }}>
-          <Typography variant='h8' noWrap sx={{ maxWidth: '100%' }}>
-            {file.name} {/* ← VALOR POR DEFECTO */}
+        <Box display='flex' flexDirection='column' alignItems='flex-start' gap={1}>
+          <Typography variant='h8' sx={{ maxWidth: '100%' }}>
+            {file.name}
           </Typography>
-          <Box display='flex' alignItems='center' gap={1}>
+          <Box display='flex' alignItems='center' gap={0.3}>
             <Typography variant='h9' color='text.secondary'>
-              {file.size}
+              {file.type}
             </Typography>
             <Typography variant='h9' color='text.secondary'>
               •
             </Typography>
             <Typography variant='h9' color='text.secondary'>
-              {file.type}
+              {file.size}
             </Typography>
           </Box>
         </Box>
       </Box>
-      <FlexCenter>
-        <IconSpan
-          icon={ShareIconSvg}
-          bgcolor='transparent'
-        />
-      </FlexCenter>
+      {iconSpan && ( // ← CONDICIONAL PARA MOSTRAR/OCULTAR IconSpan
+        <FlexCenter>
+          <IconSpan
+            icon={ShareIconSvg}
+            bgcolor='transparent'
+          />
+        </FlexCenter>
+      )}
     </Box>
   );
 };

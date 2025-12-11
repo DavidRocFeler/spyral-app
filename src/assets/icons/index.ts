@@ -44,6 +44,7 @@ export { default as MenuPlayControlSvg} from './menu-play-control.svg';
 
 //menu player music icons
 export { default as FavoriteIconSvg} from './favorite.svg';
+export { default as ArrowLineUpSvg} from './arrow-line-up.svg';
 export { default as DownloadIconSvg} from './download.svg';
 export { default as AddPlayListSvg} from './add-playlist.svg';
 export { default as UserArtistIconSvg} from './user-artist.svg';
@@ -87,6 +88,8 @@ export { default as CollaborationBrandSvg} from './collaboration-brand.svg';
 export { default as SongIconBrandSvg} from './song-icon.svg';
 export { default as SmallPlusBrandSvg} from './small-plus-brand.svg';
 export { default as RegisterIconGoldSvg} from './register-icon-brand.svg';
+export { default as CheckIconBiggerBrandSvg} from './check-brand-icon.svg';
+export { default as DistributeIconBigBrandSvg} from './distribute-big-brand.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';
@@ -106,6 +109,17 @@ export { default as ArrowLineGreySvg} from './arrow-line-up-grey.svg';
 export { default as TrashGreyIconSvg} from './trash-grey.svg';
 export { default as LittleSpanSvg} from './little-menu-span.svg';
 export { default as IconDragSvg} from './drag-icon.svg';
+export { default as PorcentSvg} from './porcent.svg';
+export { default as HrsSvg} from './hrs.svg';
+export { default as MinsSvg} from './mins.svg';
+export { default as MsSvg} from './ms.svg';
+export { default as CalendarSvg} from './calendar.svg';
+
+// platforms icon 
+export { default as SpotifyIconSvg} from './spotify-icon.svg';
+export { default as AppleMusicSvg} from './apple-music-icon.svg';
+export { default as SoundCloudSvg} from './soundcloud.svg';
+export { default as YoutubeMusicSvg} from './youtube-music.svg';
 
 
 

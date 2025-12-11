@@ -3,14 +3,12 @@ import { ISongPlayerCardProps } from "@/types/song";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
-import IconSpan from "../ui/IconSpan";
-import { ArrowUpSvg, PauseIconSvg, PlayIconSvg, PlusSvg, RegisterIconBlackSvg } from "@/assets/icons";
-import SecondaryButton from "../ui/SecondaryButton";
-import PrimaryButton from "../ui/PrimaryButton";
-import CollaboratorTrack from "../songs/CollaboratorTrack";
-import AudioWaveform from "../songs/AudioWaveForm";
-import SelectCustom from "../ui/SelectCustom";
-import { FlexCenter } from "../ui/FlexCenter";
+import IconSpan from "../../ui/IconSpan";
+import SecondaryButton from "../../ui/SecondaryButton";
+import CollaboratorTrack from "../CollaboratorTrack";
+import SelectCustom from "../../ui/SelectCustom";
+import { FlexCenter } from "../../ui/FlexCenter";
+import TextButton, { IFormatWordProps } from "../../ui/TextButton";
 
 const PlayerModal = ({
     coverImage,
@@ -20,42 +18,34 @@ const PlayerModal = ({
     onMinimize
   }: ISongPlayerCardProps) => {
     const mockFileSelect = ['Third Mixdown', 'Second Mixdown', 'FirstMixdown'];
-    const [isPlaying, setIsPlaying] = useState(false);
     const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
+    const [isMinimized, setIsMinimized] = useState(false);
 
-
-    const handlePlayPause = () => {
-      setIsPlaying(!isPlaying);
-    };
-
-    const handleMinimizeClick = () => {
-      if (onMinimize) {
-        onMinimize();
-      }
+    const handleBumaClick = () => {
+      setIsMinimized(!isMinimized);
     };
   
     return (
       <Box
         position='relative'
         sx={{
-          bgcolor: 'background.default',
           borderRadius: '40px',
           p: 0,
           width: '100',
           mx: 'auto',
           display: 'flex',
-          alignItems: 'center',
-          gap: 3
+          alignItems:  isMinimized ? 'start' : 'center',
+          gap: 5
         }}
       >
         {/* Cover Image */}
         <Box
           sx={{
             position: 'relative',
-            width: 240,
-            height: 240,
+            width: isMinimized ? 120 : 240,
+            height: isMinimized ? 120 : 240,
             flexShrink: 0,
-            borderRadius: '24px',
+            borderRadius: isMinimized ? '12px' : '24px',
             overflow: 'hidden'
           }}
         >
@@ -71,22 +61,16 @@ const PlayerModal = ({
               height: '100%'
             }}
           />
-          {/* Edit button */}
-          <Box
-          position='absolute'
-          right={15}
-          bottom={15}
-          >
-            <IconSpan
-            bgcolor='grey.900'
-            />
-          </Box>
         </Box>
   
         {/* Content */}
         <Box 
         alignItems='flex-start'
-        sx={{ display: 'flex', flexDirection: 'column'}}>
+        sx={{
+          pt: isMinimized ? 0.5 : 3, 
+          display: 'flex', 
+          flexDirection: 'column'
+          }}>
           {/* Header */}
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', mb: 3.5 }}>
             <Box sx={{ flex: 1 }}>
@@ -121,7 +105,9 @@ const PlayerModal = ({
                 </Box>
               </Box>
   
-              <FlexCenter gap={1.5} mt={2}>
+              <FlexCenter
+              sx={{display: isMinimized ? 'none' : 'flex'}}
+              gap={1.5} mt={2}>
                  {/* Last update */}
               <Typography variant="h8">
                 Versiom Shared
@@ -138,10 +124,37 @@ const PlayerModal = ({
                     />
                 <Typography variant="h9" color="text.secondary"> shared by Jasper Lin • 11 Jan 2025, 14:30 </Typography>
               </FlexCenter>
+
+             <FlexCenter 
+             sx={{display: isMinimized ? 'none' : 'flex'}}
+             mt={3} gap={2}> 
+              <SecondaryButton
+                height="43px"
+                text="Register with BUMA"
+                width="fit-content"
+                bgcolor="grey.900"
+                onClick={handleBumaClick}
+                />
+                <SecondaryButton
+                height="43px"
+                text="Register with SENA"
+                width="fit-content"
+                bgcolor="grey.900"
+                />
+
+              <TextButton
+                color="text.primary"
+                variant="h9"
+                text={{
+                  normalText: "Can’t find your ",
+                  boldText: "PRO?",
+                }}
+              />
+             </FlexCenter>
             </Box>
           </Box>
         </Box>
-  
+
       </Box>
     );
   };  

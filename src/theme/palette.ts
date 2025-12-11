@@ -8,7 +8,7 @@ export const palette = {
     main: "#E2FC0B" // color brand
   },
   error: {
-    main: "#FFF",
+    main: "#FF1050",
     dark: '#FFF'
   },
   grey: {

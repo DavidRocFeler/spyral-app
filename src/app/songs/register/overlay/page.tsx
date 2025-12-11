@@ -1,23 +1,34 @@
-import PlayerModal from '@/components/register/PlayerModal'
-import React from 'react'
+'use client'
+import PlayerModal from '@/components/songs/register/PlayerModal'
+import { useState } from 'react'
 import JamesArthur from "@/assets/jamesArthurTrack.png"
 import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock'
 import ListButtonsTracking from '@/components/songs/ListButtonsTracking'
 import MinimizeDemo from '@/components/songs/MinimizeDemo'
 import { Box, Typography } from '@mui/material'
 import TitleIcon from '@/components/ui/TitleIcon'
-import { RegisterBrandIconSvg, RegisterIconGoldSvg } from '@/assets/icons'
-import { FlexCenter } from '@/components/ui/FlexCenter'
+import { RegisterIconGoldSvg } from '@/assets/icons'
+import Demo from '@/components/songs/Demo'
+import RegisterSong from '@/components/songs/register/RegisterSong'
+import ToastSucces from '@/components/ui/ToastSucces'
 
-const Register = ({ onExpamd }: { onExpamd: () => void }) => {
+const Register = () => {
+  const [isDemoMinimized, setIsDemoMinimized] = useState(false)
+
+  const handleToggleDemo = () => {
+    setIsDemoMinimized(!isDemoMinimized)
+  }
+
   return (
     <Box py={2} px={4}>
         <Box display="flex" gap={2} mb={1}>
             <ListButtonsTracking trackingStatus={3} />
         </Box>
-        <MinimizeDemo
-        onExpand={onExpamd}
-        />
+        {isDemoMinimized ? (
+          <Demo onMinimize={handleToggleDemo} />
+        ) : (
+          <MinimizeDemo onExpand={handleToggleDemo} />
+        )}
         <Box mt={5} mb={4}>
             <TitleIcon
             icon={RegisterIconGoldSvg}
@@ -30,13 +41,17 @@ const Register = ({ onExpamd }: { onExpamd: () => void }) => {
         </Box>
         <PlayerModal
         coverImage={JamesArthur}
-        artistName='Loren Ipsum'
-        songTitle='Titulo de musica'
+        artistName='Jame Arthur'
+        songTitle="say you won't let go"
         duration='4min'
         lastUpdate='10 marz'
         currentTime='5mn'
         collaborators={collaboratorsTrack}
         />
+        <Box mt={4}>
+          <RegisterSong/>
+        </Box>
+        <ToastSucces/>
     </Box>
   )
 }

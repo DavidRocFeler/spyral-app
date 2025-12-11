@@ -7,7 +7,10 @@ const SecondaryButton = ({
   icon,
   bgcolor = 'background.paper',
   height = '32px',
-  onClick 
+  onClick,
+  width,
+  justifyContent = 'center',
+  pl = 2
 }: ISecondaryButtonProps) => {
   const renderIcon = () => {
     if (!icon) return null;
@@ -29,9 +32,11 @@ const SecondaryButton = ({
         bgcolor: bgcolor,
         borderRadius: '50px',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: justifyContent,
         height: height,
+        width: width,
         px: 2,
+        pl: pl,
         gap: 1.5,
         alignItems: 'center',
         cursor: 'pointer',

@@ -8,6 +8,7 @@ const PrimaryButton = ({
     text = "Add",
     icon,
     height,
+    onClick
 }: IPrimaryButtonProps) => {
     const handleSubmit = () => {
         // Lógica para enviar

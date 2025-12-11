@@ -3,7 +3,8 @@ import { ComponentType, ReactElement } from 'react';
 export interface IPrimaryButtonProps {
   text?: string;
   icon?: ComponentType,
-  height?: string
+  height?: string,
+  onClick?: () => void;
 }
 
 export interface ISecondaryButtonProps {
@@ -20,6 +21,9 @@ export interface ISecondaryButtonProps {
   px?: number;
   bgcolor?: string;
   height?: string;
+  width?: string;
+  justifyContent?: string;
+  pl?: number;
 }
 
 export interface IButtonConfig {
@@ -79,6 +83,9 @@ export interface ISearchBarProps {
   height?: string;
   bgcolor?: string;
   borderRadius?: string;
+  flexDirection?: string;
+  value?: string; // Agrega esto
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void; 
 }
 
 export interface CustomTextFieldProps {

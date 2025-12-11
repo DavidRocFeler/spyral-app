@@ -1,3 +1,5 @@
+import { ComponentType } from "react";
+
 export interface ITrackingProps {
     trackingStatus?: number; // 1-5
   }
@@ -55,6 +57,7 @@ export interface ISongPlayerCardProps {
     size?: string;
     type?: string;
     fileIcon?: ComponentType;
+    iconSpan?: boolean;
   }
 
   export interface ICollaboratorSongHistory {
@@ -77,3 +80,36 @@ export interface ISongPlayerCardProps {
     cardCommentsData: ICardCommentsProps[];
     taskTableData: ITaskTableProps[]
   }
+
+  export interface IFormData {
+    title: string;
+    composerYes: boolean;
+    lyricistYes: boolean;
+    lyricistPercent?: number;
+    composerPercent?: number;
+    musicLyricsYes: boolean;
+    genreOfWork: string;
+    categories: string[];
+    durationHrs?: number;
+    durationMins?: number;
+    durationSec?: number;
+    alternativeTitle: string;
+    audioFile: string;
+    performingArtist: string;
+  }
+
+  export interface ICardPerformingArtist {
+    text: string;
+    bgcolor?: string;
+    onClick?: () => void;
+    image?: StaticImageData;
+    alt?: string;
+  }
+
+  export interface ICardPlataformProps {
+    text: string;
+    bgcolor?: string;
+    onClick?: () => void;
+    icon?: ComponentType;
+  }
+  

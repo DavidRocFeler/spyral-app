@@ -20,6 +20,7 @@ export interface ISongPlayerCardProps {
     currentTime: string;
     onMinimize?: () => void;
     onExpand?: () => void;
+    trackingStatus?: string;
   }
 
   export interface IVersion {
@@ -111,5 +112,19 @@ export interface ISongPlayerCardProps {
     bgcolor?: string;
     onClick?: () => void;
     icon?: ComponentType;
+    px?: number;
   }
   
+export interface ICountryStatistic {
+  country: string;
+  value: number;
+}
+
+export interface ITabConfig {
+  label: string;
+  href: string;
+}
+
+export interface ISongNavigationTabsProps {
+  tabs?: TabConfig[];
+}

@@ -1,6 +1,6 @@
 'use client'
 import PlayerModal from '@/components/songs/register/PlayerModal'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import JamesArthur from "@/assets/jamesArthurTrack.png"
 import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock'
 import ListButtonsTracking from '@/components/songs/ListButtonsTracking'
@@ -14,6 +14,19 @@ import ToastSucces from '@/components/ui/ToastSucces'
 
 const Register = () => {
   const [isDemoMinimized, setIsDemoMinimized] = useState(false)
+  const [buttonNone, setButtonNone] = useState<string>('')
+    
+  // Si ListButtonsTracking solo acepta un número como prop trackingStatus
+  // y no tiene onStatusChange, entonces:
+  const currentTrackingStatus = 4
+
+  useEffect(() => {
+    if (currentTrackingStatus >= 4) {
+        setButtonNone('none')
+    } else {
+        setButtonNone('')
+    }
+}, [currentTrackingStatus]) 
 
   const handleToggleDemo = () => {
     setIsDemoMinimized(!isDemoMinimized)
@@ -22,12 +35,14 @@ const Register = () => {
   return (
     <Box py={2} px={4}>
         <Box display="flex" gap={2} mb={1}>
-            <ListButtonsTracking trackingStatus={3} />
+            <ListButtonsTracking trackingStatus={currentTrackingStatus} />
         </Box>
         {isDemoMinimized ? (
           <Demo onMinimize={handleToggleDemo} />
         ) : (
-          <MinimizeDemo onExpand={handleToggleDemo} />
+          <MinimizeDemo onExpand={handleToggleDemo} 
+          trackingStatus={buttonNone}
+          />
         )}
         <Box mt={5} mb={4}>
             <TitleIcon

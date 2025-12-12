@@ -14,7 +14,8 @@ const SecondaryButtonGrey = ({
   color='text.secondary',
   px = 2,
   bgcolor = 'grey.900',
-  onClick
+  onClick,
+  mr
 }: ISecondaryButtonProps) => {
    const renderIcon = () => {
     if (!icon) return null;
@@ -46,6 +47,7 @@ const SecondaryButtonGrey = ({
       }}
     >
       <Typography
+        mr={mr}
         variant='h8'
         sx={{
           color: color

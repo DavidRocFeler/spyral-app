@@ -12,7 +12,7 @@ export const TitleIcon = ({icon, text}: ITitleIconProps) => {
     const IconSvg = icon
   return (
     <>
-        <FlexCenter mb={2} gap={2}>
+        <FlexCenter gap={2}>
             <IconSvg/>
             <Typography pb={0.15} variant='h2' > {text} </Typography>
         </FlexCenter>

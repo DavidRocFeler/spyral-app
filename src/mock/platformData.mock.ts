@@ -19,3 +19,14 @@ export const platforms: ICardPlataformProps[] = [
         icon: YoutubeMusicSvg,
     },
   ];
+
+  export const platformsTwo: ICardPlataformProps[] = [
+    {
+      text: 'Spotify',
+      icon: SpotifyIconSvg
+    },
+    {
+        text: 'YouTube Music',
+        icon: YoutubeMusicSvg,
+    },
+  ];

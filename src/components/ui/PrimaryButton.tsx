@@ -8,7 +8,8 @@ const PrimaryButton = ({
     text = "Add",
     icon,
     height,
-    onClick
+    onClick,
+    trackingStatus
 }: IPrimaryButtonProps) => {
     const handleSubmit = () => {
         // Lógica para enviar
@@ -22,6 +23,7 @@ const PrimaryButton = ({
             variant="primaryButton"
             onClick={handleSubmit}
             sx={{
+              display: trackingStatus,
               height: height
             }}
           >

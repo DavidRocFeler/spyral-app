@@ -73,7 +73,7 @@ const CardShareProgress: React.FC<CardShareProgressProps> = ({ open, onClose }) 
 
         <DialogContent
         sx={{
-          overflowY: 'hidden'
+          overflowY: 'auto'
         }}
         >
           <Box mb={1}>
@@ -133,6 +133,7 @@ const CardShareProgress: React.FC<CardShareProgressProps> = ({ open, onClose }) 
                 width='60%'
                 borderRadius='12px'
                 justifyContent='none'
+                mr='auto'
                 />
               </Box>
             </RadioGroup>

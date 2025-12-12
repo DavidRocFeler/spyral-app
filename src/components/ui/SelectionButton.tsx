@@ -7,6 +7,8 @@ interface ISelectionButtonProps {
   isSelected?: boolean;
   height?: string;
   minWidth?: string;
+  color?: string;
+  px?: number;
 }
 
 const SelectionButton = ({ 
@@ -15,7 +17,9 @@ const SelectionButton = ({
   onClick,
   isSelected = false,
   height= '32px',
-  minWidth= '0px'
+  minWidth= '0px',
+  color,
+  px = 1.5
 }: ISelectionButtonProps) => {
   
   return (
@@ -29,7 +33,7 @@ const SelectionButton = ({
         height: height,
         width: 'fit-content',
         minWidth: minWidth,
-        px: 1.5,
+        px: px,
         alignItems: 'center',
         cursor: 'pointer',
         border: isSelected ? '1px solid' : 'none',
@@ -42,7 +46,7 @@ const SelectionButton = ({
       <Typography
         variant='h8'
         sx={{
-          color: isSelected ? 'secondary.main' : 'inherit',
+          color: color || (isSelected && 'secondary.main') || 'inherit',
         }}
       >
         {text}

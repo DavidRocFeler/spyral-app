@@ -5,6 +5,7 @@ export interface IPrimaryButtonProps {
   icon?: ComponentType,
   height?: string,
   onClick?: () => void;
+  trackingStatus?: string;
 }
 
 export interface ISecondaryButtonProps {
@@ -24,6 +25,7 @@ export interface ISecondaryButtonProps {
   width?: string;
   justifyContent?: string;
   pl?: number;
+  mr?: string;
 }
 
 export interface IButtonConfig {

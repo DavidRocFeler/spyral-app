@@ -19,6 +19,7 @@ const MinimizeSongPlayer = ({
     currentTime = '0:00',
     collaborators = [],
     onExpand,
+    trackingStatus
   }: ISongPlayerCardProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
   
@@ -131,6 +132,7 @@ const MinimizeSongPlayer = ({
                     text='Register'
                     height='44px'
                     icon={RegisterIconBlackSvg}
+                    trackingStatus={trackingStatus}
                     />
                 </Box>
 

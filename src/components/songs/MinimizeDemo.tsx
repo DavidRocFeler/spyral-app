@@ -4,8 +4,16 @@ import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock';
 import SongPlayerCard from './SongPlayerCard';
 import MinimizeSongPlayer from './MinimizeSongPlayer';
 
+export interface IDemoProps {
+  onExpand?: () => void;
+  trackingStatus?: string;
+}
+
 // Demo component
-const MinimizeDemo = ({ onExpand }: { onExpand: () => void }) => {
+const MinimizeDemo = ({
+  onExpand,
+  trackingStatus
+}: IDemoProps) => {
   return (
     <Box 
     width='100%'
@@ -20,6 +28,7 @@ const MinimizeDemo = ({ onExpand }: { onExpand: () => void }) => {
         duration="4:15"
         currentTime="0:00"
         onExpand={onExpand}
+        trackingStatus={trackingStatus}
       />
     </Box>
   );

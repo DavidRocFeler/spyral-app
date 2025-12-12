@@ -7,7 +7,8 @@ const CardPlatformSelection = ({
   text, 
   bgcolor = 'background.paper',
   onClick,
-  icon
+  icon,
+  px = 2
 }: ICardPlataformProps) => {
   const IconSvg = icon || null;
   const [isSelected, setIsSelected] = useState(false);
@@ -27,7 +28,7 @@ const CardPlatformSelection = ({
         justifyContent: 'center',
         height: '44px',
         width: 'fit-content',
-        px: 2,
+        px: px,
         gap: icon ? 1.2 : 0,
         alignItems: 'center',
         cursor: 'pointer',

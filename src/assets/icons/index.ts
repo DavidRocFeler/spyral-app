@@ -70,7 +70,7 @@ export { default as ArrowRightWhiteSvg} from './arrow-right-white.svg';
 export { default as EyeIconSvg} from './eye.svg';
 export { default as MoneyIconSvg} from './money-icon.svg';
 
-// icons-brand 
+// icons-brand-secondary.main
 export { default as SharedBrandSvg} from './share-brand.svg';
 export { default as HeadPhoneBrandSvg} from './headphone-brand.svg';
 export { default as DownloadBrandSvg} from './download-brand.svg';
@@ -90,6 +90,9 @@ export { default as SmallPlusBrandSvg} from './small-plus-brand.svg';
 export { default as RegisterIconGoldSvg} from './register-icon-brand.svg';
 export { default as CheckIconBiggerBrandSvg} from './check-brand-icon.svg';
 export { default as DistributeIconBigBrandSvg} from './distribute-big-brand.svg';
+export { default as RevenueIconBigSvg} from './revenue-brand.svg';
+export { default as ArrowDiagonalSvg} from './arrow-diagonal.svg';
+export { default as IndicatorChartSvg} from './indicator-chart.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';
@@ -120,6 +123,7 @@ export { default as SpotifyIconSvg} from './spotify-icon.svg';
 export { default as AppleMusicSvg} from './apple-music-icon.svg';
 export { default as SoundCloudSvg} from './soundcloud.svg';
 export { default as YoutubeMusicSvg} from './youtube-music.svg';
+
 
 
 

@@ -1,7 +1,5 @@
-import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import CardArrayProgress from './CardArrayProgress';
-import { ArrowRightSvg } from '@/assets/icons';
 import { workInProgressList } from '@/mock/workInProgresList';
 import ViewAll from '@/components/ui/ViewAll';
 

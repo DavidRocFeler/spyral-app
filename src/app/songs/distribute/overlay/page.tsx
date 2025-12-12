@@ -11,14 +11,14 @@ import React, { useEffect, useState } from 'react'
 import FormDistribute from '@/components/songs/distribute/FormDistribute'
 import ModalDistribute from '@/components/songs/distribute/ModalDistribute'
 
-const Distribute = () => {
+const DistributeOverlay = () => {
     const [isDemoMinimized, setIsDemoMinimized] = useState(false)
     const [buttonNone, setButtonNone] = useState<string>('')
     
     // Si ListButtonsTracking solo acepta un número como prop trackingStatus
     // y no tiene onStatusChange, entonces:
     const currentTrackingStatus = 4
-  
+
     useEffect(() => {
       if (currentTrackingStatus >= 4) {
           setButtonNone('none')
@@ -51,8 +51,9 @@ const Distribute = () => {
             /> 
         </Box>
         <FormDistribute/>
+        <ModalDistribute/>
     </Box>
   )
 }
 
-export default Distribute
+export default DistributeOverlay

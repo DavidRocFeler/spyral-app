@@ -7,13 +7,17 @@ export interface IIconSpanProps {
     icon?: ComponentType;
     borderRadius?: string;
     onClick?: () => void;
+    height?: string;
+    width?: string;
 }
 
 const IconSpan = ({
     bgcolor = 'background.paper',
     icon = EditeIconSvg,
     borderRadius = '50%',
-    onClick
+    onClick,
+    width = '32px',
+    height = '32px'
 }: IIconSpanProps) => {
   const IconSvg = icon
   return (
@@ -21,10 +25,10 @@ const IconSpan = ({
       onClick={onClick}
       disableRipple
       sx={{
+        all: 'unset',
         bgcolor: bgcolor,
-        width: '32px',
-        height: '32px',
-        minWidth: '32px',
+        width: width,
+        height: height,
         padding: 0,
         display: 'flex',
         alignItems: 'center',

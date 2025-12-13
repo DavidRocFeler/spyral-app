@@ -3,19 +3,17 @@ import { ISongPlayerCardProps } from "@/types/song";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
-import IconSpan from "../../ui/IconSpan";
-import SecondaryButton from "../../ui/SecondaryButton";
-import CollaboratorTrack from "../CollaboratorTrack";
-import SelectCustom from "../../ui/SelectCustom";
-import { FlexCenter } from "../../ui/FlexCenter";
-import TextButton, { IFormatWordProps } from "../../ui/TextButton";
+import SecondaryButton from "@/components/ui/SecondaryButton";
+import CollaboratorTrack from "@/components/songs/CollaboratorTrack";
+import SelectCustom from "@/components/ui/SelectCustom";
+import { FlexCenter } from "@/components/ui/FlexCenter";
+import TextButton from "@/components/ui/TextButton";
 
 const PlayerModal = ({
     coverImage,
     artistName,
     songTitle,
     collaborators = [],
-    onMinimize
   }: ISongPlayerCardProps) => {
     const mockFileSelect = ['Third Mixdown', 'Second Mixdown', 'FirstMixdown'];
     const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);

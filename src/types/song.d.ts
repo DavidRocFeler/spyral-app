@@ -128,3 +128,23 @@ export interface ITabConfig {
 export interface ISongNavigationTabsProps {
   tabs?: TabConfig[];
 }
+
+export interface ICardMetaMainProps {
+  tracklistOpen: boolean;
+  mainData?: IMainData;
+  initiallyOpen?: boolean
+}
+
+export interface IMainData {
+  title: string;
+  alternativeTitle: string;
+  artistId: string;
+  releaseVersion: string;
+  labels: string[];
+}
+
+export interface ICardMetaListProps {
+  title: string;
+  placeholder: string;
+  addElse: string;
+}

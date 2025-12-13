@@ -1,21 +1,19 @@
 'use client'
-import { Box, FormControlLabel, IconButton, Radio, Typography, RadioGroup,  } from '@mui/material'
+import { Box, FormControlLabel, Radio, Typography, RadioGroup,  } from '@mui/material'
 import { useState } from 'react'
-import CustomTextField from '../../ui/CustomTextField'
-import { FlexCenter } from '../../ui/FlexCenter'
-import IconSpan from '../../ui/IconSpan'
 import { ArrowDownSvg, HrsSvg, MinsSvg, MsSvg, PlusSvg, PorcentSvg } from '@/assets/icons'
-import { FlexColumn } from '../../ui/FlexColumn'
-import CardFileCollaborate from '../Collaborate/CardFileCollaborate'
-import IconInput from '../../ui/IconInput'
 import { mockCollaborateRegister } from '@/mock/collaborateFilesItem.mock'
-import SelectCustom from '../../ui/SelectCustom'
 import { ICardPerformingArtist, IFormData } from '@/types/song'
-import SelectionButton from '../../ui/SelectionButton'
-import UserArtist1 from "@/assets/UserAva.png"
-import UserArtist2 from "@/assets/UserLian.png"
-import CardPerformingArtist from '../../ui/CardPerformingArtist'
 import { performingArtists } from '@/mock/performingArtis.mock'
+import CustomTextField from '@/components/ui/CustomTextField'
+import { FlexCenter } from '@/components/ui/FlexCenter'
+import IconSpan from '@/components/ui/IconSpan'
+import IconInput from '@/components/ui/IconInput'
+import SelectCustom from '@/components/ui/SelectCustom'
+import SelectionButton from '@/components/ui/SelectionButton'
+import CardFileCollaborate from '@/components/songs/Collaborate/CardFileCollaborate'
+import { FlexColumn } from '@/components/ui/FlexColumn'
+import CardPerformingArtist from '@/components/ui/CardPerformingArtist'
 
 
 const mockButtonsSelection = ['Evergreen Hits', 'Legendary Tracks', 'Enduring Classics'];

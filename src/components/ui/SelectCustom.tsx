@@ -14,7 +14,9 @@ interface ISelectCustomProps {
   height?: string;
   heightOption?: string;
   borderRadius?: string;
-  bgcolor?: string,
+  bgcolor?: string;
+  width?: string;
+  variant?: string;
 }
 
 const SelectCustom = ({
@@ -27,7 +29,9 @@ const SelectCustom = ({
   height= '44px',
   heightOption= '44px',
   borderRadius='12px',
-  bgcolor= 'grey.900'
+  bgcolor= 'grey.900',
+  width,
+  variant = 'h8'
 }: ISelectCustomProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -60,6 +64,7 @@ const SelectCustom = ({
           ref={selectRef}
           onClick={handleToggle}
           sx={{
+            width: width,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -69,12 +74,13 @@ const SelectCustom = ({
             borderRadius: isOpen ? '12px 12px 0 0' : borderRadius,
             cursor: disabled ? 'default' : 'pointer',
             opacity: disabled ? 0.6 : 1,
-            typography: 'h5',
             color: 'white',
             userSelect: 'none',
           }}
         >
-          <Typography variant='h8'>{value}</Typography>
+          <Typography sx={{
+            typography: variant
+          }}>{value}</Typography>
           <Box
             component={IconComponent}
             sx={{
@@ -111,13 +117,13 @@ const SelectCustom = ({
                   alignItems: 'center',
                   height: heightOption,
                   px: 2,
-                  bgcolor: option === value ? 'grey.800' : 'grey.900',
+                  bgcolor: option === value ? bgcolor : 'grey.900',
                   cursor: 'pointer',
                   typography: 'h8',
                   color: 'white',
                   userSelect: 'none',
                   '&:hover': {
-                    bgcolor: option === value ? 'grey.700' : 'grey.800',
+                    bgcolor: option === value ? 'grey.800' : 'grey.800',
                   },
                   '&:last-child': {
                     borderRadius: '0 0 12px 12px',

@@ -124,6 +124,10 @@ export { default as AppleMusicSvg} from './apple-music-icon.svg';
 export { default as SoundCloudSvg} from './soundcloud.svg';
 export { default as YoutubeMusicSvg} from './youtube-music.svg';
 
+// workinprogress icon 
+export { default as EditeSmallIconSvg } from './edit-icon-small.svg'
+export { default as TranslateIconSvg } from './translate-icon.svg'
+
 
 
 

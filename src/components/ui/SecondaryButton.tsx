@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { ReactElement, ComponentType, isValidElement } from 'react';
+import { ComponentType, isValidElement } from 'react';
 import { ISecondaryButtonProps } from '@/types/ui';
 
 const SecondaryButton = ({ 
@@ -10,7 +10,9 @@ const SecondaryButton = ({
   onClick,
   width,
   justifyContent = 'center',
-  pl = 2
+  pl = 2,
+  borderRadius = '50px',
+  varitant = 'h8'
 }: ISecondaryButtonProps) => {
   const renderIcon = () => {
     if (!icon) return null;
@@ -30,7 +32,7 @@ const SecondaryButton = ({
       onClick={onClick}
       sx={{
         bgcolor: bgcolor,
-        borderRadius: '50px',
+        borderRadius: borderRadius,
         display: 'flex',
         justifyContent: justifyContent,
         height: height,
@@ -46,11 +48,9 @@ const SecondaryButton = ({
       }}
     >
       <Typography
-        variant='body2' // Nota: 'h8' no existe en MUI
-        sx={{
-          fontWeight: 500,
-          fontSize: '0.875rem',
-        }}
+      sx={{
+        typography: varitant
+      }}
       >
         {text}
       </Typography>

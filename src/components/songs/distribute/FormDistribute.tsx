@@ -1,15 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { Box, Typography, TextField } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import SelectionButton from '@/components/ui/SelectionButton';
 import PrimaryButton from '@/components/ui/PrimaryButton';
-import { ArrowLineUpSvg, ArrowRightSvg } from '@/assets/icons';
-import CustomTextField from '@/components/ui/CustomTextField';
+import { ArrowLineUpSvg } from '@/assets/icons';
 import InputCalendar from '@/components/ui/InputCalendar';
 import { FlexColumn } from '@/components/ui/FlexColumn';
-import CardPerformingArtist from '@/components/ui/CardPerformingArtist';
 import { platforms } from '@/mock/platformData.mock';
 import CardPlatformSelection from '@/components/ui/CardPlatformsSelection';
 

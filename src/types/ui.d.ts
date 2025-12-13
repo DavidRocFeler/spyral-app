@@ -26,6 +26,8 @@ export interface ISecondaryButtonProps {
   justifyContent?: string;
   pl?: number;
   mr?: string;
+  borderRadius?: string;
+  varitant?: string;
 }
 
 export interface IButtonConfig {

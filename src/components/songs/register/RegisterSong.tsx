@@ -15,18 +15,24 @@ const RegisterSong = () => {
       display: 'flex', 
       pt: 0,
       borderTop: 'solid 1px',
-      borderColor: 'grey.900'
+      borderColor: 'grey.900',
+      position: 'relative'
     }}>
       {/* Sidebar izquierdo */}
+      <Box height='100%'
+      position='absolute'
+      >
       <SlideBarMenuLeft
       menuItems={menuItemsRegister}
       />
+      </Box>
 
       {/* Formulario principal */}
       <Box sx={{ 
-        flex: 1, 
         pt: 3,
-        px: 3,
+        pl: 3,
+        width: '81%',
+        ml: 'auto'
       }}>
         <FormRegisterSong/>
       </Box>

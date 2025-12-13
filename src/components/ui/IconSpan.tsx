@@ -34,6 +34,7 @@ const IconSpan = ({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: borderRadius, 
+        cursor: 'pointer'
       }}
     >
       <IconSvg/>

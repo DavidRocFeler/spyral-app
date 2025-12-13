@@ -18,12 +18,13 @@ const SlideBarMenuLeft = ({
     <Box sx={{ 
       width: '200px', 
       display: 'flex',
+      height: '100%',
       flexDirection: 'column',
       alignItems: 'center',
       pt: 3,
       px: 0,
       borderRight: '1px solid',
-      borderColor: 'grey.900'
+      borderColor: 'grey.900',
     }}>
       {menuItems.map((item, index) => (
         <Box key={index} sx={{ mb: 1 }}>

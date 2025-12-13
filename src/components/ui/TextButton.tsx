@@ -5,11 +5,11 @@ import { FlexCenter } from './FlexCenter';
 export interface IFormatWordProps {
     normalText: string;
     boldText: string;
-    afterText?: string; // Para texto después de la palabra en negrita
+    afterText?: string; 
 }
 
 export interface ITextButtonProps {
-    text: string | IFormatWordProps; 
+    text: string | IFormatWordProps ; 
     color?: string;
     icon?: ComponentType;
     gap?: number;
@@ -18,6 +18,10 @@ export interface ITextButtonProps {
     flexDirection?: string,
     disabled?: boolean;
     variant?: string; 
+    unset?: string;
+    bgcolor?: string;
+    height?: string;
+    borderRadius?: string;
 }
 
 const TextButton = ({
@@ -29,7 +33,11 @@ iconPb = 0,
 flexDirection = 'row',
 onClick,
 disabled,
-variant='h8' 
+variant='h8',
+unset= 'unset',
+bgcolor= 'transparent',
+height = '',
+borderRadius = ''
 }: ITextButtonProps) => {
   
   // Función para renderizar el texto según el tipo
@@ -54,13 +62,16 @@ variant='h8'
     disableElevation
     disableRipple
     sx={{
-        all: 'unset',
+        all: unset,
+        height: height,
         display:'flex', 
+        bgcolor: bgcolor,
         flexDirection: flexDirection,
         alignItems:'center',
         justifyItems:'center',
         gap: gap,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        borderRadius: borderRadius
     }}>
         <FlexCenter 
         sx={{

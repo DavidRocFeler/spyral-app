@@ -9,6 +9,10 @@ export interface IIconSpanProps {
     onClick?: () => void;
     height?: string;
     width?: string;
+    borderBottomLeftRadius?: string;
+    borderBottomRightRadius?: string;
+    borderTopLeftRadius?: string;
+    borderTopRightRadius?: string;
 }
 
 const IconSpan = ({
@@ -17,7 +21,11 @@ const IconSpan = ({
     borderRadius = '50%',
     onClick,
     width = '32px',
-    height = '32px'
+    height = '32px',
+    borderBottomLeftRadius,
+    borderBottomRightRadius,
+    borderTopLeftRadius,
+    borderTopRightRadius
 }: IIconSpanProps) => {
   const IconSvg = icon
   return (
@@ -34,6 +42,10 @@ const IconSpan = ({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: borderRadius, 
+        borderBottomLeftRadius: borderBottomLeftRadius,
+        borderBottomRightRadius: borderBottomRightRadius,
+        borderTopLeftRadius: borderTopLeftRadius,
+        borderTopRightRadius: borderTopRightRadius,
         cursor: 'pointer'
       }}
     >

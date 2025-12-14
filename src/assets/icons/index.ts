@@ -128,6 +128,16 @@ export { default as YoutubeMusicSvg} from './youtube-music.svg';
 export { default as EditeSmallIconSvg } from './edit-icon-small.svg'
 export { default as TranslateIconSvg } from './translate-icon.svg'
 
+// folder icon 
+export { default as SpeciaFolderIconSvg } from './folder-icon.svg'
+export { default as ChangeIconSvg } from './change.svg'
+export { default as FolderBlurSvg } from './folder-blur.svg'
+
+// catalogue icon 
+export { default as SquareIconList } from './square-list-icon.svg'
+export { default as ListViewIconSvg } from './list-view-icon.svg'
+
+
 
 
 

@@ -99,7 +99,7 @@ const MusicPlayer = () => {
         bgcolor: 'background.default',
         borderTop: 1,
         borderColor: 'grey.900',
-        zIndex: 4,
+        zIndex: 5,
         py: 1.5
       }}
     >
@@ -307,10 +307,12 @@ const MusicPlayer = () => {
       </Box>
 
       {/* Card Menu Player Music */}
-      <CardMenuPlayerMusic 
-        open={Boolean(anchorEl)} 
-        anchorEl={anchorEl} 
-        onClose={handleMenuClose} 
+      <CardMenuPlayerMusic
+        menuPlayer={{
+            open: Boolean(anchorEl),
+            anchorEl: anchorEl,
+            onClose: handleMenuClose
+        }}
       />
     </Box>
   );

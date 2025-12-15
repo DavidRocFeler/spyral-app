@@ -1,12 +1,12 @@
 import { EditeIconSvg } from "@/assets/icons"
 import { Button } from "@mui/material"
-import { ComponentType } from "react";
+import { ComponentType, MouseEventHandler } from "react";
 
 export interface IIconSpanProps {
     bgcolor?: string;
     icon?: ComponentType;
     borderRadius?: string;
-    onClick?: () => void;
+    onClick?:  MouseEventHandler<HTMLButtonElement>; 
     height?: string;
     width?: string;
     borderBottomLeftRadius?: string;

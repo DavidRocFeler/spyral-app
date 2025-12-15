@@ -1,11 +1,10 @@
 import SongNavigationTabs from "@/components/songs/published/SongNavigationTabs"
-import CardHistory from "@/components/songs/workinprogress/CardHisyory"
-import FolderComponent from "@/components/songs/workinprogress/catalogue/Folder"
+import FolderComponent from "@/components/ui/Folder"
 import { FlexCenter } from "@/components/ui/FlexCenter"
 import { FlexColumn } from "@/components/ui/FlexColumn"
-import { historyCommentsMock } from "@/mock/cardHistory.mock"
+import { foldersData, foldersSongsCatalogue } from "@/mock/cardFolderCatalogue.mock"
 import { tabsWorkInProgress } from "@/mock/tabsSong.mock"
-import { Box, Typography } from "@mui/material"
+import { Box, Grid, Typography } from "@mui/material"
 
 const Catalogue = () => {
   return (
@@ -22,25 +21,38 @@ const Catalogue = () => {
                 />
             </Box>
 
-            <FlexColumn px={4} pt={4} sx={{
+            <FlexColumn mb={3} px={4} mt={4} sx={{
               alignItems: 'flex-start'
             }}>
               <Typography 
-              mb={3.5}
               variant="h3"> This track is part of </Typography>
-              <FlexCenter
-              gap={3}
-              >
-                <FolderComponent
-                tracks="8 tracks"
-                title="Echoes of the Twilight"
-                />
-                <FolderComponent
-                tracks="12 tracks"
-                title='Summer vibes'
-                />
-              </FlexCenter>
             </FlexColumn>
+            <Box 
+                sx={{
+                width: '100%',
+                px: 4,
+                display: 'grid',
+                gridTemplateColumns: {
+                  xs: '1fr',                    // 1 colum in móvil
+                  sm: 'repeat(2, 1fr)',         // 2 colum in tablet pequeña
+                  md: 'repeat(3, 1fr)',         // 3 colum in tablet mediana
+                  lg: 'repeat(4, 1fr)',         // 4 colum in desktop
+                  xl: 'repeat(4, 1fr)'          // 4 colum in desktop grande
+                },
+                gap: 2,
+                mt: 2
+              }}
+            >
+              {foldersSongsCatalogue.map((folder) => (
+                <Box key={folder.id}>
+                  <FolderComponent
+                    title={folder.title}
+                    tracks={folder.tracks}
+                    changeButton
+                  />
+                </Box>
+              ))}
+            </Box>
         </Box>
     </Box>
   )

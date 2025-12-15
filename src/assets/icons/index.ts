@@ -110,6 +110,7 @@ export { default as RegisterIconBlackSvg} from './register-little-black.svg';
 export { default as PauseIconSvg} from './pause-icon.svg';
 export { default as ArrowLineGreySvg} from './arrow-line-up-grey.svg';
 export { default as TrashGreyIconSvg} from './trash-grey.svg';
+export { default as TrashWhiteIconSvg} from './trash-white.svg';
 export { default as LittleSpanSvg} from './little-menu-span.svg';
 export { default as IconDragSvg} from './drag-icon.svg';
 export { default as PorcentSvg} from './porcent.svg';
@@ -136,6 +137,8 @@ export { default as FolderBlurSvg } from './folder-blur.svg'
 // catalogue icon 
 export { default as SquareIconList } from './square-list-icon.svg'
 export { default as ListViewIconSvg } from './list-view-icon.svg'
+export { default as ClipDefintionSvg } from './clipath-definition.svg'
+
 
 
 

@@ -1,13 +1,19 @@
 // components/Header/Header.tsx
-import { Box, InputBase, Avatar, Typography } from '@mui/material';
+'use client'; // <--- 1. IMPORTANTE: Agrega esto al inicio
+import { Box, Typography } from '@mui/material';
 import { SearchIconSvg, BellIconSvg, SettingIconSvg } from '@/assets/icons';
 import Image from 'next/image';
 import { headerData } from '@/mock/header.mock';
 import { IHeaderProps } from '@/types/header';
 import SearchBar from './ui/SearchBar';
+import { useHeaderStore } from '@/store/useHeaderStore'; 
 
-const Header = () => {
-  // Como headerData es un objeto, lo usamos directamente
+
+const Header = () => { 
+  
+  // 4. Obtén los datos desde Zustand
+  const { titleHeader, borderColor } = useHeaderStore();
+  
   const profileData: IHeaderProps = headerData;
 
   return (
@@ -16,7 +22,7 @@ const Header = () => {
         height: '90px',
         bgcolor: 'primary.main',
         borderBottom: '1px solid',
-        borderColor: 'grey.900',
+        borderColor: borderColor, // Usa la variable del store
         display: 'flex',
         alignItems: 'end',
         px: 4,
@@ -29,7 +35,7 @@ const Header = () => {
         pb={0.5}
         variant='h2'
         >
-          Home
+          {titleHeader} {/* Usa la variable del store */}
         </Typography>
       </Box>
 

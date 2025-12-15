@@ -1,22 +1,24 @@
 'use client'
 import { ListViewIconSvg, PlusBlackSvg, PlusSvg, SquareIconList } from '@/assets/icons'
-import FolderComponent from '@/components/songs/workinprogress/catalogue/Folder'
+import FolderComponent from '@/components/ui/Folder'
 import { FlexCenter } from '@/components/ui/FlexCenter'
 import IconSpan from '@/components/ui/IconSpan'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import SearchBarDropDown from '@/components/ui/SearchBarDropDown'
 import SecondaryButton from '@/components/ui/SecondaryButton'
+import { foldersData } from '@/mock/cardFolderCatalogue.mock'
 import { Box, Grid } from '@mui/material'
 
 const Catalogue = () => {
   return (
-    <Box>
+    <Box pb={2}>
         <FlexCenter sx={{
             width: '100%',
-            px: 4
+            px: 4,
+            mb: 2
         }}>
             <SearchBarDropDown/>
-            <FlexCenter mb={2} ml='auto' gap={2.5}>
+            <FlexCenter ml='auto' gap={2.5}>
                 <PrimaryButton
                     text='Add new'
                     icon={PlusBlackSvg}
@@ -43,79 +45,33 @@ const Catalogue = () => {
                </FlexCenter>
             </FlexCenter>
         </FlexCenter>
-        <Grid 
-  container 
-  spacing={2}
-  bgcolor='red'
->
-  {/* Primera fila - 4 columnas */}
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
   
-  {/* Segunda fila - 4 columnas */}
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-  <Grid size={3} sx={{ minWidth: 0 }}>
-    <Box sx={{ width: '100%' }}>
-      <FolderComponent
-        title='Echoes of the Twilight'
-        tracks='8 tracks'
-      />
-    </Box>
-  </Grid>
-</Grid>
+        <Box 
+          sx={{
+            width: '100%',
+            px: 4,
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',                    // 1 columna en móvil
+              sm: 'repeat(2, 1fr)',         // 2 columnas en tablet pequeña
+              md: 'repeat(3, 1fr)',         // 3 columnas en tablet mediana
+              lg: 'repeat(4, 1fr)',         // 4 columnas en desktop
+              xl: 'repeat(4, 1fr)'          // 4 columnas en desktop grande
+            },
+              gap: 2,
+              mt: 2
+            }}
+          >
+            {foldersData.map((folder) => (
+            <Box key={folder.id}>
+              <FolderComponent
+                title={folder.title}
+                tracks={folder.tracks}
+                menuButton
+              />
+            </Box>
+          ))}
+        </Box>
     </Box>
   )
 }

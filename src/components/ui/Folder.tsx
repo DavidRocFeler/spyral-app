@@ -1,40 +1,75 @@
-import { ChangeIconSvg, SpeciaFolderIconSvg } from '@/assets/icons';
+'use client'
+import { ChangeIconSvg, LittleSpanSvg, SpeciaFolderIconSvg } from '@/assets/icons';
+import CardMenuPlayerMusic from '@/components/ui/CardMenuPlayerMusic';
+import { FlexCenter } from '@/components/ui/FlexCenter';
 import { FlexColumn } from '@/components/ui/FlexColumn';
+import IconSpan from '@/components/ui/IconSpan';
 import SecondaryButton from '@/components/ui/SecondaryButton';
+import { catalogueMenuItems } from '@/mock/catalogueMenuItems.mock';
 import { Box, Typography } from '@mui/material'
+import { useState } from 'react';
 
 export interface IFolderComponentProps {
+    id?: number;
     tracks: string;
     title: string
+    changeButton?: boolean; // Opcional
+    menuButton?: boolean; 
 }
 
 const FolderComponent = ({
 tracks,
-title
+title,
+changeButton,
+menuButton
 }: IFolderComponentProps) => {
+
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation(); 
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+
   return (
     <Box
     pt={2} 
     bgcolor='background.default'
-    // width='285px'
     width='100%'
     height='280px'
     borderRadius='12px'
     position='relative'
+    display='flex'
+    flexDirection='column'
+    alignItems='center'
     >
-        <Box mb={1} ml='auto' mr={2} width='fit-content'>
-            <SecondaryButton
-            text='Change'
-            icon={ChangeIconSvg}
-            width='fit-content'
-            height='31px'
-            />
-        </Box>
+        <FlexCenter mb={1} ml='auto' mr={2} width='fit-content'>
+            {changeButton && (
+              <SecondaryButton
+              text='Change'
+              icon={ChangeIconSvg}
+              width='fit-content'
+              height='31px'
+              />
+            )}
+            {menuButton && (
+              <IconSpan
+              onClick={handleMenuOpen}
+              icon={LittleSpanSvg}
+              bgcolor='grey.900'
+              />
+            )}
+        </FlexCenter>
 
         <Box   
-        bgcolor='blue'
         py={2}
-        px={5}
+        mx='auto'
+        width={{xs: '80%', lg: '185px'}}
         >   
             <Box
             width='full'
@@ -85,15 +120,14 @@ title
             </Box>
         </Box>
 
-        {/* <Box 
-        position='absolute'
-        zIndex={5}
-        left='50%'
-        bottom='0rem'
-        sx={{transform: 'translate(-50%) rotate(0deg)',}}
-        >
-            <FolderBlurSvg/>
-        </Box> */}
+        {/* SVG Clip Path Definition */}
+        <svg width="0" height="0" style={{ position: 'absolute' }}>
+          <defs>
+            <clipPath id="folderClip" clipPathUnits="objectBoundingBox">
+              <path d="M 0.3325 0 H 0.0297 C 0.0133 0 0 0.0242 0 0.054 V 0.946 C 0 0.9758 0.0133 1 0.0297 1 H 0.9703 C 0.9867 1 1 0.9758 1 0.946 V 0.264 C 1 0.234 0.9867 0.21 0.9703 0.21 H 0.4714 C 0.463 0.21 0.4557 0.2043 0.4501 0.1943 L 0.3537 0.0161 C 0.3481 0.0058 0.3406 0 0.3325 0 Z" />
+            </clipPath>
+          </defs>
+        </svg>
 
         <Box
         position='absolute'
@@ -101,19 +135,18 @@ title
         alignItems='flex-end'
         pb={1.5}
         zIndex={4}
-        width='92%'
-        // width='269px'
+        width='93%'
         height='148px'
-        left='50%'
         bottom='0.5rem'
         borderRadius='8px'
         px={1.5}
         sx={{ 
-            transform: 'translate(-50%) rotate(0deg)',
+            transform: 'rotate(0deg)',
             bgcolor: 'rgba(23, 23, 23, 0.3)',
             backdropFilter: 'blur(30px)',
             WebkitBackdropFilter: 'blur(30px)',
-            clipPath: `path('M89.4569 0H8C3.58172 0 0 3.58173 0 8V140C0 144.418 3.58173 148 8 148H261C265.418 148 269 144.418 269 140V39.08C269 34.6617 265.418 31.08 261 31.08H126.787C124.645 31.08 122.593 30.2212 121.089 28.6959L95.1544 2.38409C93.6509 0.858769 91.5986 0 89.4569 0Z')`,
+            clipPath: 'url(#folderClip)',
+            WebkitClipPath: 'url(#folderClip)',
             boxShadow: 'inset 0px 0px 20px 0px rgba(23, 23, 23, 1)',
         }}
         >
@@ -125,6 +158,26 @@ title
             <Typography variant='h4'> {title} </Typography>
         </FlexColumn>
         </Box>
+
+        <CardMenuPlayerMusic
+        menuPlayer={{
+            open: Boolean(anchorEl),
+            anchorEl: anchorEl,
+            onClose: handleMenuClose
+        }}
+        menuMock={catalogueMenuItems}
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+        }}
+        transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+        }}
+        paperSx={{
+            mt: 1 
+        }}
+      />
     </Box>
   )
 }

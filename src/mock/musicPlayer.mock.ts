@@ -84,10 +84,10 @@ export const playerMusic: IPlayerMusic[] = [
 ];
 
 export const menuItems: ICardIconPlayerMusicProps[] = [
-    { id: 'download', icon: DownloadIconSvg, label: 'Download' },
-    { id: 'favorite', icon: FavoriteIconSvg, label: 'Add to favorite' },
-    { id: 'playlist', icon: AddPlayListSvg, label: 'Add to playlist' },
-    { id: 'artist', icon: UserArtistIconSvg, label: 'View artist' },
-    { id: 'share', icon: ShareIconSvg, label: 'Share' },
-    { id: 'report', icon: ReportSvg, label: 'Report' }
+    { icon: DownloadIconSvg, label: 'Download' },
+    { icon: FavoriteIconSvg, label: 'Add to favorite' },
+    { icon: AddPlayListSvg, label: 'Add to playlist' },
+    { icon: UserArtistIconSvg, label: 'View artist' },
+    { icon: ShareIconSvg, label: 'Share' },
+    { icon: ReportSvg, label: 'Report' }
   ];

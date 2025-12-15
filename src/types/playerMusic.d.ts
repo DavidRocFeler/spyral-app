@@ -18,7 +18,6 @@ export interface IPlayerMusic {
 }
 
 export interface ICardIconPlayerMusicProps {
-  id: string;
   icon: ComponentType;
   label: string;
 }

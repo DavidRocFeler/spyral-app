@@ -1,39 +1,56 @@
 // components/CardMenuPlayerMusic.tsx
-import { Box, Typography, Popover } from '@mui/material';
-import { ICardMenuPlayerMusicProps } from '@/types/playerMusic';
+import { Box, Typography, Popover, PopoverOrigin, SxProps, Theme } from '@mui/material';
+import { ICardIconPlayerMusicProps, ICardMenuPlayerMusicProps } from '@/types/playerMusic';
 import { menuItems } from '@/mock/musicPlayer.mock';
 
+export interface ICardExtendMock {
+  menuMock?: ICardIconPlayerMusicProps[];
+  menuPlayer: ICardMenuPlayerMusicProps;
+  // Nuevas props opcionales para control de posición y estilos
+  anchorOrigin?: PopoverOrigin;
+  transformOrigin?: PopoverOrigin;
+  paperSx?: SxProps<Theme>; 
+}
 
-const CardMenuPlayerMusic = ({ open, anchorEl, onClose }: ICardMenuPlayerMusicProps) => {
+const CardMenuPlayerMusic = ({ 
+  menuPlayer, 
+  menuMock = menuItems,
+  // Valores por Default (Los que tenías originalmente)
+  anchorOrigin = {
+    vertical: 'top',
+    horizontal: 'center',
+  },
+  transformOrigin = {
+    vertical: 'bottom',
+    horizontal: 'right',
+  },
+  paperSx = {} // Por si quieres sobrescribir estilos del contenedor (width, margin, etc.)
+}: ICardExtendMock) => {
 
   const handleItemClick = (label: string) => {
     console.log(`${label} clicked`);
-    onClose();
+    menuPlayer.onClose();
   };
 
   return (
     <Popover
-      open={open}
-      anchorEl={anchorEl}
-      onClose={onClose}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'center',
-      }}
-      transformOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right',
-      }}
+      open={menuPlayer.open}
+      anchorEl={menuPlayer.anchorEl}
+      onClose={menuPlayer.onClose}
+      // Usamos las props dinámicas aquí
+      anchorOrigin={anchorOrigin}
+      transformOrigin={transformOrigin}
       slotProps={{
         paper: {
           sx: {
             width: '180px',
-            height: '258px',
+            height: 'fit-content',
             bgcolor: 'grey.900',
             borderRadius: '16px',
             mt: -1,
             overflow: 'hidden',
-            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)'
+            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
+            ...paperSx // Esto permite sobrescribir los estilos de arriba si hace falta
           }
         }
       }}
@@ -46,11 +63,11 @@ const CardMenuPlayerMusic = ({ open, anchorEl, onClose }: ICardMenuPlayerMusicPr
           p: 0
         }}
       >
-        {menuItems.map((item, index) => {
+         {menuMock.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <Box
-              key={item.id}
+              key={index} 
               sx={{
                 display: 'flex',
                 alignItems: 'center',

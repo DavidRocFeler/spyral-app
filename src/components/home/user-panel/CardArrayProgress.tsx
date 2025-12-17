@@ -60,6 +60,7 @@ const CardArrayProgress = ({
             open={open} 
             onClose={() => setOpen(false)} 
           />
+          
       </Box>
 
       {/* Title */}

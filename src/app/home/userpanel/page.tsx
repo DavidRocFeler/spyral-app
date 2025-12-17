@@ -15,7 +15,7 @@ const UserPanel = () => {
         pb: 3,
       }}
     >
-      {/* Fila Header */}
+      {/* Row Header */}
       <Grid mb={3} container spacing={3}>
         {summaryData.map((item, index) => (
           <Grid size={{xs: 12, md: 3}} key={index}>

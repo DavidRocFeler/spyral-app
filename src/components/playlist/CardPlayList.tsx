@@ -1,194 +1,145 @@
-'use client';
-
-import React, { useState } from 'react';
-import {
-  Modal,
-  Box,
-  Typography,
-  TextField,
-  Button,
-  InputAdornment,
-} from '@mui/material';
-
-import { ArrowRightSvg, PlusSvg, SearchIconSvg } from '@/assets/icons';
-import { FlexCenter } from '../ui/FlexCenter';
-import OliviaProfile from '@/assets/oliviaJhonsonProfile.png'
+'use client'
+import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
+import SecondaryButton from '@/components/ui/SecondaryButton';
+import { secondaryButtonsArray } from '@/mock/secondaryButtons.mock';
+import { useState } from 'react';
+import { DownloadBrandSvg, HeadPhoneBrandSvg, SharedBrandSvg } from '@/assets/icons';
+import { ICardPalyList } from '@/types/playlist';
 import { FlexColumn } from '../ui/FlexColumn';
-import CancelButtonTransparent from '../ui/CancelButtonTransparent';
+import { FlexCenter } from '../ui/FlexCenter';
+import CardShareProgress from '../home/user-panel/CardShareProgress';
 
-const CardPlayList: React.FC = () => {
-  const [email, setEmail] = useState('olivia.johnson@gmail.com');
-  const [searchQuery, setSearchQuery] = useState('Olivia');
-  const [showOliviaProfile, setShowOliviaProfile] = useState(true);
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    setShowOliviaProfile(false); // Ocultar perfil cuando se modifica el email
-  };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-    setShowOliviaProfile(false); // Ocultar perfil cuando se modifica la búsqueda
-  };
-
-  const handleAdd = () => {
-    // Lógica para agregar contacto
-    console.log('Adding contact:', email);
-  };
-
-  const handleSubmit = () => {
-    // Lógica para enviar
-    console.log('Submitting...');
-  };
+const CardPlayList = ({ 
+  image,
+  title,
+  isFlipped = false,
+  valueShared = 0,
+  valueListener = 0,
+  valueDownloads = 0
+}: ICardPalyList) => {
+  const [open, setOpen] = useState(false); 
 
   return (
-    <Modal
-      open={true} // Siempre abierto para maquetación
-      onClose={() => {}} // No hace nada por ahora
+    <Box
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Overlay con opacity 0.5
+        bgcolor: 'grey.900',
+        borderRadius: '16px',
+        p: 2,
+        pb: 1.5
       }}
     >
+      {/* Image Container */}
       <Box
         sx={{
           position: 'relative',
-          bgcolor: '#1a1a1a',
-          borderRadius: '40px',
-          width: '90%',
-          maxWidth: '640px',
-          p: 4,
-          outline: 'none',
+          width: '100%',
+          height: '160px',
+          borderRadius: '12px',
+          display: isFlipped ? 'flex' : 'block',
+          alignItems: isFlipped ? 'center' : 'unset',
+          pl: isFlipped ? 2 : 0,
+          overflow: 'hidden',
+          mb: 2,
+          bgcolor: isFlipped ? 'background.default' : 'transparent'
         }}
       >
-        {/* Header */}
-        <Typography
-          variant="h3"
-          sx={{
-            color: 'white',
-            fontSize: '1.5rem',
-            fontWeight: 600,
-            mb: 3,
-          }}
-        >
-          Add Contacts
-        </Typography>
-
-        {/* Email Input con botón Add */}
-        <Box sx={{ display: 'flex', gap: 1.5, mb: 3 }}>
-          <TextField
-            fullWidth
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="olivia.rhye@gmail.com"
-            variant="outlined"
-            className="dark-rounded"
-          />
-          <Button
-            disableRipple
-            variant='secondaryButton'
-            onClick={handleAdd}
-          >
-            <Typography variant='h8' sx={{textTransform: 'none'}}> Add </Typography>
-            <Box display='flex' alignItems='center' justifyContent='center'>
-              <PlusSvg/>
-            </Box>
-          </Button>
-        </Box>
-
-        {/* Texto separador */}
-        <Typography
-          variant='h8'
-        >
-          Or check if your contacts are already on Spyral
-        </Typography>
-
-        {/* Search Input con lupa */}
-        <TextField
-          fullWidth
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search"
-          variant="outlined"
-          className="dark-rounded"
-          sx={{
-            mt: 1
-          }}
-          slotProps={{
-            input: {
-              startAdornment: (
-                <InputAdornment position="start">
-                  <FlexCenter
-                    sx={{
-                      '& svg path': {
-                        fill: '#FFF', 
-                      },
-                    }}
-                  >
-                    <SearchIconSvg/>
-                  </FlexCenter>
-                </InputAdornment>
-              ),
-            },
-          }}
-        />
-
-        {/* Perfil de Olivia - Solo se muestra si showOliviaProfile es true */}
-        {showOliviaProfile && (
-          <FlexColumn
-            sx={{mt: 2}}
-          >
-            <Image
-              src={OliviaProfile}
-              alt='Olivia Profile'
-              width={64}
-              height={64}
-              style={{
-                marginBottom: 10
+        {isFlipped ? (
+          // Parte trasera
+          <FlexColumn gap={1.5}>
+            <FlexCenter 
+              sx={{
+                width: '100%',
+                justifyContent: 'flex-start',
+                gap: 0.7  
               }}
-            />
-            <FlexColumn>
-              <Typography mb={-0.2} variant='h10' color='text.secondary'> Olivia</Typography>
-              <Typography variant='h10' color='text.secondary'> Jhonson</Typography>
-            </FlexColumn>
+            >
+              <SharedBrandSvg/>
+              <FlexCenter 
+                gap={0.5}
+                sx={{
+                  width: 'fit-content'
+                }}
+              >
+                <Typography variant='h7'>{valueShared}</Typography>
+                <Typography variant='h7'>Shared</Typography>
+              </FlexCenter>
+            </FlexCenter>
+
+            <FlexCenter
+              sx={{
+                width: '100%',
+                justifyContent: 'flex-start',
+                gap: 0.7  
+              }}
+            >
+              <HeadPhoneBrandSvg/>
+              <FlexCenter 
+                gap={0.5}
+                sx={{
+                  width: 'fit-content'
+                }}
+              >
+                <Typography variant='h7'>{valueListener}</Typography>
+                <Typography variant='h7'>Listener</Typography>
+              </FlexCenter>
+            </FlexCenter>
+
+            <FlexCenter 
+              sx={{
+                width: '100%',
+                justifyContent: 'flex-start',
+                gap: 0.7  
+              }}
+            >
+              <DownloadBrandSvg/>
+              <FlexCenter 
+                gap={0.5}
+                sx={{
+                  width: 'fit-content'
+                }}
+              >
+                <Typography variant='h7'>{valueDownloads}</Typography>
+                <Typography variant='h7'>Downloads</Typography>
+              </FlexCenter>
+            </FlexCenter>
           </FlexColumn>
+        ) : (
+          // Parte delantera
+          <Image
+            src={image}
+            alt={title}
+            fill
+            style={{ objectFit: 'cover' }}
+          />
         )}
 
-        {/* Botones de acción en la parte inferior derecha */}
+        {/* Share Button */}
         <Box
           sx={{
-            mt: 1,
-            display: 'flex',
-            justifyContent: 'flex-end',
-            gap: 2,
+            position: 'absolute',
+            right: 9,
+            top: 8,
           }}
         >
-          {/* Botón Cancel (izquierda) */}
-          <CancelButtonTransparent/>
-
-          {/* Botón Add con flecha (derecha - primaryButton) */}
-          <Button
-            disableRipple
-            variant="primaryButton"
-            onClick={handleSubmit}
-          >
-            <Typography 
-              variant='h8'
-              color='primary.main'
-              sx={{
-                textTransform: 'none'
-              }}
-            > Add </Typography>
-            <FlexCenter>
-              <ArrowRightSvg/>
-            </FlexCenter>
-          </Button>
+          <SecondaryButton 
+            text={secondaryButtonsArray[1].text} 
+            icon={secondaryButtonsArray[1].icon} 
+            onClick={() => setOpen(true)}
+          />
         </Box>
+
+        <CardShareProgress
+          open={open} 
+          onClose={() => setOpen(false)} 
+        />
       </Box>
-    </Modal>
+
+      {/* Title */}
+      <Typography variant="h8">
+        {title}
+      </Typography>
+    </Box>
   );
 };
 

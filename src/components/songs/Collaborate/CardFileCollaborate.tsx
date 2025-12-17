@@ -9,9 +9,20 @@ import { IFileItem } from '@/types/song';
 interface CardFileCollaborateProps {
   file: IFileItem;
   iconSpan?: boolean; // Prop opcional
+  height?: string;
+  width?: string;
+  px?: number;
+  py?: number;
 }
 
-const CardFileCollaborate = ({ file, iconSpan = true }: CardFileCollaborateProps) => {
+const CardFileCollaborate = ({ 
+  file, 
+  iconSpan = true,
+  height,
+  width,
+  px = 1.2,
+  py = 1
+}: CardFileCollaborateProps) => {
   const FileIcon = file.fileIcon;
   
   return (
@@ -36,7 +47,16 @@ const CardFileCollaborate = ({ file, iconSpan = true }: CardFileCollaborateProps
         width: iconSpan ? 'calc(100% - 40px)' : '100%' // Ajusta el ancho
       }}>
         {FileIcon && (
-          <FlexCenter borderRadius='12px' px={1.2} py={1} bgcolor='background.paper'>
+          <FlexCenter 
+          borderRadius='12px' 
+          px={px} 
+          py={py} 
+          bgcolor='background.paper'
+          sx={{
+            height: height,
+            width: width
+          }}
+          >
             <FileIcon />
           </FlexCenter>
         )}

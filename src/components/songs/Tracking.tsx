@@ -102,7 +102,9 @@ const Tracking = ({ trackingStatus = 1 }: ITrackingProps) => {
         <Typography variant="h8">
           Add track
         </Typography>
-        <Box mt={1.5}><UploadBox/></Box>
+        <Box mt={1.5}>
+          <UploadBox/>
+        </Box>
       </Box>
 
      <Box display='flex' alignItems='end'>

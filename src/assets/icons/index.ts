@@ -138,8 +138,10 @@ export { default as FolderBlurSvg } from './folder-blur.svg'
 export { default as SquareIconList } from './square-list-icon.svg'
 export { default as ListViewIconSvg } from './list-view-icon.svg'
 export { default as ClipDefintionSvg } from './clipath-definition.svg'
-
-
+export { default as StatusPendingIcon } from './status-pending-icon.svg'
+export { default as StatusPublishedIcon } from './status-published.svg'
+export { default as StatusDraftIcon } from './status-draft.svg'
+export { default as ShareLinkIcon } from './share-link.svg'
 
 
 

@@ -14,6 +14,7 @@ export interface IMenuPlayControlItem {
     title: string;
     artist: string;
     duration: string;
+    display?: string;
 }
 
 export interface ICardTracksProps {

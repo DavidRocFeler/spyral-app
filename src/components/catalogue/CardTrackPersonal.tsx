@@ -1,11 +1,21 @@
-import { MenuPlayControlSvg, PlayControlIconSvg, ShareIconSvg } from "@/assets/icons";
-import { ICardTracksProps } from "@/types/playControl";
+import { MenuPlayControlSvg, PlayControlIconSvg, ShareIconSvg, StatusDraftIcon, StatusPendingIcon, StatusPublishedIcon } from "@/assets/icons";
+import { ICardTrackPersonalProps } from "@/types/catalogue";
 import { Box, Typography } from "@mui/material";
-
+import { FlexColumn } from "../ui/FlexColumn";
   
-  const CardTracks = ({ 
+  const CardTrackPersonal = ({ 
     track 
-  }: ICardTracksProps) => {
+  }: ICardTrackPersonalProps) => {
+
+    const getStatusIcon = (status: string) => {
+      const statusLower = status.toLowerCase();
+      
+      if (statusLower === 'pending') return <StatusPendingIcon />;
+      if (statusLower === 'draft') return <StatusDraftIcon />;
+      if (statusLower === 'published') return <StatusPublishedIcon />;
+      
+      return <StatusPendingIcon />; // Por defecto
+    };
 
     return (
       <Box
@@ -20,7 +30,10 @@ import { Box, Typography } from "@mui/material";
           bgcolor: 'grey.900',
         }}
       >
-        <Box sx={{ flex: 1 }}>
+        <FlexColumn sx={{ 
+          gap: 1.5,
+          alignItems: 'flex-start'
+          }}>
           <Typography
             variant="h8"
           >
@@ -29,9 +42,11 @@ import { Box, Typography } from "@mui/material";
           <Box sx={{ display: 'flex', gap: 0.7, alignItems: 'center' }}>
             <Typography
               variant="h9"
+              color="secondary.main"
             >
-              {track.artist}
+              {track.status}
             </Typography>
+            {getStatusIcon(track.status)} 
             <Box
                display='flex'
                flexDirection='row'
@@ -52,7 +67,7 @@ import { Box, Typography } from "@mui/material";
               </Typography>
             </Box>
           </Box>
-        </Box>
+        </FlexColumn>
   
         <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <Box
@@ -125,5 +140,5 @@ import { Box, Typography } from "@mui/material";
     );
   };
 
-export default CardTracks;
+export default CardTrackPersonal;
   

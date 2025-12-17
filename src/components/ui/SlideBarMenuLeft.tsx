@@ -1,22 +1,27 @@
 'use client'
-import { Box } from '@mui/material'
-import { useState } from 'react'
-import SecondaryButton from './SecondaryButton' 
-import { ISecondaryButtonProps } from '@/types/ui'
-
-export interface ISlideBarMenuProps {
-    menuItems: ISecondaryButtonProps[]
-}
+import { Box, Typography } from '@mui/material'
+import { useState, ComponentType, isValidElement, ReactElement } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { ISlideBarMenuProps } from '@/types/ui'
 
 const SlideBarMenuLeft = ({
-    menuItems
+  menuItems
 }: ISlideBarMenuProps) => {
-  // Estado para controlar qué menú está seleccionado
-  const [selectedMenu, setSelectedMenu] = useState<string>('Home')
+  const pathname = usePathname()
+
+  const renderIcon = (icon?: ReactElement | ComponentType) => {
+    if (!icon) return null;
+    if (isValidElement(icon)) {
+      return icon;
+    }
+    const IconComponent = icon as ComponentType<any>;
+    return <IconComponent />;
+  };
 
   return (
     <Box sx={{ 
-      width: '200px', 
+      width: '200px',
       display: 'flex',
       height: '100%',
       flexDirection: 'column',
@@ -26,19 +31,46 @@ const SlideBarMenuLeft = ({
       borderRight: '1px solid',
       borderColor: 'grey.900',
     }}>
-      {menuItems.map((item, index) => (
-        <Box key={index} sx={{ mb: 1 }}>
-          <SecondaryButton 
-            text={item.text}
-            width='160px'
-            height='43px'
-            justifyContent='start'
-            pl={2.5}
-            bgcolor={item.bgcolor}
-            // Agregar estado de selección si tu SecondaryButton lo soporta
-          />
-        </Box>
-      ))}
+      {menuItems.map((item, index) => {
+        const isActive = pathname === item.href;
+        return (
+          <Box key={index} sx={{ mb: 1 }}>
+            <Link 
+              href={item.href} 
+              style={{ textDecoration: 'none' }}
+            >
+              <Box
+                sx={{
+                  bgcolor: isActive ? 'background.default' : item.bgcolor,
+                  borderRadius: '50px',
+                  display: 'flex',
+                  justifyContent: 'start',
+                  height: '43px',
+                  width: '160px',
+                  px: 2,
+                  pl: 2.5,
+                  gap: 1.5,
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    opacity: 0.9,
+                  },
+                }}
+              >
+                <Typography
+                  sx={{
+                    color: 'text.primary',
+                    typography: 'h8'
+                  }}
+                >
+                  {item.text}
+                </Typography>
+                {renderIcon(item.icon)}
+              </Box>
+            </Link>
+          </Box>
+        )
+      })}
     </Box>
   )
 }

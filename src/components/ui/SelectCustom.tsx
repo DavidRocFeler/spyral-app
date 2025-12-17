@@ -1,8 +1,8 @@
 'use client'
 // SelectCustom.tsx
-import { ComponentType, useState, useRef, useEffect } from 'react';
+import { ComponentType, useState, useRef } from 'react';
 import { Box, ClickAwayListener, Typography } from '@mui/material';
-import { ArrowDownSvg } from '@/assets/icons';
+import { ArrowDownGreySvg, ArrowDownSvg } from '@/assets/icons';
 
 interface ISelectCustomProps {
   options: string[];
@@ -17,24 +17,36 @@ interface ISelectCustomProps {
   bgcolor?: string;
   width?: string;
   variant?: string;
+  mode?: 'grey' | 'white'; 
+  typographyOptions?: string;
 }
 
 const SelectCustom = ({
   options,
   value,
   onChange,
-  iconComponent: IconComponent = ArrowDownSvg,
+  iconComponent: IconComponent,
   fullWidth = true,
   disabled = false,
-  height= '44px',
-  heightOption= '44px',
-  borderRadius='12px',
-  bgcolor= 'grey.900',
+  height = '44px',
+  heightOption = '44px',
+  borderRadius = '12px',
+  bgcolor = 'grey.900',
   width,
-  variant = 'h8'
+  variant = 'h8',
+  mode = 'white',
+  typographyOptions = 'h8'
 }: ISelectCustomProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
+
+  // Determinar el icono por defecto según el modo
+  const DefaultIcon = mode === 'white' ? ArrowDownSvg : ArrowDownGreySvg;
+  const Icon = IconComponent || DefaultIcon;
+
+  // Determinar color de texto según el modo
+  const textColor = mode === 'white' ? 'white' : 'text.secondary';
+  const optionTextColor = mode === 'white' ? 'white' : 'text.secondary';
 
   const handleToggle = () => {
     if (!disabled) {
@@ -74,15 +86,19 @@ const SelectCustom = ({
             borderRadius: isOpen ? '12px 12px 0 0' : borderRadius,
             cursor: disabled ? 'default' : 'pointer',
             opacity: disabled ? 0.6 : 1,
-            color: 'white',
             userSelect: 'none',
           }}
         >
-          <Typography sx={{
-            typography: variant
-          }}>{value}</Typography>
+          <Typography 
+            sx={{
+              typography: variant,
+              color: textColor
+            }}
+          >
+            {value}
+          </Typography>
           <Box
-            component={IconComponent}
+            component={Icon}
             sx={{
               color: '#FFF',
               transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -119,8 +135,8 @@ const SelectCustom = ({
                   px: 2,
                   bgcolor: option === value ? bgcolor : 'grey.900',
                   cursor: 'pointer',
-                  typography: 'h8',
-                  color: 'white',
+                  typography: typographyOptions,
+                  color: optionTextColor,
                   userSelect: 'none',
                   '&:hover': {
                     bgcolor: option === value ? 'grey.800' : 'grey.800',

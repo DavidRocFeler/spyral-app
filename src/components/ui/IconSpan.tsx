@@ -41,6 +41,7 @@ const IconSpan = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        
         borderRadius: borderRadius, 
         borderBottomLeftRadius: borderBottomLeftRadius,
         borderBottomRightRadius: borderBottomRightRadius,

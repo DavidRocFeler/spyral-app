@@ -1,6 +1,4 @@
 'use client';
-
-import { useState } from 'react';
 import { 
   Box, 
 } from '@mui/material';
@@ -21,6 +19,7 @@ const RegisterSong = () => {
       {/* Sidebar izquierdo */}
       <Box height='100%'
       position='absolute'
+      bgcolor='red'
       >
       <SlideBarMenuLeft
       menuItems={menuItemsRegister}

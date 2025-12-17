@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, colors, Typography } from '@mui/material';
 import { ComponentType, isValidElement } from 'react';
 import { ISecondaryButtonProps } from '@/types/ui';
 
@@ -12,7 +12,13 @@ const SecondaryButton = ({
   justifyContent = 'center',
   pl = 2,
   borderRadius = '50px',
-  varitant = 'h8'
+  varitant = 'h8',
+  px = 2,
+  borderBottomLeftRadius, 
+  borderBottomRightRadius,
+  borderTopLeftRadius,
+  borderTopRightRadius,
+  color,
 }: ISecondaryButtonProps) => {
   const renderIcon = () => {
     if (!icon) return null;
@@ -37,11 +43,15 @@ const SecondaryButton = ({
         justifyContent: justifyContent,
         height: height,
         width: width,
-        px: 2,
+        px: px,
         pl: pl,
         gap: 1.5,
         alignItems: 'center',
         cursor: 'pointer',
+        borderBottomLeftRadius: borderBottomLeftRadius,
+        borderBottomRightRadius: borderBottomRightRadius,
+        borderTopLeftRadius: borderTopLeftRadius,
+        borderTopRightRadius: borderTopRightRadius,
         '&:hover': {
           opacity: 0.9,
         },
@@ -49,6 +59,7 @@ const SecondaryButton = ({
     >
       <Typography
       sx={{
+        color: color,
         typography: varitant
       }}
       >

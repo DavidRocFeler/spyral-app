@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -10,25 +10,38 @@ import {
   IconButton,
   RadioGroup,
   FormControlLabel,
-  Radio,
   Backdrop,
+  Checkbox,
 } from '@mui/material';
 import { CopyLinkSvg, CheckIconSvg } from '@/assets/icons';
 import { FlexColumn } from '@/components/ui/FlexColumn';
 import CustomTextField from '@/components/ui/CustomTextField';
 import SecondaryButtonGrey from '@/components/ui/SecondaryButtonGrey';
 import { secondaryButtonsArray } from '@/mock/secondaryButtons.mock';
+import SelectCustom from '@/components/ui/SelectCustom';
+import { FlexCenter } from '@/components/ui/FlexCenter';
 
-interface CardShareProgressProps {
+interface ICardShareProgressProps {
   open: boolean;
   onClose: () => void;
+  variant?: 'withDownloads' | 'withoutDownloads'; // Nueva prop para elegir la versión
 }
 
-const CardShareProgress: React.FC<CardShareProgressProps> = ({ open, onClose }) => {
+const CardShareProgress = ({ 
+  open, 
+  onClose, 
+  variant = 'withoutDownloads'
+}: ICardShareProgressProps ) => {
+  const mockFileSelect = ['MP3', 'MP3', 'MP3', 'MP3'];
+  const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
   const [message, setMessage] = useState('');
   const [playbackOption, setPlaybackOption] = useState('stream');
   const [email, setEmail] = useState('');
+  const [allowDownloads, setAllowDownloads] = useState(false);
 
+  // Determinar el ancho del SelectCustom según la variante
+  const selectCustomWidth = variant === 'withDownloads' ? '159px' : '310px';
+  
   return (
     <>
       <Backdrop
@@ -89,12 +102,61 @@ const CardShareProgress: React.FC<CardShareProgressProps> = ({ open, onClose }) 
               row
             >
               <Box width='100%'display='flex'>
-                <Box display='flex' width='50%'>
+                <Box display='flex' gap={2} width='fit-content'>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={playbackOption === 'stream'}
+                      onChange={(e) => setPlaybackOption(e.target.checked ? 'stream' : '')}
+                      icon={
+                        <Box 
+                          sx={{ 
+                            width: 20, 
+                            height: 20, 
+                            borderRadius: '6px',
+                            border: '1px solid',
+                            borderColor: 'secondary.main'
+                          }} 
+                        />
+                      }
+                      checkedIcon={
+                        <Box 
+                          sx={{ 
+                            width: 20, 
+                            height: 20, 
+                            borderRadius: '6px',
+                            bgcolor: 'secondary.main',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                          }}
+                        >
+                          <CheckIconSvg />
+                        </Box>
+                      }
+                    />
+                  }
+                  label={<Typography ml={0} variant="h8">Stream only</Typography>}
+                />
+                
+                {/* Mostrar checkbox "Allow Downloads" solo en la variante 'withDownloads' */}
+                {variant === 'withDownloads' && (
                   <FormControlLabel
-                    value="stream"
                     control={
-                      <Radio
-                        icon={<Box sx={{ width: 20, height: 20, borderRadius: '6px',}} />}
+                      <Checkbox
+                        checked={allowDownloads}
+                        onChange={(e) => setAllowDownloads(e.target.checked)}
+                        icon={
+                          <Box 
+                            sx={{ 
+                              width: 20, 
+                              height: 20, 
+                              borderRadius: '6px',
+                              border: '1px solid',
+                              borderColor: 'secondary.main'
+                            }} 
+                          />
+                        }
                         checkedIcon={
                           <Box 
                             sx={{ 
@@ -112,29 +174,29 @@ const CardShareProgress: React.FC<CardShareProgressProps> = ({ open, onClose }) 
                         }
                       />
                     }
-                    label={<Typography ml={0} variant="h8">Stream only</Typography>}
+                    label={<Typography ml={0} variant="h8">Allow Downloads</Typography>}
                   />
-                  <FormControlLabel
-                    value="file"
-                    control={
-                      <Radio
-                        disabled // ← Esto deshabilita el Radio
-                        icon={<Box sx={{ width: 20, height: 20 }} />}
-                        checkedIcon={<CheckIconSvg />}
-                      />
-                    }
-                    label={<Typography color='text.secondary' variant="h8">File format</Typography>}
-                  />
+                )}
                 </Box>
-                <SecondaryButtonGrey 
-                text={secondaryButtonsArray[3].text} 
-                icon={secondaryButtonsArray[3].icon} 
-                onClick={secondaryButtonsArray[3].onClick}
-                width='60%'
-                borderRadius='12px'
-                justifyContent='none'
-                mr='auto'
+                
+                <FlexCenter
+                ml='auto'
+                sx={{
+                  width: 'fit-content'
+                }}
+                >
+                <Typography width='85px' variant='h8' color='text.secondary'> File format </Typography>
+
+                <Box ml='auto'>
+                <SelectCustom
+                mode='grey'
+                options={mockFileSelect}
+                value={selectedChannel}
+                onChange={setSelectedChannel}
+                width={selectCustomWidth}
                 />
+                </Box>
+                </FlexCenter>
               </Box>
             </RadioGroup>
           </Box>

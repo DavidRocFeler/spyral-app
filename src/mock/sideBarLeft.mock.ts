@@ -1,25 +1,39 @@
-import { ISecondaryButtonProps } from "@/types/ui";
+import { IMenuItemProps } from "@/types/ui";
 
-export const menuItemsRegister: ISecondaryButtonProps[] = [
-    { text: 'BUMA Data', bgcolor: 'background.default'},
-    { text: 'Personal Info', bgcolor: 'transparent'}
-  ];
-
-  export const menuItemsWorkInProgress: ISecondaryButtonProps[] = [
-    { text: 'Tracklist', bgcolor: 'background.default'},
-    { text: 'Artist', bgcolor: 'transparent'},
-    { text: 'Main', bgcolor: 'transparent'},
-    { text: 'Identifiers', bgcolor: 'transparent'},
-    { text: 'Default Dates', bgcolor: 'transparent'},
-    { text: 'Release', bgcolor: 'transparent'},
-    { text: 'Copyrights', bgcolor: 'transparent'},
-    { text: 'Genre', bgcolor: 'transparent'},
-    { text: 'Promotion', bgcolor: 'transparent'},
-    { text: 'Languages', bgcolor: 'transparent'},
-    { text: 'World', bgcolor: 'transparent'},
-    { text: 'Pricing', bgcolor: 'transparent'},
-    { text: 'Tags', bgcolor: 'transparent'},
-    { text: 'Attachments', bgcolor: 'transparent'},
-    { text: 'Trends', bgcolor: 'transparent'}
+export const menuItemsRegister: IMenuItemProps[] = [
+    { text: 'BUMA Data', bgcolor: 'background.default', href: '/bumadata'},
+    { text: 'Personal Info', bgcolor: 'transparent', href: '/personalinfo'}
   ];
   
+export const menuItemsWorkInProgress: IMenuItemProps[] = [
+    { text: 'Tracklist', bgcolor: 'background.default', href: '/tracklist'},
+    { text: 'Artist', bgcolor: 'transparent', href: '/artist'},
+    { text: 'Main', bgcolor: 'transparent', href: '/main'},
+    { text: 'Identifiers', bgcolor: 'transparent', href: '/identifiers'},
+    { text: 'Default Dates', bgcolor: 'transparent', href: '/defaultdates'},
+    { text: 'Release', bgcolor: 'transparent', href: '/release'},
+    { text: 'Copyrights', bgcolor: 'transparent', href: '/copyrights'},
+    { text: 'Genre', bgcolor: 'transparent', href: '/genre'},
+    { text: 'Promotion', bgcolor: 'transparent', href: '/promotion'},
+    { text: 'Languages', bgcolor: 'transparent', href: '/languages'},
+    { text: 'World', bgcolor: 'transparent', href: '/world'},
+    { text: 'Pricing', bgcolor: 'transparent', href: '/pricing'},
+    { text: 'Tags', bgcolor: 'transparent', href: '/tags'},
+    { text: 'Attachments', bgcolor: 'transparent', href: '/attachments'},
+    { text: 'Trends', bgcolor: 'transparent', href: '/trends'}
+  ];
+  
+  //catalogue view => /catalogue
+export const catalogueListView: IMenuItemProps[] = [
+  { text: 'My Catalogue', bgcolor: 'transparent', href: '/catalogue/mycatalogue'},
+  { text: 'Published', bgcolor: 'transparent', href: '/catalogue/published'},
+  { text: 'Tracks', bgcolor: 'transparent', href: '/catalogue/tracks'},
+  { text: 'Playlist', bgcolor: 'transparent', href: '/catalogue/playlist'},
+  { text: 'Album', bgcolor: 'transparent', href: '/catalogue/album'},
+  { text: 'Artist', bgcolor: 'transparent', href: '/catalogue/artist'},
+  { text: 'Catalogue Design', bgcolor: 'transparent', href: '/catalogue/cataloguedesign'},
+  { text: 'Acc. & Prom.', bgcolor: 'transparent', href: '/catalogue/accprom'},
+  { text: 'Clients', bgcolor: 'transparent', href: '/catalogue/clients'},
+  { text: 'Stats', bgcolor: 'transparent', href: '/catalogue/stats'},
+  { text: 'Notifications', bgcolor: 'transparent', href: '/catalogue/notifications'},
+];

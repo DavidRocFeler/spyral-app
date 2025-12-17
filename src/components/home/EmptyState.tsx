@@ -1,6 +1,6 @@
 // components/EmptyState/EmptyState.tsx
 import { Box, Typography } from '@mui/material';
-import { PlusYellowSvg } from '@/assets/icons';
+import UploadBoxMain from '../ui/UploadBoxMain';
 
 const EmptyState = () => {
   return (
@@ -34,70 +34,7 @@ const EmptyState = () => {
         </Typography>
 
         {/* Upload Box */}
-        <Box
-          mb={3}
-          sx={{
-            bgcolor: 'background.paper',
-            borderRadius: 6,
-            padding: 6,
-            border: '2px dashed',
-            borderColor: 'grey.900',
-            cursor: 'pointer',
-            transition: 'all 0.2s ease',
-            '&:hover': {
-              borderColor: 'rgba(226, 252, 11, 0.5)',
-              bgcolor: 'rgba(0, 0, 0, 0.4)',
-            },
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              mb: 2,
-            }}
-          >
-            <Box
-              sx={{
-                width: 48,
-                height: 48,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <PlusYellowSvg/>
-            </Box>
-          </Box>
-
-          <Box
-          display='flex'
-          flexDirection='column'
-          >
-            <Typography
-              variant="h10"
-              color= 'text.secondary'
-            >
-              Drag and drop files here or{' '}
-              <Box
-                component="span"
-                sx={{
-                  color: 'secondary.main',
-                  fontWeight: 450,
-                }}
-              >
-                Browse
-              </Box>
-            </Typography>
-
-            <Typography
-              variant="h10"
-              color= 'text.secondary'
-            >
-              Supported formats include: MP3, WAV, and FLAC.
-            </Typography>
-          </Box>
-        </Box>
+        <UploadBoxMain/>
 
         {/* Divider Text */}
         <Typography

@@ -285,6 +285,7 @@ const CardSharePlayList = ({ open, onClose }: CardSharePlayListProps) => {
               multiline
               rows={3}
             />
+            
           </Box>
 
           <Box display="flex" mt={1} justifyContent="flex-end" gap={1.5}>

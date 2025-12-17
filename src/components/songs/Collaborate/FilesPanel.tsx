@@ -63,6 +63,8 @@ const FilesPanel = ({fileItem}: ICollaboratorSongFile) => {
         options={mockFileSelect}
         value={selectedChannel}
         onChange={setSelectedChannel}
+        variant='h7'
+        typographyOptions='h7'
       />
       
       {/* Grid container con 2 columnas */}

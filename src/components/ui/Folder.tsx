@@ -13,15 +13,23 @@ export interface IFolderComponentProps {
     id?: number;
     tracks: string;
     title: string
-    changeButton?: boolean; // Opcional
+    changeButton?: boolean;
     menuButton?: boolean; 
+    isSelected?: boolean;
+    onSelect?: (id?: number) => void;
+    selectionFolder?: boolean;
+    showRelatedTracks?: boolean; // Nueva prop para controlar si muestra RelatedTracks
 }
 
 const FolderComponent = ({
 tracks,
 title,
 changeButton,
-menuButton
+menuButton,
+isSelected = false,
+onSelect,
+id,
+selectionFolder,
 }: IFolderComponentProps) => {
 
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -33,6 +41,12 @@ menuButton
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleCardClick = () => {
+    if (onSelect && selectionFolder) {
+        onSelect(id);
+    }
   };
 
 
@@ -47,6 +61,9 @@ menuButton
     display='flex'
     flexDirection='column'
     alignItems='center'
+    border= '1px solid'
+    borderColor={isSelected ? 'secondary.main' : 'transparent'}
+    onClick={handleCardClick}
     >
         <FlexCenter mb={1} ml='auto' mr={2} width='fit-content'>
             {changeButton && (

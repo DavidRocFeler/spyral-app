@@ -20,6 +20,8 @@ const Header = () => {
     <Box
       sx={{
         height: '90px',
+        position: 'relative',
+        zIndex: 2,
         bgcolor: 'primary.main',
         borderBottom: '1px solid',
         borderColor: borderColor, // Usa la variable del store

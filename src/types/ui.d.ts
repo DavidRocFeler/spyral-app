@@ -28,6 +28,11 @@ export interface ISecondaryButtonProps {
   mr?: string;
   borderRadius?: string;
   varitant?: string;
+  borderBottomLeftRadius?: string;
+  borderBottomRightRadius?: string;
+  borderTopLeftRadius?: string;
+  borderTopRightRadius?: string;
+  color?: string;
 }
 
 export interface IButtonConfig {
@@ -128,5 +133,17 @@ export interface ICollaboratorsProps {
   alt: string;
   width?: number;
   height?: number;
+}
+
+export interface IMenuItemProps {
+  text: string
+  href: string // Ruta de navegación
+  icon?: React.ReactElement | ComponentType<any>
+  bgcolor?: string
+  color?: string
+}
+
+export interface ISlideBarMenuProps {
+  menuItems: IMenuItemProps[]
 }
 

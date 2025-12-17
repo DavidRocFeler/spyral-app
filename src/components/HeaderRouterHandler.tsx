@@ -8,12 +8,32 @@ const HeaderRouterHandler = () => {
   const setHeader = useHeaderStore((state) => state.setHeader);
 
   useEffect(() => {
-    // AQUÍ PONES TUS CONDICIONALES
-    if (pathname.startsWith('/catalogue')) {
-      setHeader('Catalogue', 'transparent');
-    } else if (pathname.startsWith('/settings')) {
-      setHeader('Settings', 'grey.900');
+    // Configuraciones por ruta
+    const routeConfigs = [
+      {
+        test: (path: string) => path === '/catalogue/fullview',
+        title: 'Catalogue name',
+        bgColor: 'transparent'
+      },
+      {
+        test: (path: string) => path.startsWith('/catalogue'),
+        title: 'Catalogue',
+        bgColor: 'transparent'
+      },
+      {
+        test: (path : string ) => path.startsWith('/playlist'),
+        title: 'Play List',
+        bgColor: 'transparent'
+      },
+    ];
+
+    // Encontrar la primera configuración que coincida
+    const matchedConfig = routeConfigs.find(config => config.test(pathname));
+    
+    if (matchedConfig) {
+      setHeader(matchedConfig.title, matchedConfig.bgColor);
     } else {
+      // Ruta por defecto
       setHeader('Home', 'grey.900');
     }
   }, [pathname, setHeader]);

@@ -3,8 +3,6 @@ import { EditeIconSvg, ListViewIconSvg, PlusBlackSvg, SquareIconList } from "@/a
 import CardCatalogueList from "@/components/catalogue/CardCatalogueList"
 import { FlexCenter } from "@/components/ui/FlexCenter"
 import IconSpan from "@/components/ui/IconSpan"
-import PrimaryButton from "@/components/ui/PrimaryButton"
-import SearchBarDropDown from "@/components/ui/SearchBarDropDown"
 import SlideBarMenuLeft from "@/components/ui/SlideBarMenuLeft"
 import { catalogueList } from "@/mock/catalogueListCard.mock"
 import { catalogueListView, menuItemsRegister } from "@/mock/sideBarLeft.mock"
@@ -34,7 +32,7 @@ const ZoomedCatalogue = () => {
       <Box 
       right={0}
       position='absolute'
-      width='65%'
+      width='79%'
       height='100%'
       >
        <Box 

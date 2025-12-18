@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import JameArtur from '@/assets/jamesArthurTrack.png'
 import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock';
-import SongPlayerCard from './SongPlayerCard';
 import MinimizeSongPlayer from './MinimizeSongPlayer';
 
 export interface IDemoProps {

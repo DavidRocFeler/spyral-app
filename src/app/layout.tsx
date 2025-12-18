@@ -8,6 +8,8 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/Header";
 import MusicPlayer from "@/components/ui/MusicPlayer";
 import HeaderRouterHandler from "@/components/HeaderRouterHandler";
+import AddNewItem from "@/components/modals/AddNewItem";
+import ModalWrapper from "./ModalWrapper";
 
 const manrope = localFont({
   src: "./fonts/Manrope/Manrope-VariableFont_wght.ttf",
@@ -62,15 +64,10 @@ export default function RootLayout({
               {/* Header */}
               <Header />
               {/* Content (children from each page) */}
-              <Box 
-                component="main" 
-                sx={{ 
-                  flex: 1, 
-                  overflow: 'auto' 
-                }}
-              >
+              <ModalWrapper>
+                <AddNewItem/>
                 {children}
-              </Box>
+              </ModalWrapper>
 
               {/* <MusicPlayer/> */}
             </Box>

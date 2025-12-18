@@ -19,6 +19,7 @@ interface ISelectCustomProps {
   variant?: string;
   mode?: 'grey' | 'white'; 
   typographyOptions?: string;
+  ptIcon?: number;
 }
 
 const SelectCustom = ({
@@ -35,7 +36,8 @@ const SelectCustom = ({
   width,
   variant = 'h8',
   mode = 'white',
-  typographyOptions = 'h8'
+  typographyOptions = 'h8',
+  ptIcon = 0
 }: ISelectCustomProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
@@ -104,6 +106,7 @@ const SelectCustom = ({
               transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
               transition: 'transform 0.2s',
               ml: 1,
+              pt: ptIcon
             }}
           />
         </Box>

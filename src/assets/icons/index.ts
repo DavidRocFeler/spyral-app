@@ -142,7 +142,16 @@ export { default as StatusPendingIcon } from './status-pending-icon.svg'
 export { default as StatusPublishedIcon } from './status-published.svg'
 export { default as StatusDraftIcon } from './status-draft.svg'
 export { default as ShareLinkIcon } from './share-link.svg'
+export { default as FixedIconSvg } from './fixed-icon.svg'
+export { default as PlaySmallIconSvg } from './play-icon-small.svg'
 
+// playlist icon 
+export { default as BIconSvg } from '@/assets/icons/b-icon.svg'
+export { default as ItalicaIconSvg } from '@/assets/icons/italica-icon.svg'
+export { default as LineDownSvg  } from '@/assets/icons/line-down.svg'
 
+// plsylist - metadata 
+export { default as ImageUploadBrandSvg  } from '@/assets/icons/image-upload-brand.svg'
 
-
+// songs segurity icons 
+export { default as PadLockIcon  } from '@/assets/icons/padlock-icon.svg'

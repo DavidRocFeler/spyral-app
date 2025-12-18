@@ -37,3 +37,13 @@ export const catalogueListView: IMenuItemProps[] = [
   { text: 'Stats', bgcolor: 'transparent', href: '/catalogue/stats'},
   { text: 'Notifications', bgcolor: 'transparent', href: '/catalogue/notifications'},
 ];
+
+export const songsSettingData: IMenuItemProps[] = [
+  { text: 'General', bgcolor: 'transparent', href: '/songs/setting/general'},
+  { text: 'Security', bgcolor: 'transparent', href: '/songs/setting/segurity'},
+  { text: 'Billing', bgcolor: 'transparent', href: '/songs/setting/billing'},
+  { text: 'Users', bgcolor: 'transparent', href: '/songs/setting/users'},
+  { text: 'Metadata', bgcolor: 'transparent', href: '/songs/setting/metadata'},
+  { text: 'Tags', bgcolor: 'transparent', href: '/songs/setting/tags'},
+  { text: 'Inboxes', bgcolor: 'transparent', href: '/songs/setting/inboxes'},
+];

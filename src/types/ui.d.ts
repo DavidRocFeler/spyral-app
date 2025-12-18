@@ -33,6 +33,7 @@ export interface ISecondaryButtonProps {
   borderTopLeftRadius?: string;
   borderTopRightRadius?: string;
   color?: string;
+  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
 }
 
 export interface IButtonConfig {
@@ -95,6 +96,8 @@ export interface ISearchBarProps {
   flexDirection?: string;
   value?: string; // Agrega esto
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void; 
+  placeholderWhite?: string;
+  placeholderColor?: string;
 }
 
 export interface CustomTextFieldProps {
@@ -116,6 +119,10 @@ export interface CustomTextFieldProps {
   multiline?: boolean;
   rows?: number;
   width?: string;
+  variant?: string;
+  placeholderWhite?: string;
+  placeholderColor?: string;
+  variantPlaceholder?: string;
 }
 
 export interface IUploadBoxProps {

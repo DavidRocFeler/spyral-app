@@ -3,11 +3,17 @@ import { Box, Typography } from '@mui/material'
 
 export interface IUploadBoxMain {
   width?: string;
+  textMain?: string;
+  textSecondary?: string;
+  textLast?: string;
 }
 
 const UploadBoxMain = ({
-  width = 'auto'
-}) => {
+  width = 'auto',
+  textMain = "Drag and drop files here or",
+  textSecondary = 'Browse',
+  textLast = 'Supported formats include: MP3, WAV, and FLAC.'
+}: IUploadBoxMain) => {
   return (
     <>
     {/* Upload Box */}
@@ -61,7 +67,7 @@ const UploadBoxMain = ({
            variant="h10"
            color= 'text.secondary'
          >
-           Drag and drop files here or{' '}
+           {textMain}{' '}
            <Box
              component="span"
              sx={{
@@ -69,7 +75,7 @@ const UploadBoxMain = ({
                fontWeight: 450,
              }}
            >
-             Browse
+             {textSecondary}
            </Box>
          </Typography>
 
@@ -77,7 +83,7 @@ const UploadBoxMain = ({
            variant="h10"
            color= 'text.secondary'
          >
-           Supported formats include: MP3, WAV, and FLAC.
+            {textLast}
          </Typography>
        </Box>
      </Box>

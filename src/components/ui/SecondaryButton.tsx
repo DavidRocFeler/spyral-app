@@ -19,6 +19,7 @@ const SecondaryButton = ({
   borderTopLeftRadius,
   borderTopRightRadius,
   color,
+  flexDirection = 'row'
 }: ISecondaryButtonProps) => {
   const renderIcon = () => {
     if (!icon) return null;
@@ -40,6 +41,7 @@ const SecondaryButton = ({
         bgcolor: bgcolor,
         borderRadius: borderRadius,
         display: 'flex',
+        flexDirection: flexDirection,
         justifyContent: justifyContent,
         height: height,
         width: width,

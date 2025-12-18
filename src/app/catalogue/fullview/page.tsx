@@ -17,12 +17,6 @@ import CardShareProgress from "@/components/home/user-panel/CardShareProgress"
 const CatalogueFullView = () => {
   const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
   const [open, setOpen] = useState(false); 
-  
-  const handleFolderSelect = (id?: number) => {
-    if (id !== undefined) {
-      setSelectedFolderId(prevId => prevId === id ? null : id);
-    }
-  };
 
   return (
     <Box 

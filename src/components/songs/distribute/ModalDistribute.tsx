@@ -3,14 +3,9 @@
 import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';
-import SelectionButton from '@/components/ui/SelectionButton';
 import PrimaryButton from '@/components/ui/PrimaryButton';
-import { ArrowLineUpSvg, ArrowRightSvg } from '@/assets/icons';
-import CustomTextField from '@/components/ui/CustomTextField';
-import InputCalendar from '@/components/ui/InputCalendar';
 import { FlexColumn } from '@/components/ui/FlexColumn';
-import CardPerformingArtist from '@/components/ui/CardPerformingArtist';
-import { platforms, platformsTwo } from '@/mock/platformData.mock';
+import { platformsTwo } from '@/mock/platformData.mock';
 import CardPlatformSelection from '@/components/ui/CardPlatformsSelection';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 
@@ -21,7 +16,6 @@ const distributors = [
 ];
 
 const ModalDistribute = () => {
-  const [releaseDate, setReleaseDate] = useState<string>('');
   const [selectedDistributor, setSelectedDistributor] = useState<string>('DISTRIBUTOR NAME 1');
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>(['Spotify']);
 

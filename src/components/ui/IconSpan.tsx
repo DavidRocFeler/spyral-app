@@ -13,6 +13,9 @@ export interface IIconSpanProps {
     borderBottomRightRadius?: string;
     borderTopLeftRadius?: string;
     borderTopRightRadius?: string;
+    borderColor?: string;
+    borderLeft?: string;
+    borderRight?: string;
 }
 
 const IconSpan = ({
@@ -25,7 +28,10 @@ const IconSpan = ({
     borderBottomLeftRadius,
     borderBottomRightRadius,
     borderTopLeftRadius,
-    borderTopRightRadius
+    borderTopRightRadius,
+    borderColor = 'transparent',
+    borderLeft ='0px solid',
+    borderRight = '0px solid',
 }: IIconSpanProps) => {
   const IconSvg = icon
   return (
@@ -41,13 +47,15 @@ const IconSpan = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        
         borderRadius: borderRadius, 
         borderBottomLeftRadius: borderBottomLeftRadius,
         borderBottomRightRadius: borderBottomRightRadius,
         borderTopLeftRadius: borderTopLeftRadius,
         borderTopRightRadius: borderTopRightRadius,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        borderLeft: borderLeft,
+        borderRight: borderRight,
+        borderColor: borderColor
       }}
     >
       <IconSvg/>

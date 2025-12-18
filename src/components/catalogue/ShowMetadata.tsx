@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import { Box, Typography, Switch, ThemeProvider } from '@mui/material';
 import { FlexColumn } from '../ui/FlexColumn';

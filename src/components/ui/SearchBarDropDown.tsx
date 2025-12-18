@@ -5,9 +5,14 @@ import SearchBar from './SearchBar'
 import SelectCustom from './SelectCustom'
 import { SearchWhiteIconSvg } from '@/assets/icons'
 
-const mockFileSelect = ['Sort by', 'Channel', 'Electric', 'Bass Line'];
+export interface ISearchDropdownProps {
+  placeholder?: string;
+}
 
-const SearchBarDropDown = () => {
+const SearchBarDropDown = ({
+  placeholder = 'Search'
+}: ISearchDropdownProps) => {
+    const mockFileSelect = ['Sort by', 'Channel', 'Electric', 'Bass Line'];
     const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
 
   return (
@@ -15,7 +20,7 @@ const SearchBarDropDown = () => {
     <SearchBar
         icon={SearchWhiteIconSvg}
         width="320px"
-        placeholder='Search'
+        placeholder={placeholder}
     />
     <SelectCustom
         bgcolor='tramsparent'

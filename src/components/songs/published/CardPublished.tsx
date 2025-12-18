@@ -8,17 +8,19 @@ import TrackingPublished from "./TrackingPublished"
 
 interface ICardPublished {
     trackingStatus: number;
+    bgcolor?: string;
 }
 
 const CardPublished = ({
-    trackingStatus
+    trackingStatus,
+    bgcolor
 }: ICardPublished) => {
   return (
     <Box
         position='relative'
         sx={{
-        bgcolor: 'background.default',
-        borderRadius: '40px',
+        bgcolor: bgcolor,
+        borderRadius: '32px',
         px: 4,
         width: '100',
         mx: 'auto',

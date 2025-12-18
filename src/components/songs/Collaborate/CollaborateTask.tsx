@@ -10,10 +10,12 @@ import { ICollaboratorSong } from '@/types/song';
 const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsData, taskTableData}: ICollaboratorSong) => {
   return (
     <Box>
-        <TitleIcon
-        icon={CollaborationBrandSvg}
-        text='Collaborate'
-        />
+        <Box mb={2.5}>
+            <TitleIcon
+            icon={CollaborationBrandSvg}
+            text='Collaborate'
+            />
+        </Box>
         <Grid
         container
         spacing={2}

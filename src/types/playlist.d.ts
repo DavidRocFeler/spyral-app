@@ -10,3 +10,9 @@ export interface ICardPalyList {
     valueListener?: number;
     valueDownloads?: number;
   }
+
+export interface IMetadataItem {
+  id: string;
+  label: string;
+  enabled: boolean;
+}

@@ -26,5 +26,6 @@ export const palette = {
   },
   // Custom brand colors
   brand: {
+    trash: '#D92D2D'
   }
 }

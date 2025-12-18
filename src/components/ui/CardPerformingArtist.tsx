@@ -1,3 +1,4 @@
+'use client'
 import { ICardPerformingArtist } from '@/types/song';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';

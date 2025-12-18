@@ -15,7 +15,7 @@ const SlideBarMenuLeft = ({
     if (isValidElement(icon)) {
       return icon;
     }
-    const IconComponent = icon as ComponentType<any>;
+    const IconComponent = icon as ComponentType;
     return <IconComponent />;
   };
 

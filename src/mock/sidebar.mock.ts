@@ -34,7 +34,7 @@ export const sidebarMenuItems: ISidebarMenuItem[] = [
     icon: CatalogSvg,
   },
   {
-    id: 'playlists',
+    id: 'playlist',
     label: 'Playlists',
     icon: PlayListSvg,
   },

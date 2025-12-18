@@ -12,7 +12,6 @@ import { FlexColumn } from "@/components/ui/FlexColumn"
 import UploadBoxMain from "@/components/ui/UploadBoxMain"
 import CustomTextField from "@/components/ui/CustomTextField"
 import PrimaryButton from "@/components/ui/PrimaryButton"
-import { AddBox } from "@mui/icons-material"
 
 type ViewMode = 'square' | 'list';
 

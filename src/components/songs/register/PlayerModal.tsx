@@ -14,6 +14,7 @@ const PlayerModal = ({
     artistName,
     songTitle,
     collaborators = [],
+    onBumaClick,
   }: ISongPlayerCardProps) => {
     const mockFileSelect = ['Third Mixdown', 'Second Mixdown', 'FirstMixdown'];
     const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
@@ -131,7 +132,10 @@ const PlayerModal = ({
                 text="Register with BUMA"
                 width="fit-content"
                 bgcolor="grey.900"
-                onClick={handleBumaClick}
+                onClick={() => {
+                  handleBumaClick();
+                  onBumaClick?.();
+                }}
                 />
                 <SecondaryButton
                 height="43px"

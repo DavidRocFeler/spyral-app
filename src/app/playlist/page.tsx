@@ -2,7 +2,7 @@
 import { Box, Grid } from "@mui/material"
 import SearchBarDropDown from "@/components/ui/SearchBarDropDown"
 import CardPlayList from "@/components/playlist/CardPlayList"
-import { playListCards, workInProgressList } from "@/mock/workInProgresList"
+import { playListCards } from "@/mock/workInProgresList"
 
 const PlayList = () => {
 

@@ -44,22 +44,16 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
   return (
     <Link href={href} passHref style={{ textDecoration: 'none' }}>
       <Box
+        className={isActive ? 'gradient-active' : 'hover-overlay'}
         sx={{
           display: 'flex',
           alignItems: 'center',
           gap: 2,
+          borderRadius: 15,
           py: 1.5,
           px: 2,
           mb: 1.1,
-          borderRadius: 15,
           cursor: 'pointer',
-          background: isActive 
-            ? 'linear-gradient(135deg, #CFCDFF 0%, #E2FC0B 100%)'
-            : 'transparent',
-          transition: 'all 0.2s ease',
-          '&:hover': {
-            bgcolor: isActive ? 'transparent' : 'rgba(255, 255, 255, 0.05)',
-          },
         }}
       >
         <Box

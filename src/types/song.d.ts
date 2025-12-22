@@ -21,6 +21,7 @@ export interface ISongPlayerCardProps {
     onMinimize?: () => void;
     onExpand?: () => void;
     trackingStatus?: string;
+    onBumaClick?: () => void;
   }
 
   export interface IVersion {

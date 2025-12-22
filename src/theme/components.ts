@@ -82,7 +82,6 @@ export const components: Components<Theme> = {
       // Estilos globales de scrollbar
       '.custom-scrollbar': {
         overflow: 'auto',
-        
         // Scrollbar personalizado para navegadores WebKit (Chrome, Safari, Edge)
         '&::-webkit-scrollbar': {
           width: '8px',
@@ -97,7 +96,6 @@ export const components: Components<Theme> = {
           borderRadius: '4px',
           border: '1px solid transparent',
         },
-        
         // Mostrar scrollbar al hacer hover
         '&:hover::-webkit-scrollbar-track': {
           backgroundColor: '#000',
@@ -110,12 +108,26 @@ export const components: Components<Theme> = {
           backgroundColor: '#000',
           border: '1px solid #262626',
         },
-        
         // Scrollbar personalizado para Firefox
         scrollbarWidth: 'thin',
         scrollbarColor: 'transparent transparent',
         '&:hover': {
           scrollbarColor: '#000 #000',
+        },
+      },
+      // Clase para el gradiente activo
+      '.gradient-active': {
+        background: 'linear-gradient(135deg, #CFCDFF 0%, #E2FC0B 100%)',
+        transition: 'all 0.2s ease',
+        '&:hover': {
+          opacity: 0.9,
+        },
+      },
+      // Clase para hover en elementos no activos
+      '.hover-overlay': {
+        transition: 'all 0.2s ease',
+        '&:hover': {
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
         },
       },
     },

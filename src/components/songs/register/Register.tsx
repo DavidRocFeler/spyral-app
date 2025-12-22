@@ -10,15 +10,19 @@ import TitleIcon from '@/components/ui/TitleIcon'
 import { RegisterIconGoldSvg } from '@/assets/icons'
 import Demo from '@/components/songs/Demo'
 import RegisterSong from '@/components/songs/register/RegisterSong'
-import ToastSucces from '@/components/ui/ToastSucces'
 
 const Register = () => {
   const [isDemoMinimized, setIsDemoMinimized] = useState(false)
+  const [showRegisterSong, setShowRegisterSong] = useState(false)
   const [buttonNone, setButtonNone] = useState<string>('')
     
   // Si ListButtonsTracking solo acepta un número como prop trackingStatus
   // y no tiene onStatusChange, entonces:
-  const currentTrackingStatus = 4
+  const currentTrackingStatus = 3
+
+  const handleToggleDemo = () => {
+    setIsDemoMinimized(!isDemoMinimized)
+  }
 
   useEffect(() => {
     if (currentTrackingStatus >= 4) {
@@ -27,10 +31,6 @@ const Register = () => {
         setButtonNone('')
     }
 }, [currentTrackingStatus]) 
-
-  const handleToggleDemo = () => {
-    setIsDemoMinimized(!isDemoMinimized)
-  }
 
   return (
     <Box py={2} px={4}>
@@ -62,11 +62,13 @@ const Register = () => {
         lastUpdate='10 marz'
         currentTime='5mn'
         collaborators={collaboratorsTrack}
+        onBumaClick={() => setShowRegisterSong(true)}
         />
+        {showRegisterSong && (
         <Box mt={4}>
-          <RegisterSong/>
+            <RegisterSong/>
         </Box>
-        <ToastSucces/>
+        )}
     </Box>
   )
 }

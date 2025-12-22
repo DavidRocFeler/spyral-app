@@ -11,6 +11,7 @@ import SwitchAndLabel from "@/components/ui/SwitchAndLabel"
 import { playListTags } from "@/mock/playListTags.mock"
 import { ICardPerformingArtist } from "@/types/song"
 import { Box, Typography } from "@mui/material"
+import Link from "next/link"
 import { useState } from "react"
 
 const PlayListSetting = () => {
@@ -123,9 +124,17 @@ const PlayListSetting = () => {
           gap: 1.5
         }}
       >
+       <Link
+       href='/playlist/presentation'
+       style={{
+        color: 'inherit',
+        textDecoration: 'none'
+       }}
+       >
         <PrimaryButton
-          text="Save setting"
-        />
+            text="Save setting"
+          />
+       </Link>
         <SecondaryButton
           text="Cancel"
           bgcolor="transparent"

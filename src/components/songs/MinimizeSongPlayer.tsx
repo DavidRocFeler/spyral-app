@@ -5,18 +5,16 @@ import Image from "next/image";
 import { useState } from "react";
 import IconSpan from "../ui/IconSpan";
 import CollaboratorTrack from "./CollaboratorTrack";
-import { ArrowDownSvg, ArrowUpSvg, PauseIconSvg, PlayIconSvg, PlusSvg, RegisterIconBlackSvg } from "@/assets/icons";
+import { ArrowDownSvg, PauseIconSvg, PlayIconSvg, RegisterIconBlackSvg } from "@/assets/icons";
 import SecondaryButton from "../ui/SecondaryButton";
 import PrimaryButton from "../ui/PrimaryButton";
-import AudioWaveform from "./AudioWaveForm";
+import Link from "next/link";
 
 const MinimizeSongPlayer = ({
     coverImage,
     artistName,
     songTitle,
     lastUpdate,
-    duration = '4:15',
-    currentTime = '0:00',
     collaborators = [],
     onExpand,
     trackingStatus
@@ -128,12 +126,20 @@ const MinimizeSongPlayer = ({
                     onClick={handlePlayPause}
                     />
         
-                    <PrimaryButton
-                    text='Register'
-                    height='44px'
-                    icon={RegisterIconBlackSvg}
-                    trackingStatus={trackingStatus}
-                    />
+                   <Link
+                   href='/songs/register'
+                   style={{
+                    color: 'inherit',
+                    textDecoration: 'none'
+                   }}
+                   >
+                      <PrimaryButton
+                      text='Register'
+                      height='44px'
+                      icon={RegisterIconBlackSvg}
+                      trackingStatus={trackingStatus}
+                      />
+                   </Link>
                 </Box>
 
                 <IconSpan

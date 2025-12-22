@@ -28,7 +28,7 @@ const ShowMetadata = () => {
 
   return (
       <FlexColumn
-        gap={1.5}
+        gap={2}
         sx={{
           alignItems: 'flex-start',
           height: 'fit-content',
@@ -41,7 +41,7 @@ const ShowMetadata = () => {
           Show Metadata
         </Typography>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {items.map((item) => (
             <Box
               key={item.id}

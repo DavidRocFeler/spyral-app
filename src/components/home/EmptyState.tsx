@@ -1,8 +1,20 @@
-// components/EmptyState/EmptyState.tsx
+'use client';
 import { Box, Typography } from '@mui/material';
 import UploadBoxMain from '../ui/UploadBoxMain';
+import { useMusicPlayerStore } from '@/store/useMusicPlayerStore';
 
 const EmptyState = () => {
+  const setCurrentTrack = useMusicPlayerStore((state) => state.setCurrentTrack);
+
+  const handleMusicUpload = (file: File) => {
+    const track = {
+      file,
+      name: file.name,
+      url: URL.createObjectURL(file),
+    };
+    setCurrentTrack(track);
+  };
+
   return (
     <Box
       sx={{
@@ -13,7 +25,7 @@ const EmptyState = () => {
         overflowY: 'auto',
         bgcolor: 'primary.main',
         padding: 4,
-        pb: 10
+        pb: 10,
       }}
     >
       <Box
@@ -26,20 +38,15 @@ const EmptyState = () => {
           textAlign: 'center',
         }}
       >
-        <Typography
-          variant="h3"
-          mb={4}
-        >
+        <Typography variant="h3" mb={4}>
           Start By Importing Your Music
         </Typography>
 
-        {/* Upload Box */}
-        <UploadBoxMain/>
+        {/* Upload Box - Ahora con callback */}
+        <UploadBoxMain onFileUpload={handleMusicUpload} />
 
         {/* Divider Text */}
-        <Typography
-          variant='h7'
-        >
+        <Typography variant="h7">
           or connect here an app to start importing
         </Typography>
 

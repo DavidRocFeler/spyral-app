@@ -4,16 +4,19 @@ import { useEffect, useRef, useState } from 'react';
 import { artistPlayer, playerMusic } from '@/mock/musicPlayer.mock';
 import { Box, Typography, LinearProgress, IconButton } from '@mui/material';
 import Image from 'next/image';
-import CardMenuPlayerMusic from './CardMenuPlayerMusic';
+import CardMenuPlayerMusic from '@/components/ui/CardMenuPlayerMusic';
+import { useMusicPlayerStore } from '@/store/useMusicPlayerStore';
+import Link from 'next/link';
 
 const MusicPlayer = () => {
+  const { isPlayerVisible, currentTrack } = useMusicPlayerStore();
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [progress, setProgress] = useState(artistPlayer.progress);
   const [isDragging, setIsDragging] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
-
+  const [isRotated, setIsRotated] = useState(false);
   const controls = playerMusic.slice(0, 3);
   const artistMenu = playerMusic.slice(3, 6);
   const actions = playerMusic.slice(6, 9);
@@ -86,6 +89,11 @@ const MusicPlayer = () => {
     };
   }, [isDragging]);
 
+
+  if (!isPlayerVisible || !currentTrack) {
+    return null;
+  }
+
   return (
     <Box
       sx={{
@@ -99,7 +107,7 @@ const MusicPlayer = () => {
         bgcolor: 'background.default',
         borderTop: 1,
         borderColor: 'grey.900',
-        zIndex: 5,
+        zIndex: 10,
         py: 1.5
       }}
     >
@@ -267,8 +275,11 @@ const MusicPlayer = () => {
             );
           })}
           
-          {/* Arrow Up Button */}
+        {/* Arrow Up Button */}
+        {/* Arrow Up Button */}
+        <Link href="/home/playcontrol">
           <Box
+            onClick={() => setIsRotated(!isRotated)}
             sx={{
               width: 25,
               height: 25,
@@ -283,7 +294,6 @@ const MusicPlayer = () => {
               '& svg': {
                 fill: '#000',
                 color: '#000',
-                transition: '#000',
               },
               '& svg path': {
                 fill: '#000',
@@ -296,13 +306,20 @@ const MusicPlayer = () => {
               },
             }}
           >
-            <Box pt={0.4}>
+            <Box 
+              pt={0.4}
+              sx={{
+                transition: 'transform 0.3s ease',
+                transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)',
+              }}
+            >
               {(() => {
                 const ExpandIcon = expandButton.icon;
                 return <ExpandIcon/>;
               })()}
             </Box>
           </Box>
+        </Link>
         </Box>
       </Box>
 

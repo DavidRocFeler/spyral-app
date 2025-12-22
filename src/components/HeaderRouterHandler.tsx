@@ -21,9 +21,19 @@ const HeaderRouterHandler = () => {
         bgColor: 'transparent'
       },
       {
-        test: (path : string ) => path.startsWith('/playlist'),
+        test: (path: string) => path.startsWith('/playlist'),
         title: 'Play List',
         bgColor: 'transparent'
+      },
+      {
+        test: (path: string) => path.startsWith('/userpanel'),
+        title: 'Hello, Joshua',
+        bgColor: 'grey.900'
+      },
+      {
+        test: (path: string) => path.includes('/setting'),
+        title: 'Settings',
+        bgColor: 'grey.900'
       },
     ];
 

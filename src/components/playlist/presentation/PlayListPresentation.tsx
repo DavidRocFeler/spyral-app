@@ -7,18 +7,15 @@ import PrimaryButton from "@/components/ui/PrimaryButton"
 import SecondaryButton from "@/components/ui/SecondaryButton"
 import SelectCustom from "@/components/ui/SelectCustom"
 import SwitchAndLabel from "@/components/ui/SwitchAndLabel"
-import { playListTags } from "@/mock/playListTags.mock"
-import { ICardPerformingArtist } from "@/types/song"
 import { Box, Typography } from "@mui/material"
 import { useState } from "react"
 import TextFieldMessage from "./TextFieldMessage"
 import TextButton from "@/components/ui/TextButton"
 import { settingPresentationPlaylist } from "@/mock/switchAndLabel.mock"
+import Link from "next/link"
 
 const PlayListPresentation = () => {
-  const [tags, setTags] = useState<ICardPerformingArtist[]>(playListTags)
-  
-  const mockFileSelect = ['Select channel', 'Select channel', 'Select channel', 'Select channel'];
+    const mockFileSelect = ['Select channel', 'Select channel', 'Select channel', 'Select channel'];
   const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
   
   return (
@@ -124,9 +121,17 @@ const PlayListPresentation = () => {
           gap: 1.5
         }}
       >
-        <PrimaryButton
-          text="Save setting"
-        />
+        <Link
+        href='/playlist/metadata'
+        style={{
+          color: 'inherit',
+          textDecoration: 'none'
+        }}
+        >
+          <PrimaryButton
+              text="Save setting"
+            />
+        </Link>
         <SecondaryButton
           text="Cancel"
           bgcolor="transparent"

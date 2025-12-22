@@ -1,4 +1,3 @@
-import PublishedSection from "@/components/songs/published/PublishedSection"
 import SongNavigationTabs from "@/components/songs/published/SongNavigationTabs"
 import WorkInProgressSection from "@/components/songs/published/WorkInProgressSection"
 import { Box, Typography } from "@mui/material"

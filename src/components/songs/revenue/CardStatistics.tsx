@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+'use client'
+import { useState, useEffect } from 'react';
 import { Box, Typography, Paper } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import { FlexColumn } from '@/components/ui/FlexColumn';
 import IconSpan from '@/components/ui/IconSpan';
 import { ArrowDiagonalSvg } from '@/assets/icons';
 
-interface IStatisticsCardProps {
+export interface IStatisticsCardProps {
   currentValue?: number;
   percentageChange?: number;
   label?: string;
   currentHour?: number;
 }
 
-const CardStatistics: React.FC<IStatisticsCardProps> = ({
+const CardStatistics = ({
   currentValue = 142,
   percentageChange = 12.75,
   label = 'Streams',
   currentHour = new Date().getHours()
-}) => {
+}: IStatisticsCardProps) => {
   const [animatedValue, setAnimatedValue] = useState<number>(currentValue);
 
   // Generate 5 hours dynamically based on current hour
@@ -116,27 +117,82 @@ const CardStatistics: React.FC<IStatisticsCardProps> = ({
         </FlexColumn>
       </FlexCenter>
 
-      {/* Hour Labels */}
-      <Box 
+      {/* Chart Area */}
+      <Box
         sx={{
-          width: '100%',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(5, auto)',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          mt: 'auto',
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          mt: 5,
         }}
       >
-        {hourLabels.map((hour, index) => (
-          <Typography 
-            key={index}
-            variant='h8' 
-            color='text.secondary' 
-            fontWeight={500}
-          >
-            {hour}
-          </Typography>
-        ))}
+        {/* Área del gráfico */}
+        <Box
+          sx={{
+            flex: 1,
+            borderTop: '1px solid',
+            borderColor: 'grey.800',
+            position: 'relative',
+          }}
+        >
+          {/* Línea vertical desde hora 2 (25%) */}
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '25.5%',
+              top: 0,
+              bottom: 0,
+              borderLeft: '2px dashed',
+              borderColor: 'grey.800',
+            }}
+          />
+          
+          {/* Línea vertical desde hora 3 (50%) */}
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '48.5%',
+              top: 0,
+              bottom: 0,
+              borderLeft: '2px dashed',
+              borderColor: 'grey.800',
+            }}
+          />
+          
+          {/* Línea vertical desde hora 4 (75%) */}
+          <Box
+            sx={{
+              position: 'absolute',
+              left: '72%',
+              top: 0,
+              bottom: 0,
+              borderLeft: '2px dashed',
+              borderColor: 'grey.800',
+            }}
+          />
+        </Box>
+
+        {/* Hour Labels */}
+        <Box 
+          sx={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            pt: 2,
+          }}
+        >
+          {hourLabels.map((hour, index) => (
+            <Typography 
+              key={index}
+              variant='h8' 
+              color='text.secondary' 
+              fontWeight={500}
+            >
+              {hour}
+            </Typography>
+          ))}
+        </Box>
       </Box>
     </Paper>
   );

@@ -1,0 +1,1 @@
+export { default as BackgroundSignUpSvg } from "@/assets/background/signupbg.svg"

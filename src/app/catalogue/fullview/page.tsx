@@ -21,6 +21,7 @@ const CatalogueFullView = () => {
   return (
     <Box 
     px={4}
+    pb={4}
     >
       <FlexCenter sx={{
         gap: 4,

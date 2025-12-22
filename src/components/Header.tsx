@@ -7,6 +7,7 @@ import { headerData } from '@/mock/header.mock';
 import { IHeaderProps } from '@/types/header';
 import SearchBar from './ui/SearchBar';
 import { useHeaderStore } from '@/store/useHeaderStore'; 
+import Link from 'next/link';
 
 
 const Header = () => { 
@@ -57,8 +58,28 @@ const Header = () => {
           ml={2.5}
           sx={{ display: 'flex', alignItems: 'center', gap: 2 }}
         >
+           <Link
+           href='songs/setting/general'
+           >
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '50%',
+                cursor: 'pointer',
+                bgcolor: 'background.default'
+              }}
+            >
+              <SettingIconSvg style={{ width: 20, height: 20, color: '#FFF' }} />
+            </Box>
+           </Link>
+          
           <Box
             sx={{
+              position: 'relative',
               width: 44,
               height: 44,
               display: 'flex',
@@ -69,46 +90,44 @@ const Header = () => {
               bgcolor: 'background.default'
             }}
           >
+            <Box
+            bgcolor='secondary.main'
+            width='6px'
+            height='6px'
+            borderRadius='50px'
+            position='absolute'
+            top={9}
+            right={9}
+            />
             <BellIconSvg style={{ width: 20, height: 20, color: '#FFF' }} />
-          </Box>
-
-          <Box
-            sx={{
-              width: 44,
-              height: 44,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '50%',
-              cursor: 'pointer',
-              bgcolor: 'background.default'
-            }}
-          >
-            <SettingIconSvg style={{ width: 20, height: 20, color: '#FFF' }} />
           </Box>
           
           {/* Avatar/Profile Image */}
-          <Box
-            sx={{
-              width: 44,
-              height: 44,
-              borderRadius: '50%',
-              overflow: 'hidden',
-              cursor: 'pointer'
-            }}
+          <Link 
+          href='/home/userpanel'
           >
-            <Image
-              width={40}
-              height={40}
-              src={profileData.image}
-              alt={profileData.alt}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                borderRadius: '50%',
+                overflow: 'hidden',
+                cursor: 'pointer'
               }}
-            />
-          </Box>
+            >
+              <Image
+                width={40}
+                height={40}
+                src={profileData.image}
+                alt={profileData.alt}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            </Box>
+          </Link>
         </Box>
       </Box>
     </Box>

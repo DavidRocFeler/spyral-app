@@ -1,36 +1,31 @@
 'use client'
-import { DistributeIconBigBrandSvg, RegisterIconGoldSvg } from '@/assets/icons'
-import PlayerModal from '@/components/songs/register/PlayerModal'
-import RegisterSong from '@/components/songs/register/RegisterSong'
+import { DistributeIconBigBrandSvg } from '@/assets/icons'
 import Demo from '@/components/songs/Demo'
 import ListButtonsTracking from '@/components/songs/ListButtonsTracking'
 import MinimizeDemo from '@/components/songs/MinimizeDemo'
 import TitleIcon from '@/components/ui/TitleIcon'
-import { Box, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Box } from '@mui/material'
+import  { useEffect, useState } from 'react'
 import FormDistribute from '@/components/songs/distribute/FormDistribute'
-import ModalDistribute from '@/components/songs/distribute/ModalDistribute'
+import ModalDistribute from './ModalDistribute'
 
-const DistributeOverlay = () => {
+const Distribute = () => {
     const [isDemoMinimized, setIsDemoMinimized] = useState(false)
     const [buttonNone, setButtonNone] = useState<string>('')
-    
-    // Si ListButtonsTracking solo acepta un número como prop trackingStatus
-    // y no tiene onStatusChange, entonces:
     const currentTrackingStatus = 4
-
+    const [showModal, setShowModal] = useState(false)
+  
     useEffect(() => {
       if (currentTrackingStatus >= 4) {
           setButtonNone('none')
       } else {
           setButtonNone('')
       }
-  }, [currentTrackingStatus]) 
+    }, [currentTrackingStatus]) 
 
     const handleToggleDemo = () => {
         setIsDemoMinimized(!isDemoMinimized)
-      }
-    
+    }
 
   return (
     <Box py={2} px={4}>
@@ -50,10 +45,12 @@ const DistributeOverlay = () => {
             text='Distribute'
             /> 
         </Box>
-        <FormDistribute/>
-        <ModalDistribute/>
+        <FormDistribute onDeliver={() => setShowModal(true)}/>
+        
+        {/* 👇 Solo agrega onClose aquí */}
+        {showModal && <ModalDistribute onClose={() => setShowModal(false)} />}
     </Box>
   )
 }
 
-export default DistributeOverlay
+export default Distribute

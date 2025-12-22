@@ -1,5 +1,7 @@
+'use client'
 import { ISearchBarProps } from "@/types/ui";
-import { Box, InputBase, Typography } from "@mui/material"
+import { Box, InputBase, Typography } from "@mui/material";
+import { useState } from "react";
 
 const IconInput = ({
   icon,
@@ -12,16 +14,31 @@ const IconInput = ({
   value,
   onChange,
   placeholderWhite,
-  placeholderColor
+  placeholderColor,
+  type,
+  border = '0px solid',
+  borderColor = 'transparent',
 }: ISearchBarProps) => {
+  const [showPassword, setShowPassword] = useState(false);
   const IconComponent = icon;
   const hasValue = typeof value === 'string' ? value.length > 0 : !!value;
 
+  const isPasswordType = type === 'password';
+  const inputType = isPasswordType && !showPassword ? 'password' : 'text';
+
+  const handleIconClick = () => {
+    if (isPasswordType) {
+      setShowPassword(!showPassword);
+    }
+  };
+
   return (
-    <Box width='100%' sx={{ position: 'relative' }}>
+    <Box width='fit-content'  sx={{ position: 'relative' }}>
       <Box
         bgcolor={bgcolor}
         sx={{
+          border: border,
+          borderColor: borderColor,
           width: width,
           display: 'flex',
           flexDirection: flexDirection,
@@ -36,21 +53,41 @@ const IconInput = ({
         <InputBase
           value={value}
           onChange={onChange}
+          type={inputType}
           placeholder={placeholderWhite ? '' : placeholder}
           sx={{
             flex: 1,
             fontWeight: 400,
-            color: 'text.primary',
-            fontSize: '16px',
+            typography: 'h7',
             '& input::placeholder': {
-              color: '#808080',
+              typography: 'h7',
+              color: 'text.secondary',
               opacity: placeholderWhite ? 0 : 1,
             },
           }}
         />
-        <IconComponent/>
+        {IconComponent && (
+          <Box
+            onClick={handleIconClick}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              cursor: isPasswordType ? 'pointer' : 'default',
+              ...(isPasswordType && showPassword && {
+                '& svg': {
+                  color: '#FFF',
+                  fill: '#FFF',
+                  '& path': {
+                    fill: '#FFF',
+                  }
+                }
+              })
+            }}
+          >
+            <IconComponent />
+          </Box>
+        )}
       </Box>
-
       {placeholderWhite && !hasValue && (
         <Typography
           variant="h7"
@@ -68,7 +105,7 @@ const IconInput = ({
         </Typography>
       )}
     </Box>
-  )
-}
+  );
+};
 
 export default IconInput;

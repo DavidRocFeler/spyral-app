@@ -84,7 +84,7 @@ const CardArrayPlaylist = ({
 
       <Box
       position='absolute'
-      right={-25}
+      right={-35}
       top='50%'
       sx={{
         transform: 'translate(-50%, -50%)', // Compensa el 50% del propio tamaño

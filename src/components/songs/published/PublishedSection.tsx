@@ -5,6 +5,15 @@ import { FlexColumn } from '@/components/ui/FlexColumn'
 import SelectionButton from '@/components/ui/SelectionButton'
 import SearchBarDropDown from '@/components/ui/SearchBarDropDown'
 
+// Data para el mapeo
+const publishedCards = [
+  { id: 1, trackingStatus: 4 },
+  { id: 2, trackingStatus: 5 },
+  { id: 3, trackingStatus: 5 },
+  { id: 4, trackingStatus: 2 },
+  { id: 5, trackingStatus: 3 },
+];
+
 const PublishedSection = () => {
 
   return (
@@ -12,21 +21,13 @@ const PublishedSection = () => {
         <SearchBarDropDown/>
 
         <FlexColumn gap={2} mt={3}>
-            <CardPublished
-            trackingStatus={4}
-            />
-            <CardPublished
-            trackingStatus={5}
-            />
-            <CardPublished
-            trackingStatus={5}
-            />
-            <CardPublished
-            trackingStatus={2}
-            />
-            <CardPublished
-            trackingStatus={3}
-            />
+            {publishedCards.map((card) => (
+              <CardPublished
+                key={card.id}
+                bgcolor='background.default'  // 👈 Igual para todos
+                trackingStatus={card.trackingStatus}
+              />
+            ))}
         </FlexColumn>
 
         <FlexCenter mt={6} px={2} height='44px' borderRadius='12px' bgcolor='background.default' gap={3}>
@@ -34,15 +35,15 @@ const PublishedSection = () => {
                 You have one song which has been distributed but not registered. What do you want to do?
             </Typography>
             <SelectionButton
-            text='Fix it now'
-            bgcolor='transparent'
-            color='secondary.main'
-            px={0}
+              text='Fix it now'
+              bgcolor='transparent'
+              color='secondary.main'
+              px={0}
             />
             <SelectionButton
-            text='Dismiss'
-            bgcolor='transparent'
-            px={0}
+              text='Dismiss'
+              bgcolor='transparent'
+              px={0}
             />
         </FlexCenter>
     </Box>

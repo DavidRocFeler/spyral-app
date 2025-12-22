@@ -9,6 +9,7 @@ import { ArrowUpSvg, PauseIconSvg, PlayIconSvg, PlusSvg, RegisterIconBlackSvg } 
 import SecondaryButton from "../ui/SecondaryButton";
 import PrimaryButton from "../ui/PrimaryButton";
 import AudioWaveform from "./AudioWaveForm";
+import Link from "next/link";
 
 const SongPlayerCard = ({
     coverImage,
@@ -143,15 +144,23 @@ const SongPlayerCard = ({
             onClick={handlePlayPause}
             />
   
-            <PrimaryButton
-            text='Register'
-            height='44px'
-            icon={RegisterIconBlackSvg}
-            />
+            <Link
+            href='/songs/register'
+            style={{
+              color: 'inherit',
+              textDecoration: 'none'
+            }}
+            >
+              <PrimaryButton
+              text='Register'
+              height='44px'
+              icon={RegisterIconBlackSvg}
+              />
+            </Link>
           </Box>
   
           {/* Waveform */}
-          <Box sx={{ position: 'relative', mb: 1 }}>
+          <Box sx={{ position: 'relative', mb: 1, width: '100%'}}>
                 <AudioWaveform 
                 isPlaying={isPlaying} 
                 currentTime={currentTime} 

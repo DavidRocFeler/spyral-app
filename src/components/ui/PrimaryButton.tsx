@@ -11,17 +11,12 @@ const PrimaryButton = ({
     onClick,
     trackingStatus
 }: IPrimaryButtonProps) => {
-    const handleSubmit = () => {
-        // Lógica para enviar
-        console.log('Submitting...');
-    };
-
   return (
     <>
         <Button
             disableRipple
             variant="primaryButton"
-            onClick={handleSubmit}
+            onClick={onClick}
             sx={{
               display: trackingStatus,
               height: height

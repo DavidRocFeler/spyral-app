@@ -25,6 +25,7 @@ const ModalWrapper = ({ children }: IModalWrapperProps) => {
     <Box 
       ref={contentRef}
       component="main" 
+      className="custom-scrollbar"
       sx={{ 
         flex: 1, 
         overflow: isModalOpen ? 'hidden' : 'auto',

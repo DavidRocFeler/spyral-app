@@ -1,26 +1,20 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Box } from '@mui/material';
 import ClientLayout from "./ClientLayout";
 import localFont from "next/font/local";
 import { Roboto } from "next/font/google";
-import Sidebar from "@/components/sidebar/Sidebar";
-import Header from "@/components/Header";
-import MusicPlayer from "@/components/ui/MusicPlayer";
-import HeaderRouterHandler from "@/components/HeaderRouterHandler";
-import AddNewItem from "@/components/modals/AddNewItem";
-import ModalWrapper from "./ModalWrapper";
+import ConditionalLayout from "./ConditionLayout";
 
 const manrope = localFont({
   src: "./fonts/Manrope/Manrope-VariableFont_wght.ttf",
   variable: "--font-manrope",
-  weight: "200 800", // rango de pesos disponibles
+  weight: "200 800",
 });
 
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ['300', '400', '500', '700'], // Pesos que necesites
+  weight: ['300', '400', '500', '700'],
   display: 'swap',
 });
 
@@ -40,38 +34,9 @@ export default function RootLayout({
         className={`${manrope.variable} ${roboto.variable}`}
       >
         <ClientLayout>
-          <HeaderRouterHandler/>
-
-          <Box 
-            sx={{ 
-              display: 'flex', 
-              height: '100vh', 
-              overflow: 'hidden' 
-            }}
-          >
-            {/* Sidebar */}
-            <Sidebar />
-            
-            {/* Main Content Area */}
-            <Box 
-              sx={{ 
-                flex: 1, 
-                display: 'flex', 
-                flexDirection: 'column',
-                overflow: 'hidden'
-              }}
-            >
-              {/* Header */}
-              <Header />
-              {/* Content (children from each page) */}
-              <ModalWrapper>
-                <AddNewItem/>
-                {children}
-              </ModalWrapper>
-
-              {/* <MusicPlayer/> */}
-            </Box>
-          </Box>
+          <ConditionalLayout>
+            {children}
+          </ConditionalLayout>
         </ClientLayout>
       </body>
     </html>

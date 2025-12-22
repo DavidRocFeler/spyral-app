@@ -20,7 +20,6 @@ const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsDa
         container
         spacing={2}
         sx={{
-            height: '600px',
             width: '100%',
         }}
         >

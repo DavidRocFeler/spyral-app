@@ -1,23 +1,17 @@
 'use client'
-import { PlusBrandIconSvg, PlusSvg, SmallPlusBrandSvg } from "@/assets/icons"
-import CheckRadius from "@/components/ui/CheckRadius"
+import { PlusBrandIconSvg } from "@/assets/icons"
 import { FlexCenter } from "@/components/ui/FlexCenter"
 import { FlexColumn } from "@/components/ui/FlexColumn"
 import PrimaryButton from "@/components/ui/PrimaryButton"
 import SecondaryButton from "@/components/ui/SecondaryButton"
 import SelectCustom from "@/components/ui/SelectCustom"
-import SwitchAndLabel from "@/components/ui/SwitchAndLabel"
 import { playListTags } from "@/mock/playListTags.mock"
 import { ICardPerformingArtist } from "@/types/song"
-import { Box, Typography } from "@mui/material"
+import { Box, Link, Typography } from "@mui/material"
 import { useState } from "react"
-import TextButton from "@/components/ui/TextButton"
-import { settingPresentationPlaylist } from "@/mock/switchAndLabel.mock"
-import TextFieldMessage from "../presentation/TextFieldMessage"
 import CustomTextField from "@/components/ui/CustomTextField"
 import UploadImageMetadata from "./UploadImageMetadata"
 import CheckBoxCustom from "@/components/ui/CheckBoxCustom"
-import InputCalendar from "@/components/ui/InputCalendar"
 import CalendarMetadata from "./CalendarMetadata"
 
 const PlayListMetadata = () => {
@@ -343,9 +337,17 @@ const PlayListMetadata = () => {
           gap: 1.5
         }}
       >
-        <PrimaryButton
-          text="Save setting"
-        />
+      <Link
+        href='/playlist/writers'
+        style={{
+          color: 'inherit',
+          textDecoration: 'none'
+        }}
+        >
+          <PrimaryButton
+              text="Save setting"
+            />
+       </Link>
         <SecondaryButton
           text="Cancel"
           bgcolor="transparent"

@@ -19,7 +19,6 @@ const RegisterSong = () => {
       {/* Sidebar izquierdo */}
       <Box height='100%'
       position='absolute'
-      bgcolor='red'
       >
       <SlideBarMenuLeft
       menuItems={menuItemsRegister}

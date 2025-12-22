@@ -8,6 +8,11 @@ import { FlexColumn } from '@/components/ui/FlexColumn';
 import { platformsTwo } from '@/mock/platformData.mock';
 import CardPlatformSelection from '@/components/ui/CardPlatformsSelection';
 import SecondaryButton from '@/components/ui/SecondaryButton';
+import Link from 'next/link';
+
+export interface IModalDistributeProps {
+  onClose: () => void;
+}
 
 const distributors = [
   { name: 'DISTRIBUTOR NAME 1', selected: true },
@@ -15,13 +20,10 @@ const distributors = [
   { name: 'DISTRIBUTOR NAME 3', selected: false }
 ];
 
-const ModalDistribute = () => {
-  const [selectedDistributor, setSelectedDistributor] = useState<string>('DISTRIBUTOR NAME 1');
+const ModalDistribute = ({
+  onClose,
+}: IModalDistributeProps) => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>(['Spotify']);
-
-  const handleDistributorClick = (name: string) => {
-    setSelectedDistributor(name);
-  };
 
   const handlePlatformClick = (name: string) => {
     if (selectedPlatforms.includes(name)) {
@@ -38,6 +40,7 @@ const ModalDistribute = () => {
   return (
     // Overlay negro con opacidad 0.5
     <Box
+      onClick={onClose}
       sx={{
         position: 'fixed',
         top: 0,
@@ -53,6 +56,7 @@ const ModalDistribute = () => {
     >
       {/* Contenedor principal del modal */}
       <Box 
+        onClick={(e) => e.stopPropagation()} 
         mt={5} 
         bgcolor='background.default' 
         width='811px' 
@@ -116,12 +120,21 @@ const ModalDistribute = () => {
             text='Go Back'
             height='44px'
             bgcolor='grey.900'
+            onClick={onClose} 
           />
+         <Link
+         href='/songs/revenue'
+         style={{
+           color: 'inherit',
+           textDecoration: 'none'
+         }}
+         >
           <PrimaryButton
-            height='44px'
-            text="Distribute"
-            onClick={handleDeliver}
-          />
+              height='44px'
+              text="Distribute"
+              onClick={handleDeliver}
+            />
+         </Link>
         </FlexCenter>
       </Box>
     </Box>

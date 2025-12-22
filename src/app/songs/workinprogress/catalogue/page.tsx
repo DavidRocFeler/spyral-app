@@ -1,10 +1,9 @@
 import SongNavigationTabs from "@/components/songs/published/SongNavigationTabs"
 import FolderComponent from "@/components/ui/Folder"
-import { FlexCenter } from "@/components/ui/FlexCenter"
 import { FlexColumn } from "@/components/ui/FlexColumn"
-import { foldersData, foldersSongsCatalogue } from "@/mock/cardFolderCatalogue.mock"
+import { foldersSongsCatalogue } from "@/mock/cardFolderCatalogue.mock"
 import { tabsWorkInProgress } from "@/mock/tabsSong.mock"
-import { Box, Grid, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 const Catalogue = () => {
   return (

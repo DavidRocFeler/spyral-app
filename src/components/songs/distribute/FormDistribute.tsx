@@ -11,13 +11,19 @@ import { FlexColumn } from '@/components/ui/FlexColumn';
 import { platforms } from '@/mock/platformData.mock';
 import CardPlatformSelection from '@/components/ui/CardPlatformsSelection';
 
+export interface IFormDistributeProps {
+  onDeliver?: () => void;
+}
+
 const distributors = [
   { name: 'DISTRIBUTOR NAME 1', selected: true },
   { name: 'FUGA', selected: false },
   { name: 'DISTRIBUTOR NAME 3', selected: false }
 ];
 
-const FormDistribute = () => {
+const FormDistribute = ({
+  onDeliver,
+}: IFormDistributeProps) => {
   const [releaseDate, setReleaseDate] = useState<string>('');
   const [selectedDistributor, setSelectedDistributor] = useState<string>('DISTRIBUTOR NAME 1');
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>(['Spotify']);
@@ -36,6 +42,7 @@ const FormDistribute = () => {
 
   const handleDeliver = () => {
     console.log('Deliver clicked');
+    onDeliver?.();
   };
 
   return (

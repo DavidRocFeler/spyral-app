@@ -9,40 +9,44 @@ const SearchBar = ({
     bgcolor = 'background.default',
     borderRadius = '15px'
 }: ISearchBarProps) => {
+    // Manejar el caso cuando icon es undefined
     const IconComponent = icon;
-   return (
-     <Box>
-        {/* Search */}
-        <Box
-        bgcolor={bgcolor}
-        sx={{
-            width: width,
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: borderRadius,
-            height: height,
-            gap: 1,
-            py: 0.6,
-            px: 2.5
-        }}
-        >
-        <IconComponent/>
-        <InputBase
-            placeholder={placeholder}
-            sx={{
-            flex: 1,
-            fontWeight: 400,
-            color: 'text.primary',
-            fontSize: '16px',
-            '& input::placeholder': {
-                color: '#808080',
-                opacity: 1,
-            },
-            }}
-        />
+    
+    return (
+        <Box>
+            {/* Search */}
+            <Box
+                bgcolor={bgcolor}
+                sx={{
+                    width: width,
+                    display: 'flex',
+                    alignItems: 'center',
+                    borderRadius: borderRadius,
+                    height: height,
+                    gap: 1,
+                    py: 0.6,
+                    px: 2.5
+                }}
+            >
+                {/* Renderizar icono solo si existe */}
+                {IconComponent && <IconComponent />}
+                
+                <InputBase
+                    placeholder={placeholder}
+                    sx={{
+                        flex: 1,
+                        fontWeight: 400,
+                        color: 'text.primary',
+                        fontSize: '16px',
+                        '& input::placeholder': {
+                            color: '#808080',
+                            opacity: 1,
+                        },
+                    }}
+                />
+            </Box>
         </Box>
-     </Box>
-   )
+    )
 }
 
 export default SearchBar

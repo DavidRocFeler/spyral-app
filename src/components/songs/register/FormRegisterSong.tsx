@@ -195,32 +195,42 @@ const FormRegisterSong = () => {
           </FlexCenter>
 
         {/* Percentages */}
-        <FlexCenter gap={2} sx={{ mb: 1 }}>
+        <FlexCenter gap={2} sx={{ 
+          mb: 1,
+          width: 'fit-content' 
+          }}>
           <Typography variant='h8' color='text.secondary'>
               Lyricist
           </Typography>
-          <IconInput
-          icon={PorcentSvg}
-          bgcolor='grey.900'
-          width='75px'
-          placeholder='00'
-          value={formData.lyricistPercent?.toString() || ''}
-          onChange={(e) => setFormData({...formData, lyricistPercent: parseInt(e.target.value) || 0})}
-          />
-          <IconInput
-          icon={PorcentSvg}
-          bgcolor='grey.900'
-          width='75px'
-          placeholder='00'
-          value={formData.composerPercent?.toString() || ''}
-          onChange={(e) => setFormData({...formData, composerPercent: parseInt(e.target.value) || 0})}
-          />
-          {(!formData.lyricistPercent || !formData.composerPercent || 
-            formData.lyricistPercent === 0 || formData.composerPercent === 0) && (
-            <Typography variant='h9' color='error.main'>
-                * Required field
-            </Typography>
-          )}
+          <FlexCenter
+          gap={1.5}
+          sx={{
+            width: 'fit-content',
+          }}
+          >
+            <IconInput
+              icon={PorcentSvg}
+              bgcolor='grey.900'
+              width='75px'
+              placeholder='00'
+              value={formData.lyricistPercent?.toString() || ''}
+              onChange={(e) => setFormData({...formData, lyricistPercent: parseInt(e.target.value) || 0})}
+              />
+              <IconInput
+              icon={PorcentSvg}
+              bgcolor='grey.900'
+              width='75px'
+              placeholder='00'
+              value={formData.composerPercent?.toString() || ''}
+              onChange={(e) => setFormData({...formData, composerPercent: parseInt(e.target.value) || 0})}
+              />
+              {(!formData.lyricistPercent || !formData.composerPercent || 
+                formData.lyricistPercent === 0 || formData.composerPercent === 0) && (
+                <Typography width='fit-content' variant='h9' color='error.main'>
+                    * Required field
+                </Typography>
+              )}
+          </FlexCenter>
         </FlexCenter>
 
         {/* Music and Lyrics */}

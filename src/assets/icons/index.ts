@@ -148,10 +148,20 @@ export { default as PlaySmallIconSvg } from './play-icon-small.svg'
 // playlist icon 
 export { default as BIconSvg } from '@/assets/icons/b-icon.svg'
 export { default as ItalicaIconSvg } from '@/assets/icons/italica-icon.svg'
-export { default as LineDownSvg  } from '@/assets/icons/line-down.svg'
+export { default as LineDownSvg } from '@/assets/icons/line-down.svg'
 
 // plsylist - metadata 
 export { default as ImageUploadBrandSvg  } from '@/assets/icons/image-upload-brand.svg'
 
 // songs segurity icons 
-export { default as PadLockIcon  } from '@/assets/icons/padlock-icon.svg'
+export { default as PadLockIcon } from '@/assets/icons/padlock-icon.svg'
+
+// icono auth
+export { default as LogoTypography } from '@/assets/icons/spyral-logo-typography.svg'
+
+// incon auth
+export { default as GoogleIconSvg } from '@/assets/icons/google-icon.svg'
+export { default as FacebookIconSvg } from '@/assets/icons/facebook-icon.svg'
+export { default as AppleIconSvg } from '@/assets/icons/apple-icon.svg'
+export { default as WindowsIconSvg } from '@/assets/icons/windows-icon.svg'
+export { default as  EyeRegisterIconSvg } from '@/assets/icons/eye-register.svg'

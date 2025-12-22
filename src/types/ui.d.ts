@@ -87,17 +87,20 @@ export interface IContactSelectorItemProps {
 }
 
 export interface ISearchBarProps {
-  icon: ComponentType;
+  icon?: ComponentType;
   placeholder?: string;
   width?: string;
   height?: string;
   bgcolor?: string;
   borderRadius?: string;
   flexDirection?: string;
-  value?: string; // Agrega esto
+  value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void; 
   placeholderWhite?: string;
   placeholderColor?: string;
+  type?: 'password' | 'text';
+  border?: string,
+  borderColor?: string,
 }
 
 export interface CustomTextFieldProps {

@@ -32,7 +32,7 @@ const PlayList = () => {
               position: 'relative'
             }}
           >
-            {playListCards.map((work, index) => (
+            {playListCards.map((work) => (
               <Grid key={work.id} size={{ xs: 6 }} sx={{ flexShrink: 0 }}>
                 <CardPlayList
                   key={work.id}

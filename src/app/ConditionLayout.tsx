@@ -1,8 +1,8 @@
 // app/ConditionalLayout.tsx
 'use client';
-
 import { usePathname } from 'next/navigation';
 import { Box } from '@mui/material';
+import { useEffect } from 'react';
 import Sidebar from "@/components/sidebar/Sidebar";
 import Header from "@/components/Header";
 import HeaderRouterHandler from "@/components/HeaderRouterHandler";
@@ -17,6 +17,20 @@ export default function ConditionalLayout({
 }) {
   const pathname = usePathname();
   
+  // Reservar espacio para el scrollbar siempre
+  useEffect(() => {
+    // scrollbarGutter reserva el espacio sin mostrar scrollbar vacío
+    document.documentElement.style.scrollbarGutter = 'stable';
+    
+    // Alternativa: si scrollbarGutter no funciona en tu navegador
+    // document.documentElement.style.overflowY = 'scroll';
+    
+    return () => {
+      // Cleanup al desmontar (opcional)
+      document.documentElement.style.scrollbarGutter = 'auto';
+    };
+  }, []);
+
   // Rutas que NO deben mostrar el layout principal
   const isAuthRoute = pathname?.startsWith('/access');
 

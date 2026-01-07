@@ -128,14 +128,22 @@ const PlayListPresentation = () => {
           textDecoration: 'none'
         }}
         >
-          <PrimaryButton
+            <PrimaryButton
               text="Save setting"
             />
         </Link>
+       <Link
+       href='/playlist/setting'
+       style={{
+         color: 'inherit',
+         textDecoration: 'none'
+       }}
+       >
         <SecondaryButton
-          text="Cancel"
-          bgcolor="transparent"
-        />
+            text="Cancel"
+            bgcolor="transparent"
+          />
+       </Link>
       </Box>
     </Box>
   )

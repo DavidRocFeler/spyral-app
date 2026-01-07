@@ -2,9 +2,13 @@ import { Box } from '@mui/material';
 import JameArtur from '@/assets/jamesArthurTrack.png'
 import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock';
 import SongPlayerCard from './SongPlayerCard';
+import { IDemoProps } from '@/types/song';
 
 // Demo component
-const Demo = ({ onMinimize }: { onMinimize: () => void }) => {
+const Demo = ({
+  onMinimize, 
+  trackingStatus
+}: IDemoProps) => {
   return (
     <Box 
     width='100%'
@@ -19,6 +23,7 @@ const Demo = ({ onMinimize }: { onMinimize: () => void }) => {
         duration="4:15"
         currentTime="0:00"
         onMinimize={onMinimize}
+        trackingStatus={trackingStatus}
       />
     </Box>
   );

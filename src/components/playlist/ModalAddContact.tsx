@@ -17,40 +17,57 @@ import Image from 'next/image';
 import { FlexColumn } from '../ui/FlexColumn';
 import CancelButtonTransparent from '../ui/CancelButtonTransparent';
 
-const ModalAddPlayList = () => {
-  const [email, setEmail] = useState('olivia.johnson@gmail.com');
-  const [searchQuery, setSearchQuery] = useState('Olivia');
+export interface IModalAddPlayListProps {
+  open: boolean;
+  onClose: () => void;
+  initialSearch?: string;
+  initialEmail?: string;
+}
+
+const ModalAddContact = ({
+  open,
+  onClose,
+  initialSearch = 'Olivia',
+  initialEmail = 'olivia.johnson@gmail.com'
+}: IModalAddPlayListProps) => {
+  const [email, setEmail] = useState(initialEmail);
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [showOliviaProfile, setShowOliviaProfile] = useState(true);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    setShowOliviaProfile(false); // Ocultar perfil cuando se modifica el email
+    setShowOliviaProfile(false);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    setShowOliviaProfile(false); // Ocultar perfil cuando se modifica la búsqueda
+    setShowOliviaProfile(false); 
   };
 
   const handleAdd = () => {
-    // Lógica para agregar contacto
     console.log('Adding contact:', email);
+    // add contact
   };
 
   const handleSubmit = () => {
-    // Lógica para enviar
-    console.log('Submitting...');
+    console.log('Submitting...', email, searchQuery);
+    // send 
+    onClose(); 
+  };
+
+  const handleCancel = () => {
+    onClose(); 
   };
 
   return (
     <Modal
-      open={true} // Siempre abierto para maquetación
-      onClose={() => {}} // No hace nada por ahora
+      open={open}
+      onClose={onClose}
       sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Overlay con opacity 0.5
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
       }}
     >
       <Box
@@ -64,7 +81,6 @@ const ModalAddPlayList = () => {
           outline: 'none',
         }}
       >
-        {/* Header */}
         <Typography
           variant="h3"
           sx={{
@@ -77,7 +93,6 @@ const ModalAddPlayList = () => {
           Add Contacts
         </Typography>
 
-        {/* Email Input con botón Add */}
         <Box sx={{ display: 'flex', gap: 1.5, mb: 3 }}>
           <TextField
             fullWidth
@@ -92,21 +107,17 @@ const ModalAddPlayList = () => {
             variant='secondaryButton'
             onClick={handleAdd}
           >
-            <Typography variant='h8' sx={{textTransform: 'none'}}> Add </Typography>
+            <Typography variant='body1' sx={{textTransform: 'none'}}> Add </Typography>
             <Box display='flex' alignItems='center' justifyContent='center'>
               <PlusSvg/>
             </Box>
           </Button>
         </Box>
 
-        {/* Texto separador */}
-        <Typography
-          variant='h8'
-        >
+        <Typography variant='body1'>
           Or check if your contacts are already on Spyral
         </Typography>
 
-        {/* Search Input con lupa */}
         <TextField
           fullWidth
           value={searchQuery}
@@ -136,7 +147,6 @@ const ModalAddPlayList = () => {
           }}
         />
 
-        {/* Perfil de Olivia - Solo se muestra si showOliviaProfile es true */}
         {showOliviaProfile && (
           <FlexColumn
             sx={{mt: 2}}
@@ -151,13 +161,12 @@ const ModalAddPlayList = () => {
               }}
             />
             <FlexColumn>
-              <Typography mb={-0.2} variant='h10' color='text.secondary'> Olivia</Typography>
-              <Typography variant='h10' color='text.secondary'> Jhonson</Typography>
+              <Typography mb={-0.2} variant='body2' color='text.secondary'> Olivia</Typography>
+              <Typography variant='body2' color='text.secondary'> Jhonson</Typography>
             </FlexColumn>
           </FlexColumn>
         )}
 
-        {/* Botones de acción en la parte inferior derecha */}
         <Box
           sx={{
             mt: 1,
@@ -166,22 +175,23 @@ const ModalAddPlayList = () => {
             gap: 2,
           }}
         >
-          {/* Botón Cancel (izquierda) */}
-          <CancelButtonTransparent/>
-
-          {/* Botón Add con flecha (derecha - primaryButton) */}
+          <CancelButtonTransparent onClick={handleCancel} />
+          
           <Button
             disableRipple
             variant="primaryButton"
             onClick={handleSubmit}
           >
             <Typography 
-              variant='h8'
+              variant='body1'
               color='primary.main'
               sx={{
                 textTransform: 'none'
               }}
-            > Add </Typography>
+            > 
+              Add 
+            </Typography>
+            
             <FlexCenter>
               <ArrowRightSvg/>
             </FlexCenter>
@@ -192,4 +202,4 @@ const ModalAddPlayList = () => {
   );
 };
 
-export default ModalAddPlayList;
+export default ModalAddContact;

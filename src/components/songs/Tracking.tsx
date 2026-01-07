@@ -1,20 +1,19 @@
 'use client'
 import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
-import ListButtonsTracking from './ListButtonsTracking';
-import { UploadBrandIconSvg, UploadImageBrandIconSvg } from '@/assets/icons';
+import { UploadBigBrandSvg, UploadImageBrandIconSvg } from '@/assets/icons';
 import { FlexCenter } from '../ui/FlexCenter';
 import CustomTextField from '../ui/CustomTextField';
 import { FlexColumn } from '../ui/FlexColumn';
 import ContactSelector from '../ui/ContactSelector';
 import { contactsTracking } from '@/mock/contactsTracking.mock';
-import { ITrackingProps } from '@/types/song';
 import UploadBox from './UploadBox';
 import SecondaryButton from '../ui/SecondaryButton';
 import CancelButtonTransparent from '../ui/CancelButtonTransparent';
 import PrimaryButton from '../ui/PrimaryButton';
+import Link from 'next/link';
 
-const Tracking = ({ trackingStatus = 1 }: ITrackingProps) => {
+const Tracking = () => {
   const [newEmail, setNewEmail] = useState('');
   const [selectedContacts, setSelectedContacts] = useState<string[]>([]);
 
@@ -31,19 +30,16 @@ const Tracking = ({ trackingStatus = 1 }: ITrackingProps) => {
       sx={{
         bgcolor: '#000',
         minHeight: '100vh',
-        p: 4,
+        px: 0,
+        py: 2,
         color: 'white'
       }}
     >
-      {/* Header con tabs */}
-      <Box display="flex" gap={2} mb={4}>
-        <ListButtonsTracking trackingStatus={trackingStatus} />
-      </Box>
-
+    
       {/* Título Upload */}
       <Box display="flex" alignItems="center" gap={1} mb={3}>
         <FlexCenter>
-          <UploadBrandIconSvg/>
+          <UploadBigBrandSvg/>
         </FlexCenter>
         <Typography variant="h2">
           Upload
@@ -137,9 +133,17 @@ const Tracking = ({ trackingStatus = 1 }: ITrackingProps) => {
       </Box>
       <Box display="flex" pb={2} gap={1.5}>
         <CancelButtonTransparent/>
-        <PrimaryButton
-          text='Create'
-        />
+        <Link
+        href='/songs/collaborate'
+        style={{
+          color: 'inherit',
+          textDecoration: 'none'
+        }}
+        >
+          <PrimaryButton
+            text='Create'
+          />
+        </Link>
       </Box>
      </Box>
     </Box>

@@ -11,17 +11,18 @@ export interface ICollaborator {
   }
   
 export interface ISongPlayerCardProps {
-    coverImage: StaticImageData | string;
-    artistName: string;
-    songTitle: string;
-    collaborators: Collaborator[];
-    lastUpdate: string;
-    duration: string;
-    currentTime: string;
+    coverImage?: StaticImageData | string;
+    artistName?: string;
+    songTitle?: string;
+    collaborators?: Collaborator[];
+    lastUpdate?: string;
+    duration?: string;
+    currentTime?: string;
     onMinimize?: () => void;
     onExpand?: () => void;
     trackingStatus?: string;
     onBumaClick?: () => void;
+    href?: string;
   }
 
   export interface IVersion {
@@ -148,4 +149,10 @@ export interface ICardMetaListProps {
   title: string;
   placeholder: string;
   addElse: string;
+}
+
+export interface IDemoProps {
+  onExpand?: () => void;
+  trackingStatus?: string;
+  onMinimize?: () => void;
 }

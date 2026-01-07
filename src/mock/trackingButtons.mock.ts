@@ -2,9 +2,9 @@ import { CollaborationsBrandIconSvg, DistributeBrandIconSvg, RegisterBrandIconSv
 import { ITrackinButtonProps } from "@/types/ui";
 
 export const trackingButton: ITrackinButtonProps[] = [
-    { text: 'Upload', icon: UploadBrandIconSvg },
-    { text: 'Collaborate', icon: CollaborationsBrandIconSvg },
-    { text: 'Register', icon: RegisterBrandIconSvg},
-    { text: 'Distribute', icon: DistributeBrandIconSvg },
-    { text: 'Revenue', icon: RevenueBrandIconSvg }
+    { text: 'Upload', icon: UploadBrandIconSvg, href: '/songs' },
+    { text: 'Collaborate', icon: CollaborationsBrandIconSvg, href: '/songs/collaborate' },
+    { text: 'Register', icon: RegisterBrandIconSvg, href: '/songs/register' },
+    { text: 'Distribute', icon: DistributeBrandIconSvg, href: '/songs/distribute' },
+    { text: 'Revenue', icon: RevenueBrandIconSvg, href: '/songs/revenue' }
 ]

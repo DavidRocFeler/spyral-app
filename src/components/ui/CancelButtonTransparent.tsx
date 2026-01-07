@@ -1,11 +1,16 @@
 import { Button, Typography } from '@mui/material'
-import React from 'react'
 
-const CancelButtonTransparent = () => {
+export interface ICancelButtonTransparent {
+  onClick?: () => void
+}
+const CancelButtonTransparent = ({
+  onClick
+}: ICancelButtonTransparent) => {
   return (
     <>
         {/* Botón Cancel (izquierda) */}
         <Button
+          onClick={onClick}
             disableRipple
             variant="primaryButton"
             sx={{

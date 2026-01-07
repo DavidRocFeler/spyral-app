@@ -9,6 +9,7 @@ import { ArrowDownSvg, PauseIconSvg, PlayIconSvg, RegisterIconBlackSvg } from "@
 import SecondaryButton from "../ui/SecondaryButton";
 import PrimaryButton from "../ui/PrimaryButton";
 import Link from "next/link";
+import { FlexColumn } from "../ui/FlexColumn";
 
 const MinimizeSongPlayer = ({
     coverImage,
@@ -59,7 +60,7 @@ const MinimizeSongPlayer = ({
         >
           <Image
             src={coverImage}
-            alt={songTitle}
+            alt={songTitle || ''}
             width={64}
             height={64}
             style={{
@@ -113,9 +114,14 @@ const MinimizeSongPlayer = ({
                 </Box>
     
                 {/* Last update */}
-                <Typography position='relative' variant="h8" color="text.secondary" display='flex' flexDirection='column' height='60px'>
-                    Last update <Box position='absolute' bottom={0} component='span' color='text.primary' ml={0.5}>{lastUpdate}</Box>
-                </Typography>
+               <FlexColumn
+               sx={{
+                height: '58px'
+               }}
+               >
+                <Typography mb='auto' variant="h8" color="text.secondary">Last update</Typography>
+                <Typography variant="h5"> {lastUpdate} </Typography>
+               </FlexColumn>
                 </Box>
 
                 {/* Controls */}

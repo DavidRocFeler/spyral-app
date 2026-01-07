@@ -16,7 +16,7 @@ const RegisterSong = () => {
       borderColor: 'grey.900',
       position: 'relative'
     }}>
-      {/* Sidebar izquierdo */}
+      {/* left Sidebar */}
       <Box height='100%'
       position='absolute'
       >

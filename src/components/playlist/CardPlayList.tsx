@@ -35,7 +35,6 @@ const CardPlayList = ({
         position: 'relative'
       }}
     >
-      {/* Link wrapper - solo envuelve las partes clickeables */}
       <Link
         href='/playlist/addtrack'
         style={{
@@ -60,7 +59,7 @@ const CardPlayList = ({
           }}
         >
           {isFlipped ? (
-            // Parte trasera
+            // Back Card
             <FlexColumn gap={1.5}>
               <FlexCenter 
                 sx={{
@@ -120,13 +119,14 @@ const CardPlayList = ({
               </FlexCenter>
             </FlexColumn>
           ) : (
-            // Parte delantera
-            <Image
+            // Front Card
+            <Box width='100%'>
+              <Image
               src={image}
               alt={title}
-              fill
               style={{ objectFit: 'cover' }}
-            />
+              />
+            </Box>
           )}
         </Box>
 
@@ -135,13 +135,13 @@ const CardPlayList = ({
           {title}
         </Typography>
       </Link>
-
-      {/* Share Button - FUERA del Link para que no active la navegación */}
+      
+      {/* Share Button */}
       <Box
         sx={{
           position: 'absolute',
-          right: 17, // Ajustado por el padding del Box padre (9 + 8)
-          top: 24,   // Ajustado por el padding del Box padre (8 + 16)
+          right: 25,
+          top: 24, 
           zIndex: 10
         }}
       >

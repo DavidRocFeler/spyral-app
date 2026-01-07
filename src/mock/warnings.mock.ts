@@ -1,7 +1,7 @@
 import { FileEmptySvg, NoContactsSvg, NoFavoritesSvg, NoInternetSvg, PlayBackFailedSvg, PlayListEmptySvg, PlusBlackSvg, SessionExpiredSvg } from "@/assets/icons";
 import { IWaringsProps } from "@/types/warings";
 
-export const warings: IWaringsProps[] = [
+export const warnings: IWaringsProps[] = [
     {
         id: 'no-internet', 
         icon: NoInternetSvg, 

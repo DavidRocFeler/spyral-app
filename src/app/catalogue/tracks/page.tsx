@@ -1,0 +1,7 @@
+const TrackView = () => {
+  return (
+    <div>TrackView</div>
+  )
+}
+
+export default TrackView

@@ -49,18 +49,34 @@ export default function CatalogueLayout({
           
           {/* Botón condicional */}
           {isPrimaryButton ? (
-            <PrimaryButton
-              text='Add new'
-              icon={PlusBlackSvg}
-            />
+            <Link
+            href='/catalogue/fullview'
+            style={{
+              color: 'inherit',
+              textDecoration: 'none'
+            }}
+            >
+              <PrimaryButton
+                text='Add new'
+                icon={PlusBlackSvg}
+              />
+            </Link>
           ) : (
-            <SecondaryButton
-              text='Add new'
-              height="44px"
-              color="text.secondary"
-              icon={PlusGreySvg}
-              bgcolor="background.default"
-            />
+            <Link
+            href='/catalogue/fullview'
+            style={{
+              color: 'inherit',
+              textDecoration: 'none'
+            }}
+            >
+              <SecondaryButton
+                text='Add new'
+                height="44px"
+                color="text.secondary"
+                icon={PlusGreySvg}
+                bgcolor="background.default"
+                />
+            </Link>
           )}
 
           <FlexCenter>

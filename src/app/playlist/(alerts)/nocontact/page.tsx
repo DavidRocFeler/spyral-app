@@ -8,6 +8,7 @@ const NoContactView = () => {
     justifyContent='center'
     alignItems='center'
     height='80%'
+    position='relative'
     >
       <ToastWarning id="no-contact" />
     </Box>

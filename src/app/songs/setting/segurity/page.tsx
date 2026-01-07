@@ -1,49 +1,13 @@
-'use client'
-import { EditeIconSvg, ListViewIconSvg, PadLockIcon, PlusBlackSvg, PlusSvg, PorcentSvg, SquareIconList, UploadImageBrandIconSvg } from "@/assets/icons"
-import CardCatalogueList from "@/components/catalogue/CardCatalogueList"
-import UploadImageMetadata from "@/components/playlist/metadata/UploadImageMetadata"
+import { PadLockIcon } from "@/assets/icons"
 import CustomTextField from "@/components/ui/CustomTextField"
-import { FlexCenter } from "@/components/ui/FlexCenter"
 import { FlexColumn } from "@/components/ui/FlexColumn"
-import IconInput from "@/components/ui/IconInput"
-import IconSpan from "@/components/ui/IconSpan"
 import PrimaryButton from "@/components/ui/PrimaryButton"
-import SearchBarDropDown from "@/components/ui/SearchBarDropDown"
 import SecondaryButton from "@/components/ui/SecondaryButton"
-import SelectCustom from "@/components/ui/SelectCustom"
-import SlideBarMenuLeft from "@/components/ui/SlideBarMenuLeft"
-import { catalogueList } from "@/mock/catalogueListCard.mock"
-import { catalogueListView, menuItemsRegister, songsSettingData } from "@/mock/sideBarLeft.mock"
 import { Box, Typography } from "@mui/material"
-import { useState } from "react"
 
 const SongsSegurity = () => {
-  const [selectedFolderId, setSelectedFolderId] = useState<number | null>(null);
-  const mockFileSelect = ['English', 'Nederland', 'Germany', 'Spanish'];
-  const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
 
   return (
-    <Box
-    position='relative'
-    minHeight='100%'
-    >
-
-      <Box 
-      position='fixed'
-      height='100%'
-      width='15%'
-      >
-        <SlideBarMenuLeft
-        menuItems={songsSettingData}
-        />
-      </Box>
-
-      <Box 
-      right={0}
-      position='absolute'
-      width='79%'
-      pb={5}
-      >
        <Box 
        pr={4}
        >
@@ -126,8 +90,6 @@ const SongsSegurity = () => {
           />
         </FlexColumn>
        </Box>
-      </Box>
-    </Box>
   )
 }
 

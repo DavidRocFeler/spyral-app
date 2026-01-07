@@ -17,28 +17,8 @@ import { Box, Typography } from '@mui/material'
 const SongSettingTags = () => {
 
   return (
-      <Box
-      position='relative'
-      minHeight='100%'
-      >
   
         <Box 
-        position='fixed'
-        height='100%'
-        width='15%'
-        >
-          <SlideBarMenuLeft
-          menuItems={songsSettingData}
-          />
-        </Box>
-  
-        <Box 
-        right={0}
-        position='absolute'
-        width='79%'
-        pb={5}
-        pt={3}
-        pr={4}
         >
             <FlexColumn mt={3}
             sx={{
@@ -99,7 +79,6 @@ const SongSettingTags = () => {
             </Box>
 
         </Box>
-      </Box>
   )
 }
 

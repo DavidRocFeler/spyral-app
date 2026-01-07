@@ -59,7 +59,7 @@ const Header = () => {
           sx={{ display: 'flex', alignItems: 'center', gap: 2 }}
         >
            <Link
-           href='songs/setting/general'
+           href='/songs/setting/general'
            >
             <Box
               sx={{

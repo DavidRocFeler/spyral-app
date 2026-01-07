@@ -9,7 +9,7 @@ import { ICollaboratorSong } from '@/types/song';
 
 const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsData, taskTableData}: ICollaboratorSong) => {
   return (
-    <Box>
+    <Box py={2}>
         <Box mb={2.5}>
             <TitleIcon
             icon={CollaborationBrandSvg}

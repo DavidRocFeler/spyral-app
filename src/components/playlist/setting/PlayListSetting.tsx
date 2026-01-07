@@ -135,10 +135,18 @@ const PlayListSetting = () => {
             text="Save setting"
           />
        </Link>
+       <Link
+       href='/playlist/addtrack'
+       style={{
+         color: 'inherit',
+         textDecoration: 'none'
+       }}
+       >
         <SecondaryButton
-          text="Cancel"
-          bgcolor="transparent"
-        />
+            text="Cancel"
+            bgcolor="transparent"
+          />
+       </Link>
       </Box>
     </Box>
   )

@@ -2,11 +2,9 @@ import { Box } from '@mui/material';
 import JameArtur from '@/assets/jamesArthurTrack.png'
 import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock';
 import MinimizeSongPlayer from './MinimizeSongPlayer';
+import { IDemoProps } from '@/types/song';
 
-export interface IDemoProps {
-  onExpand?: () => void;
-  trackingStatus?: string;
-}
+
 
 // Demo component
 const MinimizeDemo = ({

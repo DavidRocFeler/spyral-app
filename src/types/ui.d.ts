@@ -57,6 +57,7 @@ export interface ITrackinButtonProps {
   px?: number,
   borderColor?: string;
   onClick?: () => void
+  href?: string;
 }
 
 export interface TrackingProps {

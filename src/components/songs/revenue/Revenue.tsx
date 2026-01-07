@@ -1,8 +1,5 @@
 'use client'
 import {  RevenueIconBigSvg } from '@/assets/icons'
-import Demo from '@/components/songs/Demo'
-import ListButtonsTracking from '@/components/songs/ListButtonsTracking'
-import MinimizeDemo from '@/components/songs/MinimizeDemo'
 import TitleIcon from '@/components/ui/TitleIcon'
 import { Box, Grid } from '@mui/material'
 import { useState, useEffect } from 'react'
@@ -17,41 +14,16 @@ import CardStatisticsWeek from './CardStatisticsWeek'
 const mockFileSelect = ['This week', 'Channel', 'Electric', 'Bass Line'];
 
 const Revenue = () => {
-    const [isDemoMinimized, setIsDemoMinimized] = useState(false)
-    const [buttonNone, setButtonNone] = useState<string>('')
     const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
-    const currentTrackingStatus = 5 
-
-    useEffect(() => {
-        if (currentTrackingStatus >= 4) {
-            setButtonNone('none')
-        } else {
-            setButtonNone('')
-        }
-    }, [currentTrackingStatus]) 
-
-    const handleToggleDemo = () => {
-        setIsDemoMinimized(!isDemoMinimized)
-    }
 
     return (
-        <Box py={2} px={4}>
-            <Box display="flex" gap={2} mb={1}>
-                <ListButtonsTracking trackingStatus={currentTrackingStatus} />
-            </Box>
-            {isDemoMinimized ? (
-                <Demo onMinimize={handleToggleDemo} />
-            ) : (
-    
-                <MinimizeDemo onExpand={handleToggleDemo}
-                trackingStatus={buttonNone} 
-                />
-            )}
+        <Box pt={1} pb={1} px={0}>
+
             <FlexCenter 
             sx={{
                 width:'100%' 
             }}
-            mt={5} mb={3}>
+            mt={0} mb={3}>
                 <Box mr='auto'>
                     <TitleIcon
                         icon={RevenueIconBigSvg}

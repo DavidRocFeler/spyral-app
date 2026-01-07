@@ -3,6 +3,7 @@ import { ComponentType } from "react";
 export interface IWaringButton {
     span: string;
     icon?: ComponentType;
+    action?: () => void;
 }
 
 export interface IWaringsProps {
@@ -13,6 +14,6 @@ export interface IWaringsProps {
     button?: IWaringButton;
 }
 
-export interface ToastWarningProps {
+export interface IToastWarningProps {
     id: string;
 }

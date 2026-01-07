@@ -20,7 +20,7 @@ const SongsCollaborateWithState = () => {
 
   return (
     <Box display="flex" flexDirection='column' gap={2} py={2} px={4}>
-      <ListButtonsTracking trackingStatus={2} />
+      <ListButtonsTracking />
       
       {isDemoMinimized ? (
         <MinimizeDemo onExpand={handleToggleDemo} />

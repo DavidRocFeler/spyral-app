@@ -4,6 +4,7 @@ import { FlexColumn } from '@/components/ui/FlexColumn'
 import IconSpan from '@/components/ui/IconSpan'
 import { Box, Typography } from '@mui/material'
 import CardPlayAddTrack from '../CardPlayAddTrack'
+import Link from 'next/link'
 
 const PlayListCardSeting = () => {
   return (
@@ -32,11 +33,17 @@ const PlayListCardSeting = () => {
           />
         </FlexCenter>
 
-        <Box ml='auto'>
+        <Link 
+        href='/playlist/setting'
+        style={{
+           marginLeft: 'auto',
+        }}
+        >
           <IconSpan
+          bgcolor=''
           icon={SettingIconSvg}
           />
-        </Box>
+        </Link>
       </FlexCenter>
 
       <FlexColumn 

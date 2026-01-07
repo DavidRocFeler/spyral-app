@@ -60,7 +60,7 @@ const CardArtistPlayerMusic = ({
         >
           <Image
             src={coverImage}
-            alt={songTitle}
+            alt='songtitle'
             width={64}
             height={64}
             style={{

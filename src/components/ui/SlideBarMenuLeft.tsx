@@ -1,6 +1,6 @@
 'use client'
 import { Box, Typography } from '@mui/material'
-import { useState, ComponentType, isValidElement, ReactElement } from 'react'
+import { ComponentType, isValidElement, ReactElement } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ISlideBarMenuProps } from '@/types/ui'
@@ -21,7 +21,7 @@ const SlideBarMenuLeft = ({
 
   return (
     <Box sx={{ 
-      width: '200px',
+      width: '215px',
       display: 'flex',
       height: '100%',
       flexDirection: 'column',

@@ -15,7 +15,6 @@ import CheckBoxCustom from "@/components/ui/CheckBoxCustom"
 import CalendarMetadata from "./CalendarMetadata"
 
 const PlayListMetadata = () => {
-  const [tags, setTags] = useState<ICardPerformingArtist[]>(playListTags)
   const [preorderRateDate, setPreorderRateDate] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [artist, setArtist] = useState<string>('');
@@ -348,10 +347,18 @@ const PlayListMetadata = () => {
               text="Save setting"
             />
        </Link>
+       <Link
+       href='/playlist/presentation'
+       style={{
+         color: 'inherit',
+         textDecoration: 'none'
+       }}
+       >
         <SecondaryButton
-          text="Cancel"
-          bgcolor="transparent"
-        />
+            text="Cancel"
+            bgcolor="transparent"
+          />
+       </Link>
       </Box>
     </Box>
   )

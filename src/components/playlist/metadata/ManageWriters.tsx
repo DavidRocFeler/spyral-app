@@ -9,6 +9,7 @@ import { Box, Typography } from "@mui/material"
 import { useState } from "react"
 import CustomTextField from "@/components/ui/CustomTextField"
 import IconInput from "@/components/ui/IconInput"
+import Link from "next/link"
 
 const ManageWriters = () => {
   const [proNumber, setProNumber] = useState<string>('');
@@ -147,10 +148,18 @@ const ManageWriters = () => {
         <PrimaryButton
           text="Save setting"
         />
-        <SecondaryButton
-          text="Cancel"
-          bgcolor="transparent"
-        />
+        <Link
+        href='/playlist/metadata'
+        style={{
+          color: 'inherit',
+          textDecoration: 'none'
+        }}
+        >
+          <SecondaryButton
+              text="Cancel"
+              bgcolor="transparent"
+            />
+       </Link>
       </Box>
     </Box>
   )

@@ -1,8 +1,8 @@
 import { IMenuItemProps } from "@/types/ui";
 
 export const menuItemsRegister: IMenuItemProps[] = [
-    { text: 'BUMA Data', bgcolor: 'background.default', href: '/bumadata'},
-    { text: 'Personal Info', bgcolor: 'transparent', href: '/personalinfo'}
+    { text: 'BUMA Data', bgcolor: 'transparent', href: '/songs/register/buma'},
+    { text: 'Personal Info', bgcolor: 'transparent', href: '/songs/register/personal'}
   ];
   
 export const menuItemsWorkInProgress: IMenuItemProps[] = [

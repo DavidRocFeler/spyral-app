@@ -93,6 +93,8 @@ export { default as DistributeIconBigBrandSvg} from './distribute-big-brand.svg'
 export { default as RevenueIconBigSvg} from './revenue-brand.svg';
 export { default as ArrowDiagonalSvg} from './arrow-diagonal.svg';
 export { default as IndicatorChartSvg} from './indicator-chart.svg';
+export { default as UploadBigBrandSvg} from './upload-brand.svg';
+export { default as PendingSvg} from './pending.svg';
 
 // icon from modal userpanel colore grey
 export { default as CheckIconSvg} from './check.svg';

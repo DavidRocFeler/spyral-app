@@ -19,7 +19,8 @@ const SongPlayerCard = ({
     duration = '4:15',
     currentTime = '0:00',
     collaborators = [],
-    onMinimize
+    onMinimize,
+    trackingStatus
   }: ISongPlayerCardProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
   
@@ -61,7 +62,7 @@ const SongPlayerCard = ({
         >
           <Image
             src={coverImage}
-            alt={songTitle}
+            alt={songTitle || ''}
             width={400}
             height={400}
             priority
@@ -155,6 +156,7 @@ const SongPlayerCard = ({
               text='Register'
               height='44px'
               icon={RegisterIconBlackSvg}
+              trackingStatus={trackingStatus}
               />
             </Link>
           </Box>

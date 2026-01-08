@@ -26,11 +26,11 @@ const Sidebar = () => {
     
     if (item.id === 'home') {
       // Home se activa en '/' y en cualquier ruta que empiece con '/home'
-      return pathname === '/' || pathname.startsWith('/home');
+      return pathname === '/desktop/home' || pathname.startsWith('/desktop/home');
     }
     
     // Para los demás items, verificar si la ruta comienza con el path del item
-    return pathname.startsWith(`/${item.id}`);
+    return pathname.startsWith(`/desktop/${item.id}`);
   };
 
   return (

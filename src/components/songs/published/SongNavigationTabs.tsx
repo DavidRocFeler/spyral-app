@@ -1,17 +1,43 @@
 'use client';
-
 import Link from 'next/link';
 import { Box, Button } from '@mui/material';
 import { usePathname } from 'next/navigation';
 import { ISongNavigationTabsProps } from '@/types/song';
 import { tabsSong } from '@/mock/tabsSong.mock';
 
- const SongNavigationTabs = ({ 
+const SongNavigationTabs = ({ 
   tabs = tabsSong 
 }: ISongNavigationTabsProps) => {
   const pathname = usePathname();
 
-  const isActive = (href: string) => pathname === href;
+  // Tipo para tabs agrupados
+  type GroupedTab = {
+    label: string;
+    href: string;
+    relatedHrefs: string[];
+  };
+
+  // Agrupar tabs únicos por label
+  const uniqueTabs = tabs.reduce((acc: GroupedTab[], tab) => {
+    const existing = acc.find((t: GroupedTab) => t.label === tab.label);
+    if (!existing) {
+      acc.push({
+        label: tab.label,
+        href: tab.href,
+        relatedHrefs: [tab.href]
+      });
+    } else {
+      existing.relatedHrefs.push(tab.href);
+    }
+    return acc;
+  }, []);
+
+  // Verificar si alguna de las rutas relacionadas está activa
+  const isActive = (relatedHrefs: string[]) => {
+    return relatedHrefs.some(href => pathname === href);
+  };
+
+  console.log('uniqueTabs:', uniqueTabs); // Debug: ver qué tabs se están generando
 
   return (
     <Box
@@ -21,15 +47,13 @@ import { tabsSong } from '@/mock/tabsSong.mock';
         pb: 1,
         pl: 4,
         position: 'relative',
-        // Contenedor para el border bottom absoluto
         '&::before': {
           content: '""',
           position: 'absolute',
           bottom: 0,
-          // Usar viewport width para ignorar cualquier padding del padre
           left: '50%',
           right: '50%',
-          width: '100%', // Siempre el 100% del viewport
+          width: '100%', 
           transform: 'translateX(-50%)',
           height: '1px',
           zIndex: -1,
@@ -37,12 +61,11 @@ import { tabsSong } from '@/mock/tabsSong.mock';
         }
       }}
     >
-      {tabs.map((tab) => {
-        const active = isActive(tab.href);
-        
+      {uniqueTabs.map((tab: GroupedTab) => {
+        const active = isActive(tab.relatedHrefs);
         return (
           <Button
-            key={tab.href}
+            key={tab.label}
             component={Link}
             href={tab.href}
             disableFocusRipple
@@ -59,9 +82,6 @@ import { tabsSong } from '@/mock/tabsSong.mock';
               textTransform: 'none',
               typography: 'h8',
               transition: 'all 0.3s ease',
-            //   '&:hover': {
-            //     border: '1px solid rgba(255, 255, 255, 0.3)',
-            //   },
             }}
           >
             {tab.label}
@@ -72,4 +92,4 @@ import { tabsSong } from '@/mock/tabsSong.mock';
   );
 }
 
-export default SongNavigationTabs
+export default SongNavigationTabs;

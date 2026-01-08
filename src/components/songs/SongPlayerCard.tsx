@@ -146,7 +146,7 @@ const SongPlayerCard = ({
             />
   
             <Link
-            href='/songs/register'
+            href='/desktop/songs/register'
             style={{
               color: 'inherit',
               textDecoration: 'none'

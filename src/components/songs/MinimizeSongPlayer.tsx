@@ -133,7 +133,7 @@ const MinimizeSongPlayer = ({
                     />
         
                    <Link
-                   href='/songs/register'
+                   href='/desktop/songs/register'
                    style={{
                     color: 'inherit',
                     textDecoration: 'none'

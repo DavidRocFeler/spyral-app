@@ -1,10 +1,8 @@
 'use client'
-import { AppleIconSvg, AppleMusicSvg, FacebookIconSvg, GoogleIconSvg, LogoTypography, WindowsIconSvg } from "@/assets/icons"
+import { AppleIconSvg, FacebookIconSvg, GoogleIconSvg, LogoTypography, WindowsIconSvg } from "@/assets/icons"
 import { FlexColumn } from "../ui/FlexColumn"
 import { Box, Typography } from "@mui/material"
 import CardAuthThird from "./CardAuthThird"
-import SecondaryButton from "../ui/SecondaryButton"
-import PrimaryButton from "../ui/PrimaryButton"
 import AlreadyHaveAccount from "./AlreadyHaveAccount"
 import Link from "next/link"
 import GrandiantButton from "../ui/GrandiantButton"
@@ -64,7 +62,7 @@ const CardSignUp = () => {
                 <Typography variant="h7" color='text.secondary'>
                 Or sign up with email
                 </Typography>
-               <Link href='/access/auth/signup/email'
+               <Link href='/desktop/access/auth/signup/email'
                style={{
                 textDecoration: 'none',
                 color: 'inherit' 
@@ -86,7 +84,7 @@ const CardSignUp = () => {
                   typography: 'h5'
                   }}
                   >
-                  The passwords don't match
+                  Please select a method to continue
                 </Box>
 
                 <Typography lineHeight='1rem' width='320px' variant="h9" textAlign='center' color="#d9D9D9"> 

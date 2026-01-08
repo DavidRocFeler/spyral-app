@@ -18,7 +18,9 @@ const GoDashboard = ({
     }}
     >
         <Typography variant="h1" fontSize='40px'>{textMain}</Typography>
-        <GrandiantButton/>
+        <GrandiantButton
+        href='/desktop/home'
+        />
     </FlexColumn>
   )
 }

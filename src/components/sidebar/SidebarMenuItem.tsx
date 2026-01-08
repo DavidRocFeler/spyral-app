@@ -1,4 +1,3 @@
-// components/Sidebar/SidebarMenuItem.tsx
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { ISidebarMenuItemProps } from '@/types/sidebar';
@@ -6,7 +5,6 @@ import { ISidebarMenuItemProps } from '@/types/sidebar';
 const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => {
   const Icon = item.icon;
 
-  // Estilo especial para "Add new Item" - SIEMPRE tiene el mismo color
   if (item.isSpecial) {
     return (
       <Box
@@ -38,8 +36,7 @@ const SidebarMenuItem = ({ item, isActive, onClick }: ISidebarMenuItemProps) => 
     );
   }
 
-  // Para los botones normales - usamos Link para navegación
-  const href = item.id === 'home' ? '/' : `/${item.id}`;
+  const href = item.id === 'home' ? '/desktop/home' : `/desktop/${item.id}`;
 
   return (
     <Link href={href} passHref style={{ textDecoration: 'none' }}>

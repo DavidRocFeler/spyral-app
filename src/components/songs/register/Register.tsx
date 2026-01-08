@@ -27,7 +27,7 @@ const Register = () => {
         lastUpdate='10 marz'
         currentTime='5mn'
         collaborators={collaboratorsTrack}
-        href='/songs/register/buma'
+        href='/desktop/songs/register/buma'
         />
     </Box>
   )

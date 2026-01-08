@@ -46,12 +46,10 @@ const Tracking = () => {
         </Typography>
       </Box>
 
-      {/* Subtítulo */}
       <Typography variant="h3" mt={5} mb={5} display="block">
         Start Creating Your Song
       </Typography>
 
-      {/* Input de título */}
       <FlexColumn
       sx={{
         alignItems: 'flex-start',
@@ -71,7 +69,6 @@ const Tracking = () => {
         />
       </FlexColumn>
 
-      {/* Selector de artistas */}
       <Box>
         <Typography variant="h8">
           Artist
@@ -134,7 +131,7 @@ const Tracking = () => {
       <Box display="flex" pb={2} gap={1.5}>
         <CancelButtonTransparent/>
         <Link
-        href='/songs/collaborate'
+        href='/desktop/songs/collaborate'
         style={{
           color: 'inherit',
           textDecoration: 'none'

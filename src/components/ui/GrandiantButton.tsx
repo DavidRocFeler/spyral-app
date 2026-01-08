@@ -1,6 +1,13 @@
 import { Box } from '@mui/material'
+import Link from 'next/link'
 
-const GrandiantButton = () => {
+export interface IGrandiantButton {
+  href?: string;
+}
+
+const GrandiantButton = ({
+  href = '/desktop/access/auth/godashboard'
+}: IGrandiantButton) => {
   return (
     <Box
     className='gradient-active'
@@ -16,7 +23,15 @@ const GrandiantButton = () => {
       cursor: 'pointer'
     }}
     >
-    Continue
+      <Link
+      href={href}
+      style={{
+        color: 'inherit',
+        textDecoration: 'none'
+      }}
+      >
+      Continue
+      </Link>
     </Box>
   )
 }

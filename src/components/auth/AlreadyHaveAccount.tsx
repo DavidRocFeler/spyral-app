@@ -11,7 +11,7 @@ export interface IHaveAnAccountProps {
 const AlreadyHaveAccount = ({
   textMain= 'Already have an account?',
   textSecondary= 'Login here',
-  href= '/access/auth/login'
+  href= '/desktop/access/auth/login'
 }: IHaveAnAccountProps) => {
   return (
     <FlexColumn gap={1}>

@@ -34,7 +34,7 @@ const PlayListCardSeting = () => {
         </FlexCenter>
 
         <Link 
-        href='/playlist/setting'
+        href='/desktop/playlist/setting'
         style={{
            marginLeft: 'auto',
         }}

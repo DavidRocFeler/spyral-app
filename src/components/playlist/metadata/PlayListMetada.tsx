@@ -337,7 +337,7 @@ const PlayListMetadata = () => {
         }}
       >
       <Link
-        href='/playlist/writers'
+        href='/desktop/playlist/writers'
         style={{
           color: 'inherit',
           textDecoration: 'none'
@@ -348,7 +348,7 @@ const PlayListMetadata = () => {
             />
        </Link>
        <Link
-       href='/playlist/presentation'
+       href='/desktop/playlist/presentation'
        style={{
          color: 'inherit',
          textDecoration: 'none'

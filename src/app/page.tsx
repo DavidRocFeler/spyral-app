@@ -1,15 +1,23 @@
 // app/page.tsx
-'use client'
+import Link from 'next/link';
+import Image from 'next/image';
+import LandingImage from '@/assets/lading.png'
 
-import EmptyState from "@/components/home/EmptyState";
-
-const Home = () => {
-
+export default function LandingPage() {
   return (
     <>
-      <EmptyState/>
+     <Link 
+     href='access'
+     >
+     <Image
+     src={LandingImage}
+     alt='LandingPage'
+     fill
+     style={{
+        objectFit: 'contain'
+     }}
+     />
+     </Link>
     </>
   );
 }
-
-export default Home;

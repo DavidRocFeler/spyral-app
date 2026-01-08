@@ -35,12 +35,13 @@ const ListButtonsTracking = () => {
   };
 
   return (
-    <Box display="flex" gap={0} mb={3} mx='auto' alignItems="center">
+    <Box display="flex" gap={0} my={3} mx='auto' alignItems="center">
       {trackingButton.map((button, index) => {
         const styles = getButtonStyles(index);
         return (
           <Fragment key={index}>
             <Link 
+              scroll={false}
               href={button.href || '#'} 
               style={{ textDecoration: 'none' }}
               passHref

@@ -1,9 +1,8 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import ClientLayout from "./ClientLayout";
 import localFont from "next/font/local";
 import { Roboto } from "next/font/google";
-import ConditionalLayout from "./ConditionLayout";
+import ClientLayout from "./ClientLayout";
 
 const manrope = localFont({
   src: "./fonts/Manrope/Manrope-VariableFont_wght.ttf",
@@ -34,9 +33,7 @@ export default function RootLayout({
         className={`${manrope.variable} ${roboto.variable}`}
       >
         <ClientLayout>
-          <ConditionalLayout>
-            {children}
-          </ConditionalLayout>
+          {children}
         </ClientLayout>
       </body>
     </html>

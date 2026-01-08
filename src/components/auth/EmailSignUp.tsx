@@ -1,7 +1,6 @@
-import { EyeRegisterIconSvg, LogoTypography, WindowsIconSvg } from "@/assets/icons"
+import { EyeRegisterIconSvg, LogoTypography } from "@/assets/icons"
 import { FlexColumn } from "../ui/FlexColumn"
 import { Box, Typography } from "@mui/material"
-import PrimaryButton from "../ui/PrimaryButton"
 import IconInput from "../ui/IconInput"
 import AlreadyHaveAccount from "./AlreadyHaveAccount"
 import { useState } from "react"
@@ -12,7 +11,6 @@ const EmailSignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Verificar si las contraseñas no coinciden Y ambos campos tienen valor
   const passwordsDoNotMatch = password !== confirmPassword && confirmPassword.length > 0;
 
   return (
@@ -87,7 +85,7 @@ const EmailSignUp = () => {
                   <GrandiantButton/>
                   {passwordsDoNotMatch && (
                     <Box
-                      mt={0}
+                      mt={2}
                       sx={{
                         color: 'error.main',
                         typography: 'h5'
@@ -101,6 +99,7 @@ const EmailSignUp = () => {
             </FlexColumn>
           </FlexColumn>
         </FlexColumn>
+        
         <AlreadyHaveAccount/>
       </FlexColumn>
     </FlexColumn>

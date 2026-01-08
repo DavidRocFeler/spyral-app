@@ -167,3 +167,6 @@ export { default as FacebookIconSvg } from '@/assets/icons/facebook-icon.svg'
 export { default as AppleIconSvg } from '@/assets/icons/apple-icon.svg'
 export { default as WindowsIconSvg } from '@/assets/icons/windows-icon.svg'
 export { default as  EyeRegisterIconSvg } from '@/assets/icons/eye-register.svg'
+
+// icon header 
+export { default as  ChevronRightIcon } from '@/assets/icons/chevron-right.svg'

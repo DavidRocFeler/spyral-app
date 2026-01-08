@@ -125,7 +125,7 @@ const PlayListSetting = () => {
         }}
       >
        <Link
-       href='/playlist/presentation'
+       href='/desktop/playlist/presentation'
        style={{
         color: 'inherit',
         textDecoration: 'none'
@@ -136,7 +136,7 @@ const PlayListSetting = () => {
           />
        </Link>
        <Link
-       href='/playlist/addtrack'
+       href='/desktop/playlist/addtrack'
        style={{
          color: 'inherit',
          textDecoration: 'none'

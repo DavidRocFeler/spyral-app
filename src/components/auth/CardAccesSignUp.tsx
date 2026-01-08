@@ -29,7 +29,7 @@ const CardAccesSignUp = ({
 
   return (
     <Link 
-      href="/access/auth/signup"
+      href="/desktop/access/auth/signup"
       style={{ textDecoration: 'none', width: '100%', color: 'inherit' }}
       onClick={handleClick}
     >

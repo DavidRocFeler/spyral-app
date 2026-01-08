@@ -277,7 +277,7 @@ const MusicPlayer = () => {
           
         {/* Arrow Up Button */}
         {/* Arrow Up Button */}
-        <Link href="/home/playcontrol">
+        <Link href="/desktop/home/playcontrol">
           <Box
             onClick={() => setIsRotated(!isRotated)}
             sx={{

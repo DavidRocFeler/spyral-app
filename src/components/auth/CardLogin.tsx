@@ -3,9 +3,7 @@ import { AppleIconSvg, EyeRegisterIconSvg, FacebookIconSvg, GoogleIconSvg, LogoT
 import { FlexColumn } from "../ui/FlexColumn"
 import { Box, Typography } from "@mui/material"
 import CardAuthThird from "./CardAuthThird"
-import PrimaryButton from "../ui/PrimaryButton"
 import AlreadyHaveAccount from "./AlreadyHaveAccount"
-import Link from "next/link"
 import IconInput from "../ui/IconInput"
 import { useState } from "react"
 import CheckBoxCustom from "../ui/CheckBoxCustom"
@@ -133,7 +131,7 @@ const CardLogin = () => {
         </FlexColumn>
 
         <AlreadyHaveAccount
-        href="/access/auth/signup"
+        href="/desktop/access/auth/signup"
         textMain="Don’t have an account yet?"
         textSecondary="Register here"
         />

@@ -149,7 +149,7 @@ const ManageWriters = () => {
           text="Save setting"
         />
         <Link
-        href='/playlist/metadata'
+        href='/desktop/playlist/metadata'
         style={{
           color: 'inherit',
           textDecoration: 'none'

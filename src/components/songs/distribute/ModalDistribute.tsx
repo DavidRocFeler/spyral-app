@@ -123,7 +123,7 @@ const ModalDistribute = ({
             onClick={onClose} 
           />
          <Link
-         href='/songs/revenue'
+         href='/desktop/songs/revenue'
          style={{
            color: 'inherit',
            textDecoration: 'none'

@@ -1,20 +1,16 @@
-// components/Header/Header.tsx
-'use client'; // <--- 1. IMPORTANTE: Agrega esto al inicio
+'use client';
 import { Box, Typography } from '@mui/material';
-import { SearchIconSvg, BellIconSvg, SettingIconSvg } from '@/assets/icons';
+import { SearchIconSvg, BellIconSvg, SettingIconSvg, ChevronRightIcon } from '@/assets/icons';
 import Image from 'next/image';
 import { headerData } from '@/mock/header.mock';
 import { IHeaderProps } from '@/types/header';
 import SearchBar from './ui/SearchBar';
-import { useHeaderStore } from '@/store/useHeaderStore'; 
+import { useHeaderStore } from '@/store/useHeaderStore';
 import Link from 'next/link';
+import { FlexCenter } from './ui/FlexCenter';
 
-
-const Header = () => { 
-  
-  // 4. Obtén los datos desde Zustand
-  const { titleHeader, borderColor } = useHeaderStore();
-  
+const Header = () => {
+  const { titleHeader, borderColor, showBreadcrumb, breadcrumbs } = useHeaderStore();
   const profileData: IHeaderProps = headerData;
 
   return (
@@ -25,42 +21,56 @@ const Header = () => {
         zIndex: 2,
         bgcolor: 'primary.main',
         borderBottom: '1px solid',
-        borderColor: borderColor, // Usa la variable del store
+        borderColor: borderColor,
         display: 'flex',
-        alignItems: 'end',
+        alignItems: 'center',
         px: 4,
-        pb: 2.95
+        py: 6
       }}
     >
       {/* Left - Navigation */}
-      <Box sx={{ display: 'flex', gap: 3 }}>
-        <Typography
-        pb={0.5}
-        variant='h2'
-        >
-          {titleHeader} {/* Usa la variable del store */}
-        </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 3,
+        }}
+      >
+        {/* Primary Headline */}
+        {!showBreadcrumb && titleHeader && (
+          <Typography variant='h2'>
+            {titleHeader}
+          </Typography>
+        )}
+
+        {/* Secondary Headline (Breadcrumb) */}
+        {showBreadcrumb && breadcrumbs.length > 0 && (
+          <FlexCenter gap={2}>
+            {breadcrumbs.map((step, index) => (
+              <FlexCenter key={index} gap={2}>
+                <Typography
+                  color={step.isActive ? 'text.primary' : 'text.secondary'}
+                  variant='h8'
+                >
+                  {step.label}
+                </Typography>
+                {index < breadcrumbs.length - 1 && <ChevronRightIcon />}
+              </FlexCenter>
+            ))}
+          </FlexCenter>
+        )}
       </Box>
 
-      <Box 
-        display='flex'
-        flexDirection='row'
-        ml='auto'
-      >
+      <Box display='flex' flexDirection='row' ml='auto'>
         {/* Search */}
         <SearchBar
-        icon={SearchIconSvg}
-        placeholder='Search song, album, artist...'
+          icon={SearchIconSvg}
+          placeholder='Search song, album, artist...'
         />
 
         {/* Actions */}
-        <Box 
-          ml={2.5}
-          sx={{ display: 'flex', alignItems: 'center', gap: 2 }}
-        >
-           <Link
-           href='/songs/setting/general'
-           >
+        <Box ml={2.5} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Link href='/desktop/songs/setting/general'>
             <Box
               sx={{
                 width: 44,
@@ -75,8 +85,8 @@ const Header = () => {
             >
               <SettingIconSvg style={{ width: 20, height: 20, color: '#FFF' }} />
             </Box>
-           </Link>
-          
+          </Link>
+
           <Box
             sx={{
               position: 'relative',
@@ -91,21 +101,18 @@ const Header = () => {
             }}
           >
             <Box
-            bgcolor='secondary.main'
-            width='6px'
-            height='6px'
-            borderRadius='50px'
-            position='absolute'
-            top={9}
-            right={9}
+              bgcolor='secondary.main'
+              width='6px'
+              height='6px'
+              borderRadius='50px'
+              position='absolute'
+              top={9}
+              right={9}
             />
             <BellIconSvg style={{ width: 20, height: 20, color: '#FFF' }} />
           </Box>
-          
-          {/* Avatar/Profile Image */}
-          <Link 
-          href='/home/userpanel'
-          >
+
+          <Link href='/desktop/profile'>
             <Box
               sx={{
                 width: 44,

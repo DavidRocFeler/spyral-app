@@ -36,7 +36,7 @@ const CardPlayList = ({
       }}
     >
       <Link
-        href='/playlist/addtrack'
+        href='/desktop/playlist/addtrack'
         style={{
           color: 'inherit',
           textDecoration: 'none'

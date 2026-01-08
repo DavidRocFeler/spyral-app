@@ -20,7 +20,8 @@ const CardAuthThird = ({
       bgcolor='grey.900'
       sx={{
         width:'320px',
-        borderRadius: '8px'
+        borderRadius: '8px',
+        cursor:'pointer'
       }}
     >
       {IconSvg && <IconSvg/>}

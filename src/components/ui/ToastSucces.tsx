@@ -1,15 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import PrimaryButton from './PrimaryButton';
-import { ComponentType } from 'react';
 import { ArrowRightSvg, CheckIconBiggerBrandSvg } from '@/assets/icons';
-
-export interface IToastSuccesProps {
-    label?: string;
-    title?: string;
-    textButton?: string;
-    icon?: ComponentType
-    iconButton?: ComponentType
-}
+import { IToastSuccesProps } from '@/types/ui';
 
 const ToastSucces = ({ 
     label = 'Congratulations!',

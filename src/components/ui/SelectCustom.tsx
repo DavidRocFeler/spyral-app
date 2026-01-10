@@ -1,26 +1,9 @@
 'use client'
 // SelectCustom.tsx
-import { ComponentType, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Box, ClickAwayListener, Typography } from '@mui/material';
 import { ArrowDownGreySvg, ArrowDownSvg } from '@/assets/icons';
-
-interface ISelectCustomProps {
-  options: string[];
-  value: string;
-  onChange: (value: string) => void;
-  iconComponent?: ComponentType;
-  fullWidth?: boolean;
-  disabled?: boolean;
-  height?: string;
-  heightOption?: string;
-  borderRadius?: string;
-  bgcolor?: string;
-  width?: string;
-  variant?: string;
-  mode?: 'grey' | 'white'; 
-  typographyOptions?: string;
-  ptIcon?: number;
-}
+import { ISelectCustomProps } from '@/types/ui';
 
 const SelectCustom = ({
   options,
@@ -42,11 +25,9 @@ const SelectCustom = ({
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
-  // Determinar el icono por defecto según el modo
   const DefaultIcon = mode === 'white' ? ArrowDownSvg : ArrowDownGreySvg;
   const Icon = IconComponent || DefaultIcon;
 
-  // Determinar color de texto según el modo
   const textColor = mode === 'white' ? 'white' : 'text.secondary';
   const optionTextColor = mode === 'white' ? 'white' : 'text.secondary';
 

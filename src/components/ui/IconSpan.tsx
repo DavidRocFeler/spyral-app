@@ -1,22 +1,6 @@
 import { EditeIconSvg } from "@/assets/icons"
+import { IIconSpanProps } from "@/types/ui"
 import { Button } from "@mui/material"
-import { ComponentType, MouseEventHandler } from "react";
-
-export interface IIconSpanProps {
-    bgcolor?: string;
-    icon?: ComponentType;
-    borderRadius?: string;
-    onClick?:  MouseEventHandler<HTMLButtonElement>; 
-    height?: string;
-    width?: string;
-    borderBottomLeftRadius?: string;
-    borderBottomRightRadius?: string;
-    borderTopLeftRadius?: string;
-    borderTopRightRadius?: string;
-    borderColor?: string;
-    borderLeft?: string;
-    borderRight?: string;
-}
 
 const IconSpan = ({
     bgcolor = 'background.paper',

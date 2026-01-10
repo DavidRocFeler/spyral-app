@@ -1,7 +1,4 @@
 'use client'
-import { EditeIconSvg, SettingIconSvg } from '@/assets/icons'
-import { FlexCenter } from '@/components/ui/FlexCenter'
-import IconSpan from '@/components/ui/IconSpan'
 import { Box, Typography } from '@mui/material'
 import UploadBoxMain from '@/components/ui/UploadBoxMain'
 import PrimaryButton from '@/components/ui/PrimaryButton'

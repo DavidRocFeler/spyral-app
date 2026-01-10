@@ -1,11 +1,6 @@
 // NumberCounter.tsx
+import { INumberCounterProps } from '@/types/ui';
 import { Typography } from '@mui/material'
-
-export interface INumberCounterProps {
-    counter: number;
-    isActive?: boolean;
-    onClick?: () => void;
-}
 
 const NumberCounter = ({counter, isActive = false, onClick}: INumberCounterProps) => {
   return (

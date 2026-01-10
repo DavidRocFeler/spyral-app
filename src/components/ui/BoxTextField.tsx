@@ -1,16 +1,10 @@
 import { Box } from '@mui/material'
-import React, { ComponentType } from 'react'
 import CustomTextField from './CustomTextField'
 import { FlexCenter } from './FlexCenter'
 import TextButton from './TextButton'
-import { ArrowLineGreySvg, PlusSvg } from '@/assets/icons'
+import { ArrowLineGreySvg } from '@/assets/icons'
 import SecondaryButtonGrey from './SecondaryButtonGrey'
-
-export interface IBoxTextField {
-  boxmt?: number;
-  flexDirection?: string;
-  IconSvg?: ComponentType;
-}
+import { IBoxTextField } from '@/types/ui'
 
 const BoxTextField = ({
 boxmt = 0.5,

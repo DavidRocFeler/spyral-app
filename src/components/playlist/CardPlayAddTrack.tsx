@@ -1,19 +1,12 @@
 import { Box, Typography } from "@mui/material"
 import Image from "next/image"
 import coverImage from "@/assets/jamesArthurTrack.png"
-import { collaboratorsTrack } from "@/mock/collaboratorTrack.mock"
 import { FlexCenter } from "@/components/ui/FlexCenter"
-import CollaboratorTrack from "@/components/songs/CollaboratorTrack"
-import TrackingPublished from "@/components/songs/published/TrackingPublished"
 import SecondaryButton from "../ui/SecondaryButton"
 import { FixedIconSvg, LittleSpanSvg, PlayIconSvg, PlaySmallIconSvg, TrashWhiteIconSvg } from "@/assets/icons"
 import IconSpan from "../ui/IconSpan"
 import { FlexColumn } from "../ui/FlexColumn"
-
-interface ICardPublished {
-    trackingStatus: number;
-    bgcolor?: string;
-}
+import { ICardPublished } from "@/types/playlist"
 
 const CardPlayAddTrack = ({
     bgcolor

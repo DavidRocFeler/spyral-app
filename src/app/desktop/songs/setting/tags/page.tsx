@@ -1,17 +1,10 @@
-'use client'
 import { PlusBlackSvg } from '@/assets/icons'
-import AddUserSetting from '@/components/songs/setting/AddUserSetting'
 import TagsSettingTable from '@/components/songs/setting/TagsSettingTable'
-import CheckBoxCustom from '@/components/ui/CheckBoxCustom'
-import CustomTextField from '@/components/ui/CustomTextField'
 import { FlexCenter } from '@/components/ui/FlexCenter'
 import { FlexColumn } from '@/components/ui/FlexColumn'
 import PrimaryButton from '@/components/ui/PrimaryButton'
 import SearchBarDropDown from '@/components/ui/SearchBarDropDown'
-import SlideBarMenuLeft from '@/components/ui/SlideBarMenuLeft'
-import { songSettingUserListTable } from '@/mock/settingUserTable.mock'
 import { songsSettingTagsData, songsSettingTagsDataV2 } from '@/mock/setttingTagsListTable.mock'
-import { songsSettingData } from '@/mock/sideBarLeft.mock'
 import { Box, Typography } from '@mui/material'
 
 const SongSettingTags = () => {

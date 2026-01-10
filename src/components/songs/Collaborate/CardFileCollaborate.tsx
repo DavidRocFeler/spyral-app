@@ -4,16 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import IconSpan from '@/components/ui/IconSpan';
 import { ShareIconSvg } from '@/assets/icons';
-import { IFileItem } from '@/types/song'; 
-
-interface CardFileCollaborateProps {
-  file: IFileItem;
-  iconSpan?: boolean; // Prop opcional
-  height?: string;
-  width?: string;
-  px?: number;
-  py?: number;
-}
+import { CardFileCollaborateProps } from '@/types/song'; 
 
 const CardFileCollaborate = ({ 
   file, 
@@ -36,7 +27,7 @@ const CardFileCollaborate = ({
         height: '56px',
         width: '100%',
         p: 1.5,
-        pr: iconSpan ? 1 : 1.5, // Ajusta el padding si no hay iconSpan
+        pr: iconSpan ? 1 : 1.5, 
       }}
     >
       <Box sx={{ 
@@ -44,7 +35,7 @@ const CardFileCollaborate = ({
         alignItems: 'center', 
         gap: 2,
         overflow: 'hidden',
-        width: iconSpan ? 'calc(100% - 40px)' : '100%' // Ajusta el ancho
+        width: iconSpan ? 'calc(100% - 40px)' : '100%' 
       }}>
         {FileIcon && (
           <FlexCenter 
@@ -77,7 +68,7 @@ const CardFileCollaborate = ({
           </Box>
         </Box>
       </Box>
-      {iconSpan && ( // ← CONDICIONAL PARA MOSTRAR/OCULTAR IconSpan
+      {iconSpan && (
         <FlexCenter>
           <IconSpan
             icon={ShareIconSvg}

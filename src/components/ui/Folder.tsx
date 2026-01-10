@@ -6,20 +6,9 @@ import { FlexColumn } from '@/components/ui/FlexColumn';
 import IconSpan from '@/components/ui/IconSpan';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 import { catalogueMenuItems } from '@/mock/catalogueMenuItems.mock';
+import { IFolderComponentProps } from '@/types/ui';
 import { Box, Typography } from '@mui/material'
 import { useState } from 'react';
-
-export interface IFolderComponentProps {
-    id?: number;
-    tracks: string;
-    title: string
-    changeButton?: boolean;
-    menuButton?: boolean; 
-    isSelected?: boolean;
-    onSelect?: (id?: number) => void;
-    selectionFolder?: boolean;
-    showRelatedTracks?: boolean; // Nueva prop para controlar si muestra RelatedTracks
-}
 
 const FolderComponent = ({
 tracks,

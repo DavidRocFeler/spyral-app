@@ -1,5 +1,5 @@
 import { AppleMusicSvg, SoundCloudSvg, SpotifyIconSvg, YoutubeMusicSvg } from "@/assets/icons";
-import { ICardPerformingArtist, ICardPlataformProps } from "@/types/song";
+import { ICardPlataformProps } from "@/types/song";
 
 export const platforms: ICardPlataformProps[] = [
     {

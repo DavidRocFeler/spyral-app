@@ -6,7 +6,6 @@ import { ICardCommentsComponentProps } from '@/types/song';
 import CardComments from './CardComment';
 
 const CollaborationWindow = ({cardCommentsData}: ICardCommentsComponentProps) => {
-  // Verificar si hay comentarios
   const hasComments = cardCommentsData && cardCommentsData.length > 0;
 
   return (
@@ -23,7 +22,6 @@ const CollaborationWindow = ({cardCommentsData}: ICardCommentsComponentProps) =>
         Collaboration Window
       </Typography>
 
-      {/* Renderizar CardComments solo si hay comentarios */}
       {hasComments ? (
         <CardComments cardCommentsData={cardCommentsData} />
       ) : (
@@ -32,7 +30,7 @@ const CollaborationWindow = ({cardCommentsData}: ICardCommentsComponentProps) =>
             typography: 'h7',
             color: 'text.secondary',
             lineHeight: '1.2rem',
-            mb: 2 // Agregado margen inferior para separación
+            mb: 2 
           }}
         >
           No comments have been added yet. Share your version and start receiving feedback!

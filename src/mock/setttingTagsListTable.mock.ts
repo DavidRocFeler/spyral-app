@@ -1,4 +1,4 @@
-import { ISettingTags } from "@/components/songs/setting/TagsSettingTable";
+import { ISettingTags } from "@/types/song";
 
 // Mock data
 export const songsSettingTagsData: ISettingTags[] = [

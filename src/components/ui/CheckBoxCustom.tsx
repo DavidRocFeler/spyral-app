@@ -1,14 +1,6 @@
 import { CheckIconSvg } from "@/assets/icons"
+import { ICheckBoxProps } from "@/types/ui"
 import { Box, FormControlLabel, Radio, Typography } from "@mui/material"
-
-export interface ICheckBoxProp {
-  checked?: boolean;
-  onChange?: (checked: boolean) => void;
-  text?: string;
-  bgcolorCheck?: string;
-  borderColor?: string;
-  bgcolorHover?: string;
-}
 
 const CheckBoxCustom = ({
   checked,
@@ -17,7 +9,7 @@ const CheckBoxCustom = ({
   bgcolorCheck,
   borderColor = 'secondary.main',
   bgcolorHover = 'transparent'
-}: ICheckBoxProp) => {
+}: ICheckBoxProps) => {
   return (
     <FormControlLabel
       value="downloads"

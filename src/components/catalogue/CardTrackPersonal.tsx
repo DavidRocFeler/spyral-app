@@ -14,7 +14,7 @@ import { FlexColumn } from "../ui/FlexColumn";
       if (statusLower === 'draft') return <StatusDraftIcon />;
       if (statusLower === 'published') return <StatusPublishedIcon />;
       
-      return <StatusPendingIcon />; // Por defecto
+      return <StatusPendingIcon />; 
     };
 
     return (

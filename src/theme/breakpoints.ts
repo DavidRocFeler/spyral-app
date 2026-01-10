@@ -9,7 +9,6 @@ export const breakpoints: BreakpointsOptions = {
     lg: 1200,  
     xl: 1536,   
 
-    // Mobile optimizations
     xxs: 450,   // Breakpoint for better performance on mobile 
   },
 };

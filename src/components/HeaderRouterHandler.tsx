@@ -8,7 +8,6 @@ const HeaderRouterHandler = () => {
   const { setHeader, setBreadcrumb } = useHeaderStore();
 
   useEffect(() => {
-    // Rutas con breadcrumb específico
     if (
       pathname === '/desktop/playlist/setting' ||
       pathname === '/desktop/playlist/presentation' ||
@@ -57,7 +56,6 @@ const HeaderRouterHandler = () => {
       return;
     }
 
-    // Configuraciones con headline primario
     const routeConfigs = [
       {
         test: (path: string) => path === '/desktop/catalogue/fullview',

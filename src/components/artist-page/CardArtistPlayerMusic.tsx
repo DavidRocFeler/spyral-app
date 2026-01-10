@@ -3,10 +3,8 @@ import { ISongPlayerCardProps } from "@/types/song";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
-import IconSpan from "../ui/IconSpan";
-import { ArrowDownSvg, ArrowUpSvg, PauseIconSvg, PlayIconSvg, PlusSvg, RegisterIconBlackSvg } from "@/assets/icons";
+import { PauseIconSvg, PlayIconSvg } from "@/assets/icons";
 import SecondaryButton from "../ui/SecondaryButton";
-import PrimaryButton from "../ui/PrimaryButton";
 import CollaboratorTrack from "../songs/CollaboratorTrack";
 
 const CardArtistPlayerMusic = ({
@@ -14,11 +12,8 @@ const CardArtistPlayerMusic = ({
     artistName,
     songTitle,
     lastUpdate,
-    duration = '4:15',
-    currentTime = '0:00',
     collaborators = [],
     onExpand,
-    trackingStatus
   }: ISongPlayerCardProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
   

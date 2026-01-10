@@ -1,17 +1,9 @@
-import { ArrowLineGreySvg, BIconSvg, ItalicaIconSvg, LineDownSvg, PlusGreySvg, ShareIconSvg, ShareLinkIcon } from '@/assets/icons';
+import { BIconSvg, ItalicaIconSvg, LineDownSvg, PlusGreySvg, ShareIconSvg, ShareLinkIcon } from '@/assets/icons';
 import CustomTextField from '@/components/ui/CustomTextField';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import IconSpan from '@/components/ui/IconSpan';
-import SecondaryButtonGrey from '@/components/ui/SecondaryButtonGrey';
-import TextButton from '@/components/ui/TextButton';
+import { IBoxTextField } from '@/types/playlist';
 import { Box } from '@mui/material'
-import { ComponentType } from 'react';
-
-export interface IBoxTextField {
-  boxmt?: number;
-  flexDirection?: string;
-  IconSvg?: ComponentType;
-}
 
 const TextFieldMessage = ({
 boxmt = 0.5,

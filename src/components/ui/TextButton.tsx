@@ -1,28 +1,6 @@
 import { Button, Typography } from '@mui/material'
-import { ComponentType } from 'react';
 import { FlexCenter } from './FlexCenter';
-
-export interface IFormatWordProps {
-    normalText: string;
-    boldText: string;
-    afterText?: string; 
-}
-
-export interface ITextButtonProps {
-    text: string | IFormatWordProps ; 
-    color?: string;
-    icon?: ComponentType;
-    gap?: number;
-    onClick?: () => void;
-    iconPb?: number;
-    flexDirection?: string,
-    disabled?: boolean;
-    variant?: string; 
-    unset?: string;
-    bgcolor?: string;
-    height?: string;
-    borderRadius?: string;
-}
+import { ITextButtonProps } from '@/types/ui';
 
 const TextButton = ({
 text, 

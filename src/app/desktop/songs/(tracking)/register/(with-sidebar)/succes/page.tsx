@@ -1,4 +1,3 @@
-'use client'
 import ToastSucces from '@/components/ui/ToastSucces'
 import Register from '@/components/songs/register/Register'
 import { Box } from '@mui/material'

@@ -2,7 +2,6 @@ import { playControl } from "@/mock/playControl.mock";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 
-// PlayControlCover Component
 const PlayControlCover = () => {
     return (
       <Box

@@ -3,12 +3,7 @@ import { useState, useEffect } from 'react';
 import { Box, Typography, Paper } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import { FlexColumn } from '@/components/ui/FlexColumn';
-
-export interface IStatisticsWeekCardProps {
-  currentValue?: number;
-  percentageChange?: number;
-  label?: string;
-}
+import { IStatisticsWeekCardProps } from '@/types/song';
 
 const CardStatisticsWeek = ({
   currentValue = 142,

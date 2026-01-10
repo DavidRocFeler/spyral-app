@@ -6,11 +6,11 @@ import TitleIcon from "@/components/ui/TitleIcon"
 import { menuItemsRegister } from "@/mock/sideBarLeft.mock"
 import { Box, Typography } from "@mui/material"
 
-export default function RegisterWithSidebarLayout({
+const RegisterWithSidebarLayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
   return (
     <Box>
       <Box mt={2} mb={3}>
@@ -63,3 +63,5 @@ export default function RegisterWithSidebarLayout({
     </Box>
   )
 }
+
+export default RegisterWithSidebarLayout;

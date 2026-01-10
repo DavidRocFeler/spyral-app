@@ -1,7 +1,7 @@
 import { ComponentType } from "react";
 
 export interface ITrackingProps {
-    trackingStatus?: number; // 1-5
+    trackingStatus?: number;
   }
   
 export interface ICollaborator {
@@ -155,4 +155,96 @@ export interface IDemoProps {
   onExpand?: () => void;
   trackingStatus?: string;
   onMinimize?: () => void;
+}
+
+export interface IColaboratorsTrackProps {
+  collaborators: ICollaboratorsProps[]
+  width?: number,
+  height?: number
+}
+
+// collaborate 
+export interface CardFileCollaborateProps {
+  file: IFileItem;
+  iconSpan?: boolean;
+  height?: string;
+  width?: string;
+  px?: number;
+  py?: number;
+}
+
+// distribute 
+
+export interface IFormDistributeProps {
+  onDeliver?: () => void;
+}
+
+export interface IModalDistributeProps {
+  onClose: () => void;
+}
+
+// published 
+export interface ICardPublished {
+  trackingStatus: number;
+  bgcolor?: string;
+}
+
+// revenue
+export interface IStatisticsCardProps {
+  currentValue?: number;
+  percentageChange?: number;
+  label?: string;
+  currentHour?: number;
+}
+
+export interface IStatisticsWeekCardProps {
+  currentValue?: number;
+  percentageChange?: number;
+  label?: string;
+}
+
+// settings 
+export interface ISettingUsers {
+  id: string;
+  name: string;
+  album: string;
+  permission: string;
+}
+
+export interface ISettingUsersList {
+  songUserSettingListTable: ISettingUsers[];
+}
+
+export interface ISettingTags {
+  id: string;
+  tagName: string;
+  category: string;
+  type: string;
+  shareSettings: string;
+  actions: string;
+}
+
+export interface ISettingTagsList {
+  songTagsSettingListTable: ISettingTags[];
+}
+
+// work in progress 
+export interface ICardMetaListProps {
+  title: string;
+  placeholder: string;
+  addElse: string;
+}
+
+export interface IDefaultDatesProps {
+  title?: string;
+  tracklistOpen?: boolean;
+  onTracklistOpenChange?: (open: boolean) => void;
+  consumerReleaseDate?: string;
+  onConsumerReleaseDateChange?: (date: string) => void;
+  calendarTitle1?: string;
+  calendarTitle2?: string;
+  consumerReleaseTime?: string;
+  onPreorderRateDateChange?: (date: string) => void;
+  recordingYear?: number;
+  recordingLocation?: string;
 }

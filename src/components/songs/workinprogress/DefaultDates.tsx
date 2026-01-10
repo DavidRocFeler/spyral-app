@@ -4,22 +4,9 @@ import { FlexCenter } from "@/components/ui/FlexCenter"
 import { FlexColumn } from "@/components/ui/FlexColumn";
 import IconSpan from "@/components/ui/IconSpan"
 import InputCalendar from "@/components/ui/InputCalendar";
+import { IDefaultDatesProps } from "@/types/song";
 import { Box, Collapse, Typography } from "@mui/material"
 import { useState } from "react";
-
-export interface IDefaultDatesProps {
-  title?: string;
-  tracklistOpen?: boolean;
-  onTracklistOpenChange?: (open: boolean) => void;
-  consumerReleaseDate?: string;
-  onConsumerReleaseDateChange?: (date: string) => void;
-  calendarTitle1?: string;
-  calendarTitle2?: string;
-  consumerReleaseTime?: string;
-  onPreorderRateDateChange?: (date: string) => void;
-  recordingYear?: number;
-  recordingLocation?: string;
-}
 
 const DefaultDates = ({
   title = 'Default Dates',

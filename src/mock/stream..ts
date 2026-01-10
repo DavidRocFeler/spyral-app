@@ -1,5 +1,5 @@
 
-interface IStreamProps { 
+export interface IStreamProps { 
     id: number;
     session: string;
     review: string;

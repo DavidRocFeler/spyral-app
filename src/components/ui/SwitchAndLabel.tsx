@@ -4,11 +4,7 @@ import { Box, Typography, Switch } from '@mui/material';
 import { FlexColumn } from '../ui/FlexColumn';
 import type { IMetadataItem } from "@/types/playlist";
 import { settingPlaylist } from '@/mock/switchAndLabel.mock';
-
-export interface ISwitchAndLabel {
-  switchItems?: IMetadataItem[];
-  gap?: number;
-}
+import { ISwitchAndLabel } from '@/types/ui';
 
 const SwitchAndLabel = ({
   switchItems = settingPlaylist, 

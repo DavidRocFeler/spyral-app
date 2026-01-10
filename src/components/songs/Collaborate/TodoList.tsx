@@ -9,7 +9,6 @@ import TaskTable from './TaskTable';
 import { ITaskTableComponentProps } from '@/types/song';
 
 const TodoList = ({taskTableData}: ITaskTableComponentProps) => {
-  // Verificar si hay tareas
   const hasTasks = taskTableData && taskTableData.length > 0;
 
   return (
@@ -39,12 +38,9 @@ const TodoList = ({taskTableData}: ITaskTableComponentProps) => {
         />
       </FlexCenter>
       
-      {/* Renderizar condicionalmente según si hay tareas */}
       {hasTasks ? (
-        // Si HAY tareas: Mostrar TaskTable
         <TaskTable taskTableData={taskTableData} />
       ) : (
-        // Si NO HAY tareas: Mostrar mensaje "All Done!"
         <FlexColumn>
           <CheckIconBrandSvg/>
           

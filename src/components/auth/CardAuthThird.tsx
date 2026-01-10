@@ -1,11 +1,6 @@
 import { FlexCenter } from "@/components/ui/FlexCenter"
+import { ICardAuthThirdProps } from "@/types/auth";
 import { Typography } from "@mui/material"
-import { ComponentType } from "react"
-
-export interface ICardAuthThirdProps {
-  icon?: ComponentType;
-  text?: string;
-}
 
 const CardAuthThird = ({
   icon,

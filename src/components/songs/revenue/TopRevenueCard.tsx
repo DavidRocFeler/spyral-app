@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, Typography, Box } from '@mui/material';
 import { countriesStatistics } from '@/mock/topRevenue.mock';
 import { FlexColumn } from '@/components/ui/FlexColumn';

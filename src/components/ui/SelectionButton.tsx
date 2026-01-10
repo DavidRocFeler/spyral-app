@@ -1,15 +1,5 @@
+import { ISelectionButtonProps } from '@/types/ui';
 import { Box, Typography } from '@mui/material';
-
-interface ISelectionButtonProps {
-  text: string;
-  bgcolor?: string;
-  onClick?: () => void;
-  isSelected?: boolean;
-  height?: string;
-  minWidth?: string;
-  color?: string;
-  px?: number;
-}
 
 const SelectionButton = ({ 
   text, 

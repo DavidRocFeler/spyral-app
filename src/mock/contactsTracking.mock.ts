@@ -8,18 +8,18 @@ export const contactsTracking: IContact[] = [
         id: '1',
         name: 'James Arthur',
         avatar: JamesArthur,
-        icon: CrownIconSvg // Icono específico
+        icon: CrownIconSvg 
     },
     {
         id: '2', 
         name: 'Olivia Johnson',
         avatar: OliviaJhonson,
-        icon: AgreeBrandIconSvg, // Otro icono
+        icon: AgreeBrandIconSvg, 
         bottom: -12,
     },
     {
         id: '3', 
         name: 'Add artist',
-        icon: AgreeBrandIconSvg, // Otro icono
+        icon: AgreeBrandIconSvg, 
     }
 ]

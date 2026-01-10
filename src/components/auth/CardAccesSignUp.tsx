@@ -1,18 +1,11 @@
 'use client'
 import { Box, Typography } from "@mui/material"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import CreatorPicture from '@/assets/creatorPicture.png'
 import { FlexColumn } from "../ui/FlexColumn"
 import Link from "next/link"
 import { useState } from "react"
-
-export interface ICardAccesSignUpProps {
-  image?: StaticImageData;
-  alt?: string;
-  mainText?: string;
-  secondaryText?: string;
-  cardType: 'professionalIndustry' | 'creator';
-}
+import { ICardAccesSignUpProps } from "@/types/auth"
 
 const CardAccesSignUp = ({
   image = CreatorPicture,

@@ -1,12 +1,6 @@
 import { Box } from '@mui/material'
 import Collaborators from '../ui/Collaborators'
-import { ICollaboratorsProps } from '@/types/ui'
-
-export interface IColaboratorsTrackProps {
-  collaborators: ICollaboratorsProps[]
-  width?: number,
-  height?: number
-}
+import { IColaboratorsTrackProps } from '@/types/song'
 
 const CollaboratorTrack = ({
   collaborators,

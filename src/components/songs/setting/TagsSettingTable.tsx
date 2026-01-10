@@ -4,22 +4,8 @@ import { Box, Typography } from '@mui/material';
 import SwitchCustom from '@/components/ui/SwitchCustom';
 import IconSpan from '@/components/ui/IconSpan';
 import { ArrowDownSvg, LittleSpanSvg } from '@/assets/icons';
+import { ISettingTagsList } from '@/types/song';
 
-// Tipos
-export interface ISettingTags {
-  id: string;
-  tagName: string;
-  category: string;
-  type: string;
-  shareSettings: string;
-  actions: string;
-}
-
-export interface ISettingTagsList {
-  songTagsSettingListTable: ISettingTags[];
-}
-
-// Configuración de columnas
 const columns = [
   { key: 'tagName', label: 'Tag Name', width: '25%' },
   { key: 'category', label: 'Category', width: '20%' },
@@ -29,7 +15,6 @@ const columns = [
 ];
 
 const TagsSettingTable = ({ songTagsSettingListTable }: ISettingTagsList) => {
-  // Estado para manejar los permisos de cada usuario
   const [permissions, setPermissions] = useState<Record<string, string>>(
     songTagsSettingListTable.reduce((acc, item) => {
       acc[item.id] = item.id;
@@ -37,7 +22,6 @@ const TagsSettingTable = ({ songTagsSettingListTable }: ISettingTagsList) => {
     }, {} as Record<string, string>)
   );
 
-  // Función para actualizar el permiso de un usuario específico
   const handlePermissionChange = (taskId: string, newPermission: string) => {
     setPermissions(prev => ({
       ...prev,

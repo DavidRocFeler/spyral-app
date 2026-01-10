@@ -20,12 +20,10 @@ const SecondaryButtonGrey = ({
    const renderIcon = () => {
     if (!icon) return null;
     
-    // Si es un ReactElement (ya renderizado: <PlayIconSvg />)
     if (isValidElement(icon)) {
       return icon;
     }
     
-    // Si es un ComponentType (PlayIconSvg sin renderizar)
     const IconComponent = icon as ComponentType<any>;
     return <IconComponent />;
   };

@@ -2,7 +2,6 @@ import { ICollaboratorsProps } from '@/types/ui'
 import { Box } from '@mui/material'
 import Image from 'next/image'
 
-// Componente individual para cada colaborador
 const Collaborators = ({ 
   image,
   alt,

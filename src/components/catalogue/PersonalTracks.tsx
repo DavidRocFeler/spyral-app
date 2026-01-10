@@ -4,13 +4,7 @@ import { PlusSvg } from "@/assets/icons";
 import { FlexCenter } from "../ui/FlexCenter";
 import { personalTrack } from "@/mock/catatalogueZoomed.mock";
 import CardTrackPersonal from "./CardTrackPersonal";
-
-export interface ICardPersonalTrackProps {
-  width?: string;
-  height?: string;
-  mr?: number;
-  pb?: number;
-}
+import { ICardPersonalTrackProps } from "@/types/catalogue";
 
 const PersonalTracks = ({
   width = '590px',

@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import { Box, Typography, Collapse } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';

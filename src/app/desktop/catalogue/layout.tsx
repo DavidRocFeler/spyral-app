@@ -11,34 +11,34 @@ import { Box } from "@mui/material"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-export default function CatalogueLayout({
+const CatalogueLayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
   const pathname = usePathname();
   
-  // Determinar qué botón está activo según la ruta
+  // Determine which button is active based on the route
   const isSquareView = pathname === '/desktop/catalogue';
   const isListView = pathname !== '/desktop/catalogue';
 
-  // No renderizar el header en fullview
+  // Do not render header in fullview
   const isFullView = pathname === '/desktop/catalogue/fullview';
 
-  // Rutas con PrimaryButton (mycatalogue y catalogue principal)
+  // Routes with PrimaryButton (mycatalogue and main catalogue)
   const isPrimaryButton = pathname === '/desktop/catalogue' || pathname === '/desktop/catalogue/mycatalogue';
 
-  // Rutas donde NO se muestra el sidebar (fullview y page principal)
+  // Routes where sidebar is NOT shown (fullview and main page)
   const hideSidebar = pathname === '/desktop/catalogue/fullview' || pathname === '/desktop/catalogue';
 
-  // Si es fullview, solo renderizar children
+  // If it's fullview, only render children
   if (isFullView) {
     return <>{children}</>;
   }
 
   return (
     <Box>
-      {/* Header con Search y Botones */}
+      {/* Header with Search and Buttons */}
       <FlexCenter sx={{
         width: '100%',
         px: 4,
@@ -47,7 +47,7 @@ export default function CatalogueLayout({
         <SearchBarDropDown/>
         <FlexCenter ml='auto' gap={2.5}>
           
-          {/* Botón condicional */}
+          {/* Conditional button */}
           {isPrimaryButton ? (
             <Link
             href='/desktop/catalogue/fullview'
@@ -108,7 +108,7 @@ export default function CatalogueLayout({
         </FlexCenter>
       </FlexCenter>
 
-      {/* Contenido con o sin Sidebar */}
+      {/* Content with or without Sidebar */}
       {hideSidebar ? (
         <>{children}</>
       ) : (
@@ -126,7 +126,7 @@ export default function CatalogueLayout({
             <SlideBarMenuLeft menuItems={catalogueListView} />
           </Box>
 
-          {/* Contenido */}
+          {/* Content */}
           <Box 
             pt={3.6}
             ml='auto'
@@ -140,3 +140,5 @@ export default function CatalogueLayout({
     </Box>
   )
 }
+
+export default CatalogueLayout;

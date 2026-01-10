@@ -1,3 +1,4 @@
+'use client'
 import { EyeRegisterIconSvg, LogoTypography } from "@/assets/icons"
 import { FlexColumn } from "../ui/FlexColumn"
 import { Box, Typography } from "@mui/material"

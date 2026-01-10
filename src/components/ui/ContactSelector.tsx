@@ -19,7 +19,7 @@ const ContactSelector = ({
 }: IContactSelectorItemProps) => {
   const IconToRender = contact.icon || icon;
   const finalBottom = contact.bottom || 0;
-  const hasAvatar = !!contact.avatar; // Verificar si tiene avatar
+  const hasAvatar = !!contact.avatar; 
 
   return (
     <Box 
@@ -33,7 +33,6 @@ const ContactSelector = ({
         alignItems: 'center',
       }}
     >
-      {/* Si NO tiene avatar, mostrar el box con borde punteado */}
       {!hasAvatar ? (
         <Box
           sx={{
@@ -43,7 +42,6 @@ const ContactSelector = ({
             borderRadius: '50%',
           }}
         >
-          {/* Círculo con borde punteado y ícono plus en el centro */}
           <Box
             sx={{
               width: avatarSize,
@@ -60,7 +58,6 @@ const ContactSelector = ({
             <PlusBrandIconSvg />
           </Box>
 
-          {/* Ícono en la esquina superior derecha (igual que los demás) */}
           <Box
             sx={{
               position: 'absolute',
@@ -80,7 +77,6 @@ const ContactSelector = ({
           </Box>
         </Box>
       ) : (
-        /* Si tiene avatar, mostrar la imagen normal */
         <Box
           sx={{
             position: 'relative',

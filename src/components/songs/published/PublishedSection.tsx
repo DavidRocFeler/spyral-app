@@ -24,7 +24,7 @@ const PublishedSection = () => {
             {publishedCards.map((card) => (
               <CardPublished
                 key={card.id}
-                bgcolor='background.default'  // 👈 Igual para todos
+                bgcolor='background.default'  
                 trackingStatus={card.trackingStatus}
               />
             ))}

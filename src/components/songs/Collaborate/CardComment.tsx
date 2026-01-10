@@ -1,7 +1,5 @@
-import React from 'react';
 import { Card, CardHeader, CardContent, Avatar, IconButton, Typography, Box } from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import IconSpan from '@/components/ui/IconSpan';
 import { LittleSpanSvg } from '@/assets/icons';
 import { FlexCenter } from '@/components/ui/FlexCenter';

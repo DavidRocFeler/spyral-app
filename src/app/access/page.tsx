@@ -1,5 +1,6 @@
-// app/access/page.tsx
-export default function AccessPage() {
+const AccessPage = () => {
 
     return null;
   }
+
+export default AccessPage;

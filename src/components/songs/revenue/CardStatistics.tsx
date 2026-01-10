@@ -5,13 +5,9 @@ import { FlexCenter } from '@/components/ui/FlexCenter';
 import { FlexColumn } from '@/components/ui/FlexColumn';
 import IconSpan from '@/components/ui/IconSpan';
 import { ArrowDiagonalSvg } from '@/assets/icons';
+import { IStatisticsCardProps } from '@/types/song';
 
-export interface IStatisticsCardProps {
-  currentValue?: number;
-  percentageChange?: number;
-  label?: string;
-  currentHour?: number;
-}
+
 
 const CardStatistics = ({
   currentValue = 142,

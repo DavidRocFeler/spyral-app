@@ -4,8 +4,6 @@ import { collaboratorsTrack } from '@/mock/collaboratorTrack.mock';
 import MinimizeSongPlayer from './MinimizeSongPlayer';
 import { IDemoProps } from '@/types/song';
 
-
-
 // Demo component
 const MinimizeDemo = ({
   onExpand,

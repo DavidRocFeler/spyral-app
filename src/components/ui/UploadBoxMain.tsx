@@ -2,15 +2,7 @@
 import { useRef } from 'react';
 import { PlusYellowSvg } from '@/assets/icons';
 import { Box, Typography } from '@mui/material';
-
-export interface IUploadBoxMain {
-  width?: string;
-  textMain?: string;
-  textSecondary?: string;
-  textLast?: string;
-  acceptedFormats?: string;
-  onFileUpload?: (file: File) => void; // 👈 Callback opcional
-}
+import { IUploadBoxMain } from '@/types/ui';
 
 const UploadBoxMain = ({
   width = 'auto',
@@ -18,7 +10,7 @@ const UploadBoxMain = ({
   textSecondary = 'Browse',
   textLast = 'Supported formats include: MP3, WAV, and FLAC.',
   acceptedFormats = '.mp3,.wav,.flac',
-  onFileUpload, // 👈 Opcional
+  onFileUpload, 
 }: IUploadBoxMain) => {
   const inputRef = useRef<HTMLInputElement>(null);
 

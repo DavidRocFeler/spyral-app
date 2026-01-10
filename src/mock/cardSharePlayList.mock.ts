@@ -6,9 +6,7 @@ import SophiaBrown from '@/assets/UserAva.png'
 import MasonDavis from "@/assets/UserMason.png"
 import AvaWilson from "@/assets/UserAva.png"
 
-  
-  // Mock data - ajusta las rutas según tu estructura
- export const contactsMock: IContact[] = [
+   export const contactsMock: IContact[] = [
     {
       id: '1',
       name: 'Ethan Carter',

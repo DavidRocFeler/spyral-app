@@ -23,7 +23,7 @@ export const useMusicPlayerStore = create<MusicPlayerState>()(
       clearTrack: () => set({ currentTrack: null, isPlayerVisible: false }),
     }),
     {
-      name: 'music-player-storage', // key en localStorage
+      name: 'music-player-storage',
     }
   )
 );

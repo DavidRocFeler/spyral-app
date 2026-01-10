@@ -42,7 +42,6 @@ const EmptyState = () => {
           Start By Importing Your Music
         </Typography>
 
-        {/* Upload Box - Ahora con callback */}
         <UploadBoxMain onFileUpload={handleMusicUpload} />
 
         {/* Divider Text */}

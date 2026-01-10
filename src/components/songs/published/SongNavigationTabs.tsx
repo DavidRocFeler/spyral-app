@@ -10,14 +10,12 @@ const SongNavigationTabs = ({
 }: ISongNavigationTabsProps) => {
   const pathname = usePathname();
 
-  // Tipo para tabs agrupados
   type GroupedTab = {
     label: string;
     href: string;
     relatedHrefs: string[];
   };
 
-  // Agrupar tabs únicos por label
   const uniqueTabs = tabs.reduce((acc: GroupedTab[], tab) => {
     const existing = acc.find((t: GroupedTab) => t.label === tab.label);
     if (!existing) {
@@ -32,12 +30,11 @@ const SongNavigationTabs = ({
     return acc;
   }, []);
 
-  // Verificar si alguna de las rutas relacionadas está activa
   const isActive = (relatedHrefs: string[]) => {
     return relatedHrefs.some(href => pathname === href);
   };
 
-  console.log('uniqueTabs:', uniqueTabs); // Debug: ver qué tabs se están generando
+  console.log('uniqueTabs:', uniqueTabs);
 
   return (
     <Box

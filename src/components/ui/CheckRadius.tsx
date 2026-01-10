@@ -1,12 +1,9 @@
+import { ICheckRadius } from '@/types/ui'
 import { Box, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material'
-
-export interface ICheckRadius {
-    text: string;
-}
 
 const CheckRadius = ({
     text = ''
-}) => {
+}: ICheckRadius) => {
   return (
     <Box>
       <RadioGroup row>

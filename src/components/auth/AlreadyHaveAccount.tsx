@@ -1,12 +1,7 @@
 import { Typography } from "@mui/material"
 import { FlexColumn } from "../ui/FlexColumn"
 import Link from "next/link"
-
-export interface IHaveAnAccountProps {
-  textMain?: string;
-  textSecondary?: string;
-  href?: string;
-}
+import { IHaveAnAccountProps } from "@/types/auth"
 
 const AlreadyHaveAccount = ({
   textMain= 'Already have an account?',

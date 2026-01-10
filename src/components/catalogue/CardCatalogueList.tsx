@@ -6,7 +6,6 @@ import SecondaryButton from '../ui/SecondaryButton';
 
 export type TaskStatus = 'not-started' | 'pending' | 'finished';
 
-// Configuración de columnas
 const columns = [
   { key: 'name', label: 'Name', width: '180px' },
   { key: 'playlist', label: 'Playlist', width: '200px' },
@@ -24,10 +23,8 @@ const CardCatalogueList = ({ catalogueListTable }: ICatalogueList) => {
     setSelectedTaskId('');
   };
 
-  const statusOptions: TaskStatus[] = ['not-started', 'pending', 'finished'];
   const totalTasks = catalogueListTable.length;
   
-  // Generar el gridTemplateColumns dinámicamente
   const gridTemplateColumns = columns.map(col => col.width).join(' ');
 
   return (

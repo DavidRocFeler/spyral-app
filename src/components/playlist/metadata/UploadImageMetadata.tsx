@@ -1,16 +1,6 @@
 import { ImageUploadBrandSvg, UploadImageBrandIconSvg } from '@/assets/icons'
+import { IUploadImageMetadata } from '@/types/playlist';
 import { Box, Typography } from '@mui/material'
-import { ComponentType } from 'react';
-
-export interface IUploadImageMetadata {
-  height?: string;
-  width?: string;
-  borderRadius?: string;
-  mainText?: string;
-  secondaryText?: string;
-  icon?: ComponentType;
-  bgcolor?: string;
-}
 
 const UploadImageMetadata = ({
   height = '230px',

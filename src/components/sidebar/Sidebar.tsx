@@ -17,19 +17,15 @@ const Sidebar = () => {
     if (item.isSpecial) {
       openModal();
     }
-    // Para los items normales, la navegación se maneja con Link
   };
 
-  // Determinar qué item está activo basado en la ruta
   const isItemActive = (item: ISidebarMenuItem): boolean => {
     if (item.isSpecial) return false;
     
     if (item.id === 'home') {
-      // Home se activa en '/' y en cualquier ruta que empiece con '/home'
       return pathname === '/desktop/home' || pathname.startsWith('/desktop/home');
     }
     
-    // Para los demás items, verificar si la ruta comienza con el path del item
     return pathname.startsWith(`/desktop/${item.id}`);
   };
 
@@ -59,7 +55,6 @@ const Sidebar = () => {
         <LogoSvg />
       </Box>
 
-      {/* Menu Items con scrollbar personalizado usando className */}
       <Box 
         className="custom-scrollbar"
         sx={{ 

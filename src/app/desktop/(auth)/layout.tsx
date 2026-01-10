@@ -1,17 +1,16 @@
 import { Box } from "@mui/material";
 
-// app/(auth)/layout.tsx
-export default function AuthLayout({
+const AuthLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <Box
       className="custom-scrollbar"
       sx={{ 
         bgcolor: 'primary.main', 
-        height: '100vh', // Cambiar de minHeight a height
+        height: '100vh', 
         width: '100%',
         display: 'flex',
         alignItems: 'center',
@@ -23,3 +22,5 @@ export default function AuthLayout({
     </Box>
   );
 }
+
+export default AuthLayout;

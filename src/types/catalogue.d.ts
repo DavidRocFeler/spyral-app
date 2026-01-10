@@ -22,3 +22,16 @@ export interface ICardTrackPersonalProps {
   export interface ICatalogueList {
     catalogueListTable: ICatalogueListProps[]
   }
+
+  export interface ICardPersonalTrackProps {
+    width?: string;
+    height?: string;
+    mr?: number;
+    pb?: number;
+  }
+
+ export interface IMetadataItem {
+    id: string;
+    label: string;
+    enabled: boolean;
+  }

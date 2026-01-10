@@ -1,14 +1,11 @@
+import { ICancelButtonTransparent } from '@/types/ui'
 import { Button, Typography } from '@mui/material'
 
-export interface ICancelButtonTransparent {
-  onClick?: () => void
-}
 const CancelButtonTransparent = ({
   onClick
 }: ICancelButtonTransparent) => {
   return (
     <>
-        {/* Botón Cancel (izquierda) */}
         <Button
           onClick={onClick}
             disableRipple

@@ -5,11 +5,7 @@ import { collaboratorsTrack } from "@/mock/collaboratorTrack.mock"
 import CollaboratorTrack from "../CollaboratorTrack"
 import { FlexCenter } from "@/components/ui/FlexCenter"
 import TrackingPublished from "./TrackingPublished"
-
-interface ICardPublished {
-    trackingStatus: number;
-    bgcolor?: string;
-}
+import { ICardPublished } from "@/types/song"
 
 const CardPublished = ({
     trackingStatus,

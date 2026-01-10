@@ -1,9 +1,6 @@
+import { IGrandiantButton } from '@/types/ui'
 import { Box } from '@mui/material'
 import Link from 'next/link'
-
-export interface IGrandiantButton {
-  href?: string;
-}
 
 const GrandiantButton = ({
   href = '/desktop/access/auth/godashboard'

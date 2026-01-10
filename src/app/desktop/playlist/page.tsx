@@ -1,4 +1,3 @@
-'use client'
 import { Box, Grid } from "@mui/material"
 import SearchBarDropDown from "@/components/ui/SearchBarDropDown"
 import CardPlayList from "@/components/playlist/CardPlayList"
@@ -8,7 +7,7 @@ const PlayList = () => {
 
   return (
     <Box>
-      {/* Header con Search y Botones */}
+      {/* Header, Search and Buttons */}
       <Box sx={{
         width: '100%',
         px: 4,

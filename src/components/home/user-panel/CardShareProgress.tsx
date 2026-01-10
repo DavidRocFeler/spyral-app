@@ -21,10 +21,10 @@ import { secondaryButtonsArray } from '@/mock/secondaryButtons.mock';
 import SelectCustom from '@/components/ui/SelectCustom';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 
-interface ICardShareProgressProps {
+export interface ICardShareProgressProps {
   open: boolean;
   onClose: () => void;
-  variant?: 'withDownloads' | 'withoutDownloads'; // Nueva prop para elegir la versión
+  variant?: 'withDownloads' | 'withoutDownloads';
 }
 
 const CardShareProgress = ({ 

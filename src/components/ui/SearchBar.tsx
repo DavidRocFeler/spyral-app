@@ -9,7 +9,6 @@ const SearchBar = ({
     bgcolor = 'background.default',
     borderRadius = '15px'
 }: ISearchBarProps) => {
-    // Manejar el caso cuando icon es undefined
     const IconComponent = icon;
     
     return (
@@ -28,7 +27,6 @@ const SearchBar = ({
                     px: 2.5
                 }}
             >
-                {/* Renderizar icono solo si existe */}
                 {IconComponent && <IconComponent />}
                 
                 <InputBase

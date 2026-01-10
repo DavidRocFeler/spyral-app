@@ -18,18 +18,14 @@ const FilesPanel = ({fileItem}: ICollaboratorSongFile) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  // Calcular el total de páginas
   const totalPages = Math.ceil(fileItem.length / itemsPerPage);
   
-  // Obtener los archivos para la página actual
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentFiles = fileItem.slice(startIndex, endIndex);
 
-  // Calcular filas necesarias basado en la cantidad de archivos en la página actual
   const rowsNeeded = Math.ceil(currentFiles.length / 2);
 
-  // Handlers para la paginación
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -67,7 +63,6 @@ const FilesPanel = ({fileItem}: ICollaboratorSongFile) => {
         typographyOptions='h7'
       />
       
-      {/* Grid container con 2 columnas */}
       <Grid container spacing={2} sx={{ mt: 1, mb: 2 }}>
         {currentFiles.map((file) => (
           <Grid size={6} key={file.id}>
@@ -99,7 +94,6 @@ const FilesPanel = ({fileItem}: ICollaboratorSongFile) => {
             disabled={currentPage === 1}
           />
           
-          {/* Renderizar los números de página */}
           {Array.from({ length: totalPages }, (_, index) => (
             <NumberCounter
               key={index + 1}

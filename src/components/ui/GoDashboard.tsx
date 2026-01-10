@@ -1,10 +1,7 @@
 import { Typography } from "@mui/material"
 import { FlexColumn } from "./FlexColumn"
 import GrandiantButton from "./GrandiantButton"
-
-export interface IGoDashboardProps {
-    textMain?: string;
-}
+import { IGoDashboardProps } from "@/types/ui"
 
 const GoDashboard = ({
     textMain = 'Go to Spyral dashboard to continue'

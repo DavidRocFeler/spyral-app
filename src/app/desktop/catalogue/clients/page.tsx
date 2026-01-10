@@ -1,4 +1,3 @@
-'use client'
 import { SearchWhiteIconSvg, SmallPlusBrandSvg } from "@/assets/icons"
 import { FlexCenter } from "@/components/ui/FlexCenter"
 import { FlexColumn } from "@/components/ui/FlexColumn"
@@ -44,4 +43,4 @@ const Client = () => {
   )
 }
 
-export default Client
+export default Client;

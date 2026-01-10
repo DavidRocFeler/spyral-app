@@ -24,7 +24,7 @@ import CancelButtonTransparent from '@/components/ui/CancelButtonTransparent';
 import ContactSelector from '@/components/ui/ContactSelector';
 import { contactsMock } from '@/mock/cardSharePlayList.mock';
 
-interface CardSharePlayListProps {
+export interface CardSharePlayListProps {
   open: boolean;
   onClose: () => void;
 }

@@ -158,3 +158,164 @@ export interface ISlideBarMenuProps {
   menuItems: IMenuItemProps[]
 }
 
+export interface IBoxTextField {
+  boxmt?: number;
+  flexDirection?: string;
+  IconSvg?: ComponentType;
+}
+
+export interface ICancelButtonTransparent {
+  onClick?: () => void
+}
+
+export interface ICardExtendMock {
+  menuMock?: ICardIconPlayerMusicProps[];
+  menuPlayer: ICardMenuPlayerMusicProps;
+  anchorOrigin?: PopoverOrigin;
+  transformOrigin?: PopoverOrigin;
+  paperSx?: SxProps<Theme>; 
+}
+
+export interface ICheckBoxProps {
+  checked?: boolean;
+  onChange?: (checked: boolean) => void;
+  text?: string;
+  bgcolorCheck?: string;
+  borderColor?: string;
+  bgcolorHover?: string;
+}
+
+export interface ICheckRadius {
+  text: string;
+}
+
+export interface IFolderComponentProps {
+  id?: number;
+  tracks: string;
+  title: string
+  changeButton?: boolean;
+  menuButton?: boolean; 
+  isSelected?: boolean;
+  onSelect?: (id?: number) => void;
+  selectionFolder?: boolean;
+  showRelatedTracks?: boolean; 
+}
+
+export interface IGoDashboardProps {
+  textMain?: string;
+}
+
+export interface IGrandiantButton {
+  href?: string;
+}
+
+export interface IIconSpanProps {
+  bgcolor?: string;
+  icon?: ComponentType;
+  borderRadius?: string;
+  onClick?:  MouseEventHandler<HTMLButtonElement>; 
+  height?: string;
+  width?: string;
+  borderBottomLeftRadius?: string;
+  borderBottomRightRadius?: string;
+  borderTopLeftRadius?: string;
+  borderTopRightRadius?: string;
+  borderColor?: string;
+  borderLeft?: string;
+  borderRight?: string;
+}
+
+export interface IInputCalendarProps extends Omit<TextFieldProps, 'onChange' | 'value'> {
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+}
+
+export interface INumberCounterProps {
+  counter: number;
+  isActive?: boolean;
+  onClick?: () => void;
+}
+
+export interface ISearchDropdownProps {
+  placeholder?: string;
+}
+
+export interface ISelectCustomProps {
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+  iconComponent?: ComponentType;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  height?: string;
+  heightOption?: string;
+  borderRadius?: string;
+  bgcolor?: string;
+  width?: string;
+  variant?: string;
+  mode?: 'grey' | 'white'; 
+  typographyOptions?: string;
+  ptIcon?: number;
+}
+
+export interface ISelectionButtonProps {
+  text: string;
+  bgcolor?: string;
+  onClick?: () => void;
+  isSelected?: boolean;
+  height?: string;
+  minWidth?: string;
+  color?: string;
+  px?: number;
+}
+
+export interface ISwitchAndLabel {
+  switchItems?: IMetadataItem[];
+  gap?: number;
+}
+
+export interface IFormatWordProps {
+  normalText: string;
+  boldText: string;
+  afterText?: string; 
+}
+
+export interface ITextButtonProps {
+  text: string | IFormatWordProps ; 
+  color?: string;
+  icon?: ComponentType;
+  gap?: number;
+  onClick?: () => void;
+  iconPb?: number;
+  flexDirection?: string,
+  disabled?: boolean;
+  variant?: string; 
+  unset?: string;
+  bgcolor?: string;
+  height?: string;
+  borderRadius?: string;
+}
+
+export interface ITitleIconProps {
+  icon: ComponentType
+  text: string
+}
+
+
+export interface IToastSuccesProps {
+  label?: string;
+  title?: string;
+  textButton?: string;
+  icon?: ComponentType
+  iconButton?: ComponentType
+}
+
+export interface IUploadBoxMain {
+  width?: string;
+  textMain?: string;
+  textSecondary?: string;
+  textLast?: string;
+  acceptedFormats?: string;
+  onFileUpload?: (file: File) => void; 
+}

@@ -4,10 +4,7 @@ import { FlexCenter } from './FlexCenter'
 import SearchBar from './SearchBar'
 import SelectCustom from './SelectCustom'
 import { SearchWhiteIconSvg } from '@/assets/icons'
-
-export interface ISearchDropdownProps {
-  placeholder?: string;
-}
+import { ISearchDropdownProps } from '@/types/ui'
 
 const SearchBarDropDown = ({
   placeholder = 'Search'

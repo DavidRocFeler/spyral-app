@@ -2,11 +2,11 @@
 import { BackgroundSignUpSvg } from "@/assets/background"
 import { Box } from "@mui/material"
 
-export default function LoginLayout({
+const LoginLayout = ({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) => {
   return (
     <Box
       className="custom-scrollbar"
@@ -49,3 +49,5 @@ export default function LoginLayout({
     </Box>
   );
 }
+
+export default LoginLayout;

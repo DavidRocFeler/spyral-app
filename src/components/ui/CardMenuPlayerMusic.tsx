@@ -1,21 +1,11 @@
 // components/CardMenuPlayerMusic.tsx
-import { Box, Typography, Popover, PopoverOrigin, SxProps, Theme } from '@mui/material';
-import { ICardIconPlayerMusicProps, ICardMenuPlayerMusicProps } from '@/types/playerMusic';
+import { Box, Typography, Popover } from '@mui/material';
 import { menuItems } from '@/mock/musicPlayer.mock';
-
-export interface ICardExtendMock {
-  menuMock?: ICardIconPlayerMusicProps[];
-  menuPlayer: ICardMenuPlayerMusicProps;
-  // Nuevas props opcionales para control de posición y estilos
-  anchorOrigin?: PopoverOrigin;
-  transformOrigin?: PopoverOrigin;
-  paperSx?: SxProps<Theme>; 
-}
+import { ICardExtendMock } from '@/types/ui';
 
 const CardMenuPlayerMusic = ({ 
   menuPlayer, 
   menuMock = menuItems,
-  // Valores por Default (Los que tenías originalmente)
   anchorOrigin = {
     vertical: 'top',
     horizontal: 'center',
@@ -24,7 +14,7 @@ const CardMenuPlayerMusic = ({
     vertical: 'bottom',
     horizontal: 'right',
   },
-  paperSx = {} // Por si quieres sobrescribir estilos del contenedor (width, margin, etc.)
+  paperSx = {}
 }: ICardExtendMock) => {
 
   const handleItemClick = (label: string) => {
@@ -37,7 +27,7 @@ const CardMenuPlayerMusic = ({
       open={menuPlayer.open}
       anchorEl={menuPlayer.anchorEl}
       onClose={menuPlayer.onClose}
-      // Usamos las props dinámicas aquí
+      // dynamic props 
       anchorOrigin={anchorOrigin}
       transformOrigin={transformOrigin}
       slotProps={{
@@ -50,7 +40,7 @@ const CardMenuPlayerMusic = ({
             mt: -1,
             overflow: 'hidden',
             boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)',
-            ...paperSx // Esto permite sobrescribir los estilos de arriba si hace falta
+            ...paperSx 
           }
         }
       }}

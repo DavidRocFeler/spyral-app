@@ -23,9 +23,8 @@ const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsDa
             width: '100%',
         }}
         >
-            {/* Primera columna: 220px */}
             <Grid 
-                size={2.3} // ≈ 220px del total 1164px
+                size={2.3}
                 sx={{ 
                 height: '850px',
                 display: 'flex',
@@ -38,9 +37,8 @@ const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsDa
                 />
             </Grid>
             
-            {/* Segunda columna: 560px */}
             <Grid 
-                size={5.9} // ≈ 560px del total 1164px
+                size={5.9}
                 container
                 direction="column"
                 sx={{ 
@@ -59,9 +57,8 @@ const CollaborateTask = ({latestVersion, sharedVersion, fileItem, cardCommentsDa
                 </Grid>
             </Grid>
             
-            {/* Tercera columna: 384px */}
             <Grid 
-                size={3.8} // ≈ 384px del total 1164px
+                size={3.8} 
                 sx={{ 
                 height: 'fit-content',
                 display: 'flex',

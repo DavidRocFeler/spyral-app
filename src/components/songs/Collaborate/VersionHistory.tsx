@@ -12,7 +12,6 @@ sharedVersion
   return (
     <Box sx={{ bgcolor: 'background.default', borderRadius: '24px', py: 2, px: 3, height: '100%' }}>
       
-      {/* Latest Version Section */}
       <Box mb={2} pb={1} borderBottom='1px solid' borderColor='grey.900'>
         <Typography variant='h10' fontWeight={700}>
           Latest version

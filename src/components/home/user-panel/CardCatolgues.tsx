@@ -42,10 +42,10 @@ const CardYourCatalogues = () => {
             color: '#808080',
             textTransform: 'none',
             padding: '8px 16px',
-            typography: 'h8', // ← Mueve typography aquí
+            typography: 'h8', 
           },
           '& .Mui-selected': {
-            color: '#FFF !important', // ← Agrega !important o quita el sx inline
+            color: '#FFF !important',
           },
           '& .MuiTabs-indicator': {
             backgroundColor: '#FFF',

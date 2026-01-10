@@ -7,12 +7,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { format, parse, isValid } from 'date-fns';
 import { es } from 'date-fns/locale';
-
-export interface IInputCalendarProps extends Omit<TextFieldProps, 'onChange' | 'value'> {
-  value: string; // formato: YYYY-MM-DD
-  onChange: (value: string) => void;
-  placeholder?: string;
-}
+import { IInputCalendarProps } from "@/types/playlist";
 
 const CalendarMetadata = ({
   value,

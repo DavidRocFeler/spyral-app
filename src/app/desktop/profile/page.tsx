@@ -13,7 +13,7 @@ import { collaboratorsTrack } from "@/mock/collaboratorTrack.mock"
 import CardArtistPlayerMusic from "@/components/artist-page/CardArtistPlayerMusic"
 import { pictureArtistPage } from "@/mock/artistPagePictures.mock"
 
-const ArtistPage = () => {
+const ProfilePage = () => {
   return (
     <Box px={4} pb={4}>
         <Box
@@ -258,4 +258,4 @@ const ArtistPage = () => {
   )
 }
 
-export default ArtistPage
+export default ProfilePage

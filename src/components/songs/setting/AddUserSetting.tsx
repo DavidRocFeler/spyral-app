@@ -2,20 +2,9 @@
 import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import SelectCustom from '@/components/ui/SelectCustom';
+import { ISettingUsersList } from '@/types/song';
 
-// Tipos
-export interface ISettingUsers {
-  id: string;
-  name: string;
-  album: string;
-  permission: string;
-}
 
-export interface ISettingUsersList {
-  songUserSettingListTable: ISettingUsers[];
-}
-
-// Configuración de columnas
 const columns = [
   { key: 'name', label: 'Name', width: '33%' },
   { key: 'album', label: 'Album', width: '33%' },
@@ -23,7 +12,6 @@ const columns = [
 ];
 
 const AddUserSetting = ({ songUserSettingListTable }: ISettingUsersList) => {
-  // Estado para manejar los permisos de cada usuario
   const [permissions, setPermissions] = useState<Record<string, string>>(
     songUserSettingListTable.reduce((acc, item) => {
       acc[item.id] = item.permission;
@@ -31,7 +19,6 @@ const AddUserSetting = ({ songUserSettingListTable }: ISettingUsersList) => {
     }, {} as Record<string, string>)
   );
 
-  // Función para actualizar el permiso de un usuario específico
   const handlePermissionChange = (taskId: string, newPermission: string) => {
     setPermissions(prev => ({
       ...prev,
@@ -45,7 +32,7 @@ const AddUserSetting = ({ songUserSettingListTable }: ISettingUsersList) => {
   return (
     <Box sx={{ 
       width: '100%',
-      overflow: 'visible', // Cambiado de 'hidden' a 'visible'
+      overflow: 'visible', 
     }}>
       {/* Header */}
       <Box sx={{ 

@@ -37,30 +37,24 @@ const FormRegisterSong = () => {
 
   const handleToggleButton = (buttonText: string) => {
     if (selectedButtons.includes(buttonText)) {
-      // Si ya está seleccionado, lo removemos
       setSelectedButtons(selectedButtons.filter(btn => btn !== buttonText));
     } else {
-      // Si no está seleccionado, lo agregamos
       setSelectedButtons([...selectedButtons, buttonText]);
     }
   };
 
   const handleAddArtist = () => {
     if (artistIndex < performingArtists.length) {
-      // Agrega el siguiente artista del mock
       const nextArtist = performingArtists[artistIndex]
       setArtists([...artists, nextArtist])
       setArtistIndex(artistIndex + 1)
     } else {
-      // Si ya se mostraron todos del mock, agrega uno genérico
       const newArtist: ICardPerformingArtist = {
         text: `New Artist ${artists.length + 1}`,
-        // Puedes agregar una imagen por defecto si quieres
       }
       setArtists([...artists, newArtist])
     }
     
-    // También actualiza el formData si es necesario
     setFormData({
       ...formData,
       performingArtist: artists.length > 0 ? 'Artists added' : ''
@@ -76,7 +70,6 @@ const FormRegisterSong = () => {
         borderRadius: '24px', 
         p: 3,
       }}>
-        {/* Dropdown superior */}
         <FlexCenter mb={2} sx={{width: '100%'}}>
             <Typography mr='auto' variant='h4'>Track data for BUMA</Typography>
             <Box ml='auto'>
@@ -107,12 +100,10 @@ const FormRegisterSong = () => {
           )}
         </Box>
 
-        {/* Rights Section */}
         <Typography variant='h6'>
           Rights
         </Typography>
 
-          {/* Componist */}
           <FlexCenter gap={2} sx={{ mb: 0, mt: 2 }}>
           <Typography variant='h8' color='text.secondary'>
               Componist

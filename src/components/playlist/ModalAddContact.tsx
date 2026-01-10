@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Modal,
   Box,
@@ -16,13 +16,7 @@ import OliviaProfile from '@/assets/oliviaJhonsonProfile.png'
 import Image from 'next/image';
 import { FlexColumn } from '../ui/FlexColumn';
 import CancelButtonTransparent from '../ui/CancelButtonTransparent';
-
-export interface IModalAddPlayListProps {
-  open: boolean;
-  onClose: () => void;
-  initialSearch?: string;
-  initialEmail?: string;
-}
+import { IModalAddPlayListProps } from '@/types/playlist';
 
 const ModalAddContact = ({
   open,

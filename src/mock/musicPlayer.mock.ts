@@ -18,7 +18,7 @@ import {
   ShareIconSvg,
   ReportSvg
 } from '@/assets/icons';
-import { IArtistPlayer, ICardIconPlayerMusicProps, ICardMenuPlayerMusicProps, IPlayerMusic } from '@/types/playerMusic';
+import { IArtistPlayer, ICardIconPlayerMusicProps, IPlayerMusic } from '@/types/playerMusic';
 
 export const artistPlayer: IArtistPlayer = {
   title: "Whispers of the Night",

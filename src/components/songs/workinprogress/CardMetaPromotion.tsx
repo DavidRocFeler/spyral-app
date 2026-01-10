@@ -1,12 +1,10 @@
+'use client'
 import { useState } from 'react';
 import { Box, Typography, Collapse } from '@mui/material';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 import IconSpan from '@/components/ui/IconSpan';
 import { ArrowDownSvg, ArrowUpSvg, EditeSmallIconSvg } from '@/assets/icons';
-import TextButton from '@/components/ui/TextButton';
-import { ICardMetaMainProps } from '@/types/song';
-import { defaultMainData } from '@/mock/workingProgressMeta.mock';
 
 const CardMetaPromotion = ({}) => {
   const [isOpen, setIsOpen] = useState(true);

@@ -2,7 +2,6 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import { useNavigationStore } from '@/store/navigationStore';
-import { PlusYellowSvg } from '@/assets/icons';
 import { useEffect } from 'react';
 import UploadBoxMain from '../ui/UploadBoxMain';
 
@@ -11,14 +10,13 @@ const AddNewItem = () => {
 
   useEffect(() => {
     if (isModalOpen) {
-      // Deshabilitar scroll
+      // inable scroll
       document.body.style.overflow = 'hidden';
     } else {
-      // Restaurar scroll
+      // able scroll
       document.body.style.overflow = 'unset';
     }
 
-    // Cleanup: restaurar cuando el componente se desmonte
     return () => {
       document.body.style.overflow = 'unset';
     };

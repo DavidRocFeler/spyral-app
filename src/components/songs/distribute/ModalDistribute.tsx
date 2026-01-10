@@ -9,10 +9,7 @@ import { platformsTwo } from '@/mock/platformData.mock';
 import CardPlatformSelection from '@/components/ui/CardPlatformsSelection';
 import SecondaryButton from '@/components/ui/SecondaryButton';
 import Link from 'next/link';
-
-export interface IModalDistributeProps {
-  onClose: () => void;
-}
+import { IModalDistributeProps } from '@/types/song';
 
 const distributors = [
   { name: 'DISTRIBUTOR NAME 1', selected: true },

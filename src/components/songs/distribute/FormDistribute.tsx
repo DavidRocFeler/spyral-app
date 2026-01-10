@@ -10,10 +10,7 @@ import InputCalendar from '@/components/ui/InputCalendar';
 import { FlexColumn } from '@/components/ui/FlexColumn';
 import { platforms } from '@/mock/platformData.mock';
 import CardPlatformSelection from '@/components/ui/CardPlatformsSelection';
-
-export interface IFormDistributeProps {
-  onDeliver?: () => void;
-}
+import { IFormDistributeProps } from '@/types/song';
 
 const distributors = [
   { name: 'DISTRIBUTOR NAME 1', selected: true },

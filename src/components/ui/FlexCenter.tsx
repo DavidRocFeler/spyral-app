@@ -1,5 +1,4 @@
 'use client'
-// components/shared/FlexCenter.tsx
 import { Box, BoxProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 

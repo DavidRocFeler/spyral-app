@@ -2,7 +2,6 @@
 import { Box, BoxProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-// Si quieres una prop personalizada
 interface IFlexColumnProps extends BoxProps {
   customAlign?: string;
 }

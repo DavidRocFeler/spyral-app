@@ -2,15 +2,10 @@
 import { useState } from 'react';
 import { Box, Typography, Switch, ThemeProvider } from '@mui/material';
 import { FlexColumn } from '../ui/FlexColumn';
-
-interface MetadataItem {
-  id: string;
-  label: string;
-  enabled: boolean;
-}
+import { IMetadataItem } from '@/types/catalogue';
 
 const ShowMetadata = () => {
-  const [items, setItems] = useState<MetadataItem[]>([
+  const [items, setItems] = useState<IMetadataItem[]>([
     { id: 'title', label: 'Title', enabled: true },
     { id: 'authors', label: 'Authors', enabled: true },
     { id: 'isrc', label: 'ISRC', enabled: true },

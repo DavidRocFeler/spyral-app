@@ -47,10 +47,8 @@ const TaskTable = ({ taskTableData }: ITaskTableComponentProps) => {
     setSelectedTaskId('');
   };
 
-  // Array de status para la leyenda y el menú
   const statusOptions: TaskStatus[] = ['not-started', 'pending', 'finished'];
   
-  // Obtener el número total de tareas
   const totalTasks = taskTableData.length;
 
   return (
@@ -103,14 +101,11 @@ const TaskTable = ({ taskTableData }: ITaskTableComponentProps) => {
               gap: 1,
               display: 'grid',
               gridTemplateColumns: '40px 1fr 130px 60px 45px',
-              // Aplicar estilos condicionales
               ...(isLastRow ? {
-                // ÚLTIMA FILA: Sin border bottom o con border transparente
-                borderBottom: 'none', // o '1px solid transparent'
+                borderBottom: 'none',
                 borderBottomRightRadius: '16px',
                 borderBottomLeftRadius: '16px',
               } : {
-                // FILAS QUE NO SON LA ÚLTIMA: Tienen border bottom
                 borderBottom: '1px solid',
                 borderBottomRightRadius: '0px',
                 borderBottomLeftRadius: '0px',
@@ -159,7 +154,6 @@ const TaskTable = ({ taskTableData }: ITaskTableComponentProps) => {
         );
       })}
 
-      {/* Status Legend - Usando getStatusLabel y getStatusColor */}
       <Box sx={{ 
         display: 'flex',
         gap: 3,
@@ -183,7 +177,6 @@ const TaskTable = ({ taskTableData }: ITaskTableComponentProps) => {
         ))}
       </Box>
 
-      {/* Status Menu - Usando getStatusLabel y getStatusColor */}
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}

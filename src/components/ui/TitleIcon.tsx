@@ -1,12 +1,6 @@
-import React, { ComponentType } from 'react'
 import { FlexCenter } from './FlexCenter'
-import { CollaborationBrandSvg } from '@/assets/icons'
 import { Typography } from '@mui/material'
-
-export interface ITitleIconProps {
-    icon: ComponentType
-    text: string
-}
+import { ITitleIconProps } from '@/types/ui'
 
 export const TitleIcon = ({icon, text}: ITitleIconProps) => {
     const IconSvg = icon

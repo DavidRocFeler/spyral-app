@@ -3,11 +3,11 @@ import { Box } from "@mui/material"
 import SlideBarMenuLeft from "@/components/ui/SlideBarMenuLeft"
 import { songsSettingData } from "@/mock/sideBarLeft.mock"
 
-export default function SettingLayout({
+const SettingLayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
   return (
     <Box
       display='flex' 
@@ -37,3 +37,5 @@ export default function SettingLayout({
     </Box>
   )
 }
+
+export default SettingLayout;

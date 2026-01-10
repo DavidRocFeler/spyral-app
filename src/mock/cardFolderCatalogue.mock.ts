@@ -1,4 +1,4 @@
-import { IFolderComponentProps } from "@/components/ui/Folder";
+import { IFolderComponentProps } from "@/types/ui";
 
 // src/mocks/foldersData.ts
   export const foldersData: IFolderComponentProps[] = [

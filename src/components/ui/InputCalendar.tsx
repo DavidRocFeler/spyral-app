@@ -1,17 +1,12 @@
 'use client';
 import { CalendarSvg } from "@/assets/icons";
 import { TextField, InputAdornment, TextFieldProps, Popover, Box, Typography } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { format, parse, isValid } from 'date-fns';
-
-export interface IInputCalendarProps extends Omit<TextFieldProps, 'onChange' | 'value'> {
-  value: string; // formato: YYYY-MM-DD
-  onChange: (value: string) => void;
-  placeholder?: string;
-}
+import { IInputCalendarProps } from "@/types/ui";
 
 const InputCalendar = ({
   value,
@@ -24,7 +19,6 @@ const InputCalendar = ({
 
   const isOpen = Boolean(anchorEl);
 
-  // Convertir value (YYYY-MM-DD) a Date object
   const getDateFromValue = (): Date | null => {
     if (!value) return null;
     try {
@@ -35,7 +29,6 @@ const InputCalendar = ({
     }
   };
 
-  // Formatear la fecha para mostrar
   const getDisplayValue = (): string => {
     const date = getDateFromValue();
     if (!date) return '';
@@ -65,24 +58,23 @@ const InputCalendar = ({
     setAnchorEl(null);
   };
 
-  // Verificar si hay una fecha seleccionada
   const hasValue = !!value;
 
   return (
     <Box sx={{ position: 'relative', width: '320px' }}>
       <TextField
         {...rest}
-        type="text" // Siempre usar text para evitar el picker nativo
+        type="text" 
         value={getDisplayValue()}
-        onChange={() => {}} // No permitir edición manual
+        onChange={() => {}} 
         inputRef={inputRef}
         onClick={handleTogglePicker}
-        placeholder="" // Vacío siempre
+        placeholder=""
         sx={{
           width: '100%',
           '& .MuiOutlinedInput-root': {
             bgcolor: 'grey.900',
-            color: hasValue ? 'text.primary' : 'transparent', // Transparente cuando no hay valor
+            color: hasValue ? 'text.primary' : 'transparent', 
             borderRadius: '12px',
             cursor: 'pointer',
             '& fieldset': { 
@@ -99,12 +91,12 @@ const InputCalendar = ({
             py: 1.5,
             typography: 'h6',
             cursor: 'pointer',
-            caretColor: 'transparent', // Sin cursor parpadeante
+            caretColor: 'transparent',
           }
         }}
         slotProps={{
           input: {
-            readOnly: true, // Solo lectura para todos
+            readOnly: true, 
             endAdornment: (
               <InputAdornment 
                 position="end" 
@@ -118,17 +110,16 @@ const InputCalendar = ({
         }}
       />
       
-      {/* Typography como placeholder visual */}
       {!hasValue && (
         <Typography
           variant="h8"
           sx={{
             position: 'absolute',
-            left: '16px', // Mismo padding que el input
+            left: '16px',
             top: '50%',
             transform: 'translateY(-50%)',
             color: 'text.primary',
-            pointerEvents: 'none', // Para que no interfiera con los clics
+            pointerEvents: 'none', 
             zIndex: 1,
           }}
         >
@@ -136,7 +127,6 @@ const InputCalendar = ({
         </Typography>
       )}
 
-      {/* Popover con DateCalendar para todos los navegadores */}
       <Popover
         open={isOpen}
         anchorEl={anchorEl}

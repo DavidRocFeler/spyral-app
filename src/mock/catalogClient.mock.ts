@@ -24,5 +24,5 @@ export const catalogueClientsData: ISummaryProps[] = [
 
   export const mockFilesCatalogue: IFileItem[] = [
     { id: 1, name: 'audio_track_1.mp3', size: '3.2MB', type: 'MP3', fileIcon: SongIconBrandSvg },
-    { id: 2, name: 'sound_recording.wav', size: '5.00MB', type: 'WAV', fileIcon: SongIconBrandSvg }, // ← ID único: 2
+    { id: 2, name: 'sound_recording.wav', size: '5.00MB', type: 'WAV', fileIcon: SongIconBrandSvg }, 
 ];

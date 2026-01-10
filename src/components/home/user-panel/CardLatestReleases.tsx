@@ -1,7 +1,5 @@
-import React from 'react';
 import { Box, Typography } from '@mui/material';
 import CardArrayLatest from './CardArrayLatest';
-import { ArrowRightSvg } from '@/assets/icons';
 import { latestReleases } from '@/mock/latestRelease.mock';
 import ViewAll from '@/components/ui/ViewAll';
 

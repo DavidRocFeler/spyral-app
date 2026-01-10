@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardContent, Typography, Box } from '@mui/material';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { FlexCenter } from '@/components/ui/FlexCenter';
 import { ICardCommentsComponentProps } from '@/types/song';
 

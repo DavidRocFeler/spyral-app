@@ -3,14 +3,9 @@ import { ArrowDownSvg, ArrowUpSvg, PlusSvg } from "@/assets/icons";
 import { FlexCenter } from "@/components/ui/FlexCenter"
 import IconSpan from "@/components/ui/IconSpan"
 import TextButton from "@/components/ui/TextButton";
+import { ICardMetaListProps } from "@/types/song";
 import { Box, Collapse, Typography } from "@mui/material"
 import { useState } from "react";
-
-export interface ICardMetaListProps {
-    title: string;
-    placeholder: string;
-    addElse: string;
-}
 
 const CardMetaListExpand = ({
     title,

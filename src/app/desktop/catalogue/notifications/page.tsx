@@ -1,4 +1,3 @@
-'use client'
 import { Box, Typography } from "@mui/material"
 import { FlexColumn } from "@/components/ui/FlexColumn"
 import { FlexCenter } from "@/components/ui/FlexCenter"

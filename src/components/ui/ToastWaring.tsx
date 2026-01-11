@@ -14,7 +14,7 @@ const ToastWarning = ({ id }: IToastWarningProps) => {
   const IconComponent = warning.icon;
   const ButtonIcon = warning.button?.icon;
 
-  const shouldShowModal = id === 'no-contact' || id === 'no-favorite';
+  const shouldShowModal = id === 'no-contact' || id === 'no-favorites';
 
   const handleButtonClick = () => {
     if (shouldShowModal) {

@@ -39,9 +39,9 @@ export const warnings: IWaringsProps[] = [
         }
     },
     {
-        id: 'no-favorite', 
+        id: 'no-favorites', 
         icon: NoFavoritesSvg, 
-        title: 'No Contacts Yet', 
+        title: 'No Favorites Yet', 
         label: "You haven’t starred any tracks yet. Tap the star to save the songs you love and find them here anytime.",
         button: {
             span: 'Add contact',

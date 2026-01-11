@@ -25,12 +25,16 @@ export interface ICardShareProgressProps {
   open: boolean;
   onClose: () => void;
   variant?: 'withDownloads' | 'withoutDownloads';
+  textFirst?: string
+  textSecond?: string
 }
 
 const CardShareProgress = ({ 
   open, 
   onClose, 
-  variant = 'withoutDownloads'
+  variant = 'withoutDownloads',
+  textFirst = 'Whispers Of The Night',
+  textSecond = 'playlist'
 }: ICardShareProgressProps ) => {
   const mockFileSelect = ['MP3', 'MP3', 'MP3', 'MP3'];
   const [selectedChannel, setSelectedChannel] = useState(mockFileSelect[0]);
@@ -39,7 +43,6 @@ const CardShareProgress = ({
   const [email, setEmail] = useState('');
   const [allowDownloads, setAllowDownloads] = useState(false);
 
-  // Determinar el ancho del SelectCustom según la variante
   const selectCustomWidth = variant === 'withDownloads' ? '159px' : '310px';
   
   return (
@@ -71,7 +74,7 @@ const CardShareProgress = ({
       >
         <DialogTitle>
           <Box display="flex" alignItems="center" mb={1}>
-            <Typography variant="h3">Share "Whispers Of The Night"</Typography>
+            <Typography variant="h3">Share "{textFirst}"</Typography>
             <IconButton sx={{ color: 'secondary.main', ml: 'auto' }}>
               <CopyLinkSvg />
               <Typography variant="h8" color="secondary.main" ml={1}>
@@ -80,7 +83,7 @@ const CardShareProgress = ({
             </IconButton>
           </Box>
           <Typography variant="h7" color='text.secondary'>
-            Send your playlist directly via email or select an existing contact.
+            Send your {textSecond} directly via email or select an existing contact.
           </Typography>
         </DialogTitle>
 

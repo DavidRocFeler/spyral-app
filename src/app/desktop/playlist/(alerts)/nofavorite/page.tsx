@@ -9,7 +9,7 @@ const NoFavoriteView = () => {
     alignItems='center'
     height='80%'
     >
-      <ToastWarning id="no-favorite" />
+      <ToastWarning id="no-favorites" />
     </Box>
   )
   

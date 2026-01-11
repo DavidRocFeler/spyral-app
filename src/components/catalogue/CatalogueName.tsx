@@ -83,6 +83,8 @@ const CatalogueName = () => {
             open={open} 
             onClose={() => setOpen(false)} 
             variant = 'withDownloads'
+            textFirst="Cataloge Name"
+            textSecond="catalogue"
           />
         </FlexCenter>
         <FlexCenter

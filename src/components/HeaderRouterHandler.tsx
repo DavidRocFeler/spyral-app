@@ -20,8 +20,13 @@ const HeaderRouterHandler = () => {
       ], 'transparent');
       return;
     }
-    
-    if (pathname?.startsWith('/desktop/songs/workin/workinprogress/workoptions/meta/')) {
+
+    if (
+      pathname?.startsWith('/desktop/songs/workin/workinprogress/workoptions/meta/') ||
+      pathname?.startsWith('/desktop/songs/workin/workinprogress/workoptions/history') ||
+      pathname?.startsWith('/desktop/songs/workin/workinprogress/workoptions/catalogue') ||
+      pathname?.startsWith('/desktop/songs/workin/workinprogress/workoptions/work')
+    ) {
       setBreadcrumb([
         { label: 'Songs', isActive: false },
         { label: 'Work In Progress', isActive: false },
@@ -115,7 +120,7 @@ const HeaderRouterHandler = () => {
     ];
 
     const matchedConfig = routeConfigs.find(config => config.test(pathname || ''));
-    
+
     if (matchedConfig) {
       setHeader(matchedConfig.title, matchedConfig.bgColor);
     } else {

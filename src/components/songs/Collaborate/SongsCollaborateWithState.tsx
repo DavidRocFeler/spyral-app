@@ -1,7 +1,6 @@
 'use client'
 import CollaborateTask from "@/components/songs/Collaborate/CollaborateTask"
 import Demo from "@/components/songs/Demo"
-import ListButtonsTracking from "@/components/songs/ListButtonsTracking"
 import MinimizeDemo from "@/components/songs/MinimizeDemo"
 import { commentsMock } from "@/mock/cardComment.mock"
 import { mockCollaborateFilesItem } from "@/mock/collaborateFilesItem.mock"
@@ -19,9 +18,7 @@ const SongsCollaborateWithState = () => {
   }
 
   return (
-    <Box display="flex" flexDirection='column' gap={2} py={2} px={4}>
-      <ListButtonsTracking />
-      
+    <Box display="flex" flexDirection='column' gap={2}>      
       {isDemoMinimized ? (
         <MinimizeDemo onExpand={handleToggleDemo} />
       ) : (

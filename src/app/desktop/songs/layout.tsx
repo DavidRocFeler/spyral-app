@@ -7,11 +7,11 @@ import Demo from '@/components/songs/Demo'
 import MinimizeDemo from '@/components/songs/MinimizeDemo'
 import { getTrackingStatus } from '@/utils/trackingStatus'
 
-export default function SongsLayout({
+const SongsLayout = ({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) => {
   const pathname = usePathname()
   const trackingStatus = getTrackingStatus(pathname)
   
@@ -34,9 +34,13 @@ export default function SongsLayout({
     '/desktop/songs/setting',
   ]
   
+  const hideDemoRoutes = [
+    '/desktop/songs/collaborate/withstate'
+  ]
+
   const shouldShowLayout = !hideLayoutRoutes.some(route => pathname?.startsWith(route))
   
-  const shouldShowDemo = trackingStatus !== 1
+  const shouldShowDemo = trackingStatus !== 1 && !hideDemoRoutes.some(route => pathname?.startsWith(route))
   
   const handleToggleDemo = () => {
     setPageStates(prev => ({
@@ -89,3 +93,5 @@ export default function SongsLayout({
     </Box>
   )
 }
+
+export default SongsLayout;
